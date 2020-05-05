@@ -26,11 +26,3 @@ hs_err_pid*
 
 .idea
 *.iml
-.idea/.gitignore
-.idea/description.html
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/project-template.xml
-Project 1.iml
-src/
