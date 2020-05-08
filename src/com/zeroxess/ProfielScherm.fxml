@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.Controller">
+   <bottom>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="255.0" fitWidth="347.0" layoutX="248.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon.png" />
+               </image></ImageView>
+            <TextField layoutX="301.0" layoutY="340.0" />
+            <TextField layoutX="301.0" layoutY="385.0" />
+            <TextField layoutX="301.0" layoutY="428.0" />
+            <Label layoutX="234.0" layoutY="304.0" text="First Name :" />
+            <Label layoutX="238.0" layoutY="344.0" text="Last Name :" />
+            <Label layoutX="247.0" layoutY="389.0" text="Email :" />
+            <Label layoutX="244.0" layoutY="432.0" text="Phone :" />
+            <TextField layoutX="301.0" layoutY="477.0" />
+            <Label layoutX="238.0" layoutY="481.0" text="Location :" />
+            <Button layoutX="294.0" layoutY="531.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="70.0" text="Save" />
+            <TextField layoutX="301.0" layoutY="300.0" />
+            <Button layoutX="379.0" layoutY="531.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="70.0" text="Back" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
