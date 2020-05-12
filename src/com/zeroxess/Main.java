@@ -24,6 +24,6 @@ public class Main extends Application {
 
 }
 //test van vincent
-//test van Aycan
+//test van Ayca
 //test van Richal
 //test van Tonio
