@@ -7,6 +7,9 @@ import javafx.scene.control.TextField;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class Profiel {
     @FXML
@@ -53,6 +56,15 @@ public class Profiel {
         }  catch (IOException e){
             e.printStackTrace();
         }
+    }
+    public void showTxtFile() throws IOException{
+        List<String> ReadTxtFile = Files.readAllLines(Paths.get("ProfileInfo.txt"));
+        First_Name.setText(ReadTxtFile.get(0));
+        Last_Name.setText(ReadTxtFile.get(1));
+        Email.setText(ReadTxtFile.get(2));
+        Phone.setText(ReadTxtFile.get(3));
+        Location.setText(ReadTxtFile.get(4));
+
     }
 
 
