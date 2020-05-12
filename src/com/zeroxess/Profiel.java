@@ -4,6 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Profiel {
     @FXML
     private TextField Last_Name;
@@ -30,7 +34,25 @@ public class Profiel {
     private Button Show_Button;
 
     public void SaveButtonClicked(){
+    Save_button.setOnAction(actionEvent -> writeTxtFile());
+    }
 
+    public void writeTxtFile(){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter(".\\ProfileInfo.txt"));
+            writer.write(First_Name.getText());
+            writer.newLine();
+            writer.write(Last_Name.getText());
+            writer.newLine();
+            writer.write(Email.getText());
+            writer.newLine();
+            writer.write(Phone.getText());
+            writer.newLine();
+            writer.write(Location.getText());
+            writer.close();
+        }  catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 
