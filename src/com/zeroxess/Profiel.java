@@ -39,6 +39,15 @@ public class Profiel {
     public void SaveButtonClicked(){
     Save_button.setOnAction(actionEvent -> writeTxtFile());
     }
+    public void ShowButtonClicked(){
+        Show_Button.setOnAction(actionEvent -> {
+            try {
+                showTxtFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     public void writeTxtFile(){
         try{
