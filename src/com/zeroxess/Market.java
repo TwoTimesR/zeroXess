@@ -6,7 +6,9 @@ public class Market {
     private ArrayList<Order> orders = new ArrayList<>();
 
     public Market() {
-
+        /*
+        purely exists out of orders
+        */
     }
 
     public ArrayList<Order> getOrders() {

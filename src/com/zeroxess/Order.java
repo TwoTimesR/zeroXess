@@ -39,4 +39,12 @@ public class Order {
     public void setAnimal(LiveStock animal) {
         this.animal = animal;
     }
+
+    private boolean hasEnoughLiveStock() {
+        /*
+        checks weather the seller has the right amount to sell
+        e.g. cant sell 10 chickens if you only have 3
+        */
+        return true;
+    }
 }
