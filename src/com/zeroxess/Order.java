@@ -1,5 +1,7 @@
 package com.zeroxess;
 
+import java.util.ArrayList;
+
 public class Order {
     private Double price;
     private Integer amount;
@@ -40,7 +42,7 @@ public class Order {
         this.animal = animal;
     }
 
-    private boolean hasEnoughLiveStock() {
+    private Boolean hasEnoughLiveStock(ArrayList<LiveStock> liveStock) {
         /*
         checks weather the seller has the right amount to sell
         e.g. cant sell 10 chickens if you only have 3
