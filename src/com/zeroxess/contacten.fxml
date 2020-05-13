@@ -44,6 +44,24 @@
     <TextField fx:id="phoneNumberField"
                GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
+    <Label fx:id="companyNameLabel" text="Company name:" visible="false"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+    <TextField fx:id="companyNameField" visible="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Label fx:id="companyEmailLabel" text="E-mail:" visible="false"
+           GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+    <TextField fx:id="companyEmailField" visible="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <Label fx:id="companyPhoneLabel" text="Phone number:" visible="false"
+           GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+
+    <TextField fx:id="companyPhoneField" visible="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="7">
         <Button text="Save"
