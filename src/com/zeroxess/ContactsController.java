@@ -8,9 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.util.ArrayList;
 
-public class ContactenController {
+public class ContactsController {
     ArrayList<Company> companies = new ArrayList<>();
     ArrayList<Person> persons = new ArrayList<>();
+    
     @FXML
     private ChoiceBox<String> personOrCompany;
     @FXML
@@ -115,4 +116,8 @@ public class ContactenController {
         }
     }
 
+    public void contactsButtonAction(ActionEvent actionEvent){
+        //TODO: redirect to savedContacts.fxml on button press
+    }
 }
+
