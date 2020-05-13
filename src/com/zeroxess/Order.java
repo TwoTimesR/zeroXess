@@ -2,11 +2,18 @@ package com.zeroxess;
 
 public class Order {
     private Double price;
-    // animal type
-    // amount of animals
+    private Integer amount;
+    private LiveStock animal;
+    /*
+    the buy price on the order
+    the amount of animals being sold
+    what type of animal is being sold
+    */
 
-    public Order(Double price) {
+    public Order(Double price, Integer amount, LiveStock animal) {
         this.price = price;
+        this.amount = amount;
+        this.animal = animal;
     }
 
     public Double getPrice() {
@@ -15,5 +22,21 @@ public class Order {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public LiveStock getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(LiveStock animal) {
+        this.animal = animal;
     }
 }
