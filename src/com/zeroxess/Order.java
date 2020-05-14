@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class Order {
     private Double price;
-    private Integer amount;
-    private LiveStock animal;
+    private Integer amountForSale;
+    private SellingItem sellingItem;
     /*
     the buy price on the order
     the amount of animals being sold
     what type of animal is being sold
     */
 
-    public Order(Double price, Integer amount, LiveStock animal) {
+    public Order(Double price, Integer amountForSale, SellingItem sellingItem) {
         this.price = price;
-        this.amount = amount;
-        this.animal = animal;
+        this.amountForSale = amountForSale;
+        this.sellingItem = sellingItem;
     }
 
     public Double getPrice() {
@@ -26,19 +26,19 @@ public class Order {
         this.price = price;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public Integer getAmountForSale() {
+        return amountForSale;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setAmountForSale(Integer amount) {
+        this.amountForSale = amount;
     }
 
-    public LiveStock getAnimal() {
-        return animal;
+    public SellingItem getSellingItem() {
+        return sellingItem;
     }
 
-    public void setAnimal(LiveStock animal) {
-        this.animal = animal;
+    public void setSellingItem(SellingItem sellingItem) {
+        this.sellingItem = sellingItem;
     }
 }

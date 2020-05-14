@@ -23,7 +23,7 @@ public class Market {
     }
 
     public void placeOrder(Order target) {
-        //hasEnoughLiveStock incomplete
+        //hasEnoughSellingItem incomplete
         getOrders().add(target);
     }
 
@@ -32,10 +32,10 @@ public class Market {
         getOrders().remove(target);
     }
 
-    private Boolean hasEnoughLiveStock(/*unsure who to put here*/) {
+    private Boolean hasEnoughSellingItem(/*unsure who to put here*/) {
         /*
         checks weather the seller has the right amount to sell
-        e.g. cant sell 10 chickens if you only have 3
+        e.g. cant sell 10 items if you only have 3
         */
         return true;
     }
