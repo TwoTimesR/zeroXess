@@ -1,47 +1,35 @@
 package com.zeroxess;
 
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import java.util.ArrayList;
 
 public class ContactsController {
-    ArrayList<Company> companies = new ArrayList<>();
-    ArrayList<Person> persons = new ArrayList<>();
+    private ObservableList<Company> companies = FXCollections.observableArrayList();
+    private ObservableList<Person> persons = FXCollections.observableArrayList();
     
-    @FXML
-    private ChoiceBox<String> personOrCompany;
-    @FXML
-    private Label firstNameLabel;
-    @FXML
-    private TextField firstNameField;
-    @FXML
-    private Label surnameLabel;
-    @FXML
-    private TextField surnameField;
-    @FXML
-    private Label emailLabel;
-    @FXML
-    private TextField emailField;
-    @FXML
-    private Label phoneNumberLabel;
-    @FXML
-    private TextField phoneNumberField;
-    @FXML
-    private Label companyNameLabel;
-    @FXML
-    private TextField companyNameField;
-    @FXML
-    private Label companyEmailLabel;
-    @FXML
-    private TextField companyEmailField;
-    @FXML
-    private Label companyPhoneLabel;
-    @FXML
-    private TextField companyPhoneField;
+    @FXML    private ChoiceBox<String> personOrCompany;
+    @FXML    private Label firstNameLabel;
+    @FXML    private TextField firstNameField;
+    @FXML    private Label surnameLabel;
+    @FXML    private TextField surnameField;
+    @FXML    private Label emailLabel;
+    @FXML    private TextField emailField;
+    @FXML    private Label phoneNumberLabel;
+    @FXML    private TextField phoneNumberField;
+    @FXML    private Label companyNameLabel;
+    @FXML    private TextField companyNameField;
+    @FXML    private Label companyEmailLabel;
+    @FXML    private TextField companyEmailField;
+    @FXML    private Label companyPhoneLabel;
+    @FXML    private TextField companyPhoneField;
+    @FXML    private ListView contactsList;
 
     public void initialize() {
         personOrCompany.getSelectionModel()
@@ -54,7 +42,7 @@ public class ContactsController {
                         changeForm();
                     }
                 });
-        }
+    }
 
     private void changeForm() {
         if(firstNameLabel.isVisible()){
@@ -72,6 +60,7 @@ public class ContactsController {
             companyEmailField.setVisible(true);
             companyPhoneLabel.setVisible(true);
             companyPhoneField.setVisible(true);
+            contactsList.setItems(companies);
         }
         else{
             firstNameLabel.setVisible(true);
@@ -88,9 +77,9 @@ public class ContactsController {
             companyEmailField.setVisible(false);
             companyPhoneLabel.setVisible(false);
             companyPhoneField.setVisible(false);
+            contactsList.setItems(persons);
         }
     }
-
 
     public void saveButtonAction(ActionEvent actionEvent){
         if(personOrCompany.getValue().equals("person")){
@@ -100,24 +89,17 @@ public class ContactsController {
             String phone = phoneNumberField.getText();
 
             persons.add(new Person(name,surname,email,phone));
-            for(Person person : persons){
-                System.out.println(person.toString());
-            }
+            contactsList.setItems(persons);
         }
+
         else if(personOrCompany.getValue().equals("company")){
             String name = companyNameField.getText();
             String email = companyEmailField.getText();
             String phone = companyPhoneField.getText();
 
             companies.add(new Company(name,email,phone));
-            for(Company company : companies){
-                System.out.println(company.toString());
-            }
+            contactsList.setItems(companies);
         }
-    }
-
-    public void contactsButtonAction(ActionEvent actionEvent){
-        //TODO: redirect to savedContacts.fxml on button press
     }
 }
 
