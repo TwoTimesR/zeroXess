@@ -8,8 +8,8 @@ public class Order {
     private SellingItem sellingItem;
     /*
     the buy price on the order
-    the amount of animals being sold
-    what type of animal is being sold
+    the amount of items being sold
+    what type of item is being sold
     */
 
     public Order(Double price, Integer amountForSale, SellingItem sellingItem) {
