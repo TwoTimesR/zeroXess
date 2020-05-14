@@ -12,36 +12,21 @@ public class ContactsController {
     ArrayList<Company> companies = new ArrayList<>();
     ArrayList<Person> persons = new ArrayList<>();
     
-    @FXML
-    private ChoiceBox<String> personOrCompany;
-    @FXML
-    private Label firstNameLabel;
-    @FXML
-    private TextField firstNameField;
-    @FXML
-    private Label surnameLabel;
-    @FXML
-    private TextField surnameField;
-    @FXML
-    private Label emailLabel;
-    @FXML
-    private TextField emailField;
-    @FXML
-    private Label phoneNumberLabel;
-    @FXML
-    private TextField phoneNumberField;
-    @FXML
-    private Label companyNameLabel;
-    @FXML
-    private TextField companyNameField;
-    @FXML
-    private Label companyEmailLabel;
-    @FXML
-    private TextField companyEmailField;
-    @FXML
-    private Label companyPhoneLabel;
-    @FXML
-    private TextField companyPhoneField;
+    @FXML    private ChoiceBox<String> personOrCompany;
+    @FXML    private Label firstNameLabel;
+    @FXML    private TextField firstNameField;
+    @FXML    private Label surnameLabel;
+    @FXML    private TextField surnameField;
+    @FXML    private Label emailLabel;
+    @FXML    private TextField emailField;
+    @FXML    private Label phoneNumberLabel;
+    @FXML    private TextField phoneNumberField;
+    @FXML    private Label companyNameLabel;
+    @FXML    private TextField companyNameField;
+    @FXML    private Label companyEmailLabel;
+    @FXML    private TextField companyEmailField;
+    @FXML    private Label companyPhoneLabel;
+    @FXML    private TextField companyPhoneField;
 
     public void initialize() {
         personOrCompany.getSelectionModel()
@@ -117,7 +102,7 @@ public class ContactsController {
     }
 
     public void contactsButtonAction(ActionEvent actionEvent){
-        //TODO: redirect to savedContacts.fxml on button press
+        //TODO: put pane with contactbook to front on button press
     }
 }
 
