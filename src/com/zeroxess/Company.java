@@ -1,7 +1,9 @@
 package com.zeroxess;
 
-public class Company extends Contact{
-
+public class Company {
+    private String name;
+    private String eMail;
+    private String phoneNumber;
 
     public Company(String name, String eMail, String phoneNumber) {
         this.name = name;
