@@ -35,10 +35,11 @@ public class Profiel {
 
     @FXML
     private Button Show_Button;
-
+// Zodra de savebutton is gedrukt wordt alle informatie opgeslagen.
     public void SaveButtonClicked(){
     Save_button.setOnAction(actionEvent -> writeTxtFile());
     }
+    // zodra de showbutton is gedrukt worden de opgeslagen gegevens vertoont.
     public void ShowButtonClicked(){
         Show_Button.setOnAction(actionEvent -> {
             try {
@@ -49,6 +50,11 @@ public class Profiel {
         });
     }
 
+    public void BackButtonClicked(){
+      //  Back_button.setOnAction( actionEvent -> );
+    }
+
+// Deze methode schrijft de informatie van de textfields naar een .txt file.
     public void writeTxtFile(){
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter(".\\ProfileInfo.txt"));
@@ -66,6 +72,7 @@ public class Profiel {
             e.printStackTrace();
         }
     }
+    // deze methode leest alle lines van de textfile die in een list zijn opgeslagen een toont het aan.
     public void showTxtFile() throws IOException{
         List<String> ReadTxtFile = Files.readAllLines(Paths.get("ProfileInfo.txt"));
         First_Name.setText(ReadTxtFile.get(0));
@@ -73,9 +80,7 @@ public class Profiel {
         Email.setText(ReadTxtFile.get(2));
         Phone.setText(ReadTxtFile.get(3));
         Location.setText(ReadTxtFile.get(4));
-
     }
-
 
 
 
