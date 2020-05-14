@@ -34,7 +34,7 @@ public class LoginController {
         if(username.equals("admin") && password.equals("Test")){
             messageField.setText("Login successful");
             Stage stage = (Stage) usernameField.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("homepage.fxml"));
+            Parent root = FXMLLoader.load(Main.class.getResource("/com/zeroxess/homepage/homepage.fxml"));
             Scene scene =  new Scene(root, 800 ,600);
             stage.setScene(scene);
             stage.show();

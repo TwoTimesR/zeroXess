@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 
-<GridPane alignment="CENTER" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.homepage.HomePageController">
+<GridPane fx:id="homePane" alignment="CENTER" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.homepage.HomePageController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -14,6 +14,6 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" text="My Profile" />
+      <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="109.0" text="My Profile" onAction="#openProfileManager"/>
    </children>
 </GridPane>

@@ -10,8 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //profiel scherm test, om te kijken of het werkt.
-        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("loginpage.fxml"));
         primaryStage.setTitle("zeroXess");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
@@ -23,7 +22,3 @@ public class Main extends Application {
     }
 
 }
-//test van vincent
-//test van Aycan
-//test van Richal
-//test van Tonio
