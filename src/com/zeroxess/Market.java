@@ -6,7 +6,7 @@ public class Market {
     private ArrayList<Order> orders = new ArrayList<>();
 
     public Market() {
-        //purely exists out of orders
+        //
     }
 
     public ArrayList<Order> getOrders() {
@@ -17,14 +17,14 @@ public class Market {
         this.orders = orders;
     }
 
-    public void buyOrder(Order target) {
-        //hasEnoughMoney incomplete
-        getOrders().remove(target);
-    }
-
     public void placeOrder(Order target) {
         //hasEnoughSellingItem incomplete
         getOrders().add(target);
+    }
+
+    public void buyOrder(Order target) {
+        //hasEnoughMoney incomplete
+        getOrders().remove(target);
     }
 
     public void removeOrder(Order target) {
@@ -40,11 +40,27 @@ public class Market {
         return true;
     }
 
+    private void removeSoldItemsFromSeller(/*unsure who to put here*/) {
+        //
+    }
+
+    private void addProfitToSeller(/*unsure who to put here*/) {
+        //
+    }
+
     private Boolean hasEnoughMoney(/*unsure who to put here*/) {
         /*
         checks weather the buyer has enough money to buy
         e.g. cant buy an order of 69.99 if you only have 30.00
         */
         return true;
+    }
+
+    private void removeSpentMoneyFromBuyer(/*unsure who to put here*/) {
+        //
+    }
+
+    private void addBoughtItemToBuyer(/*unsure who to put here*/) {
+        //
     }
 }
