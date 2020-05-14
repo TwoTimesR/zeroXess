@@ -6,7 +6,7 @@ public class Market {
     private ArrayList<Order> orders = new ArrayList<>();
 
     public Market() {
-        //
+        //purely exists out of orders
     }
 
     public ArrayList<Order> getOrders() {
@@ -33,34 +33,28 @@ public class Market {
     }
 
     private Boolean hasEnoughSellingItem(/*unsure who to put here*/) {
-        /*
-        checks weather the seller has the right amount to sell
-        e.g. cant sell 10 items if you only have 3
-        */
+        //checks weather the seller has the right amount to sell
         return true;
     }
 
     private void removeSoldItemsFromSeller(/*unsure who to put here*/) {
-        //
+        //removes selling item from seller
     }
 
     private void addProfitToSeller(/*unsure who to put here*/) {
-        //
+        //adds money to sellers
     }
 
     private Boolean hasEnoughMoney(/*unsure who to put here*/) {
-        /*
-        checks weather the buyer has enough money to buy
-        e.g. cant buy an order of 69.99 if you only have 30.00
-        */
+        //checks weather the buyer has enough money to buy
         return true;
     }
 
     private void removeSpentMoneyFromBuyer(/*unsure who to put here*/) {
-        //
+        //removes money from buyer
     }
 
     private void addBoughtItemToBuyer(/*unsure who to put here*/) {
-        //
+        //adds selling item to buyer
     }
 }
