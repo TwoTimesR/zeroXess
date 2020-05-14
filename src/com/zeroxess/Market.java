@@ -18,22 +18,32 @@ public class Market {
     }
 
     public void placeOrder(Order target) {
-        //hasEnoughSellingItem incomplete
+        //hasEnoughSellingItem
         getOrders().add(target);
     }
 
     public void buyOrder(Order target) {
-        //hasEnoughMoney incomplete
+        /*
+        hasEnoughMoney
+        removeSpentMoneyFromBuyer
+        removeSoldItemsFromSeller
+        addProfitToSeller
+        addBoughtItemToBuyer
+        */
         getOrders().remove(target);
     }
 
     public void removeOrder(Order target) {
-        //in case the seller no longer wants to sell
         getOrders().remove(target);
     }
 
     private Boolean hasEnoughSellingItem(/*unsure who to put here*/) {
-        //checks weather the seller has the right amount to sell
+        //checks weather the seller has the right amountOwned to sell
+        return true;
+    }
+
+    private Boolean hasEnoughMoney(/*unsure who to put here*/) {
+        //checks weather the buyer has enough money to buy
         return true;
     }
 
@@ -43,11 +53,6 @@ public class Market {
 
     private void addProfitToSeller(/*unsure who to put here*/) {
         //adds money to sellers
-    }
-
-    private Boolean hasEnoughMoney(/*unsure who to put here*/) {
-        //checks weather the buyer has enough money to buy
-        return true;
     }
 
     private void removeSpentMoneyFromBuyer(/*unsure who to put here*/) {
