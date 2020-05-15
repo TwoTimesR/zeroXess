@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<GridPane fx:controller="com.zeroxess.contactspage.ContactsController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+    <Label text="Add a new contact" underline="true"
+           GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+    <ChoiceBox fx:id="personOrCompany" prefWidth="150.0" value="person" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="person" />
+                <String fx:value="company" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+
+    <Label fx:id="firstNameLabel" text="First name:"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+    <TextField fx:id="firstNameField"
+               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Label fx:id="surnameLabel" text="Surname:"
+           GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+    <TextField fx:id="surnameField"
+               GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <Label fx:id="emailLabel" text="E-mail:"
+           GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+
+    <TextField fx:id="emailField"
+               GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+    <Label fx:id="phoneNumberLabel" text="Phone number:"
+           GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+
+    <TextField fx:id="phoneNumberField"
+               GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+    <Label fx:id="companyNameLabel" text="Company name:" visible="false"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+    <TextField fx:id="companyNameField" visible="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Label fx:id="companyEmailLabel" text="E-mail:" visible="false"
+           GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+    <TextField fx:id="companyEmailField" visible="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <Label fx:id="companyPhoneLabel" text="Phone number:" visible="false"
+           GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+
+    <TextField fx:id="companyPhoneField" visible="false"
+               GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="1" GridPane.rowIndex="7">
+        <Button text="Save"
+                onAction="#saveButtonAction"/>
+    </HBox>
+
+    <ListView fx:id="contactsList" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="7">
+
+
+    </ListView>
+
+</GridPane>
