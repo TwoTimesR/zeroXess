@@ -25,8 +25,8 @@ public class MarketInteractor {
     }
 
     /**
-    user creates and places a newly made order on the market if criteria are met
-    **/
+     * user creates and places a newly made order on the market if criteria are met
+     */
     public void createOrder(Double price, Integer amountForSale, SellingItem sellingItem) {
         Order newOrder = new Order(price, amountForSale, sellingItem, getUser());
         if (sellerHasEnoughSellingItem(sellingItem, newOrder) == true) {
@@ -39,10 +39,10 @@ public class MarketInteractor {
     }
 
     /**
-    complete transaction process between buyer and seller if an order is bought through the placed order if criteria are met
-    **/
+     * complete transaction process between buyer and seller if an order is bought through the placed order if criteria are met
+     */
     public void buyOrder(Order target) {
-        /*
+        /* complete the following methods
         hasEnoughMoney
         removeSpentMoneyFromBuyer
         removeSoldItemsFromSeller
