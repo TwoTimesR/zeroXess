@@ -6,16 +6,19 @@ public class Order {
     private Double price;
     private Integer amountForSale;
     private SellingItem sellingItem;
-    /*
-    the buy price on the order
-    the amount of items being sold
-    what type of item is being sold
-    */
+    private User seller;
+    /**
+     * the buy price on the order
+     * the amount of items being sold
+     * what item is being sold
+     * the person who is selling the item
+     */
 
-    public Order(Double price, Integer amountForSale, SellingItem sellingItem) {
+    public Order(Double price, Integer amountForSale, SellingItem sellingItem, User seller) {
         this.price = price;
         this.amountForSale = amountForSale;
         this.sellingItem = sellingItem;
+        this.seller = seller;
     }
 
     public Double getPrice() {
@@ -40,5 +43,13 @@ public class Order {
 
     public void setSellingItem(SellingItem sellingItem) {
         this.sellingItem = sellingItem;
+    }
+
+    public User getSeller() {
+        return seller;
+    }
+
+    public void setSeller(User seller) {
+        this.seller = seller;
     }
 }
