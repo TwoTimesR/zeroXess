@@ -54,15 +54,13 @@ public class ProfilePageController {
         Show_Button.setOnAction(actionEvent -> {
             try {
                 showTxtFile();
+                getInformatieTxt();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
     }
 
-    public void BackButtonClicked() {
-        //  Back_button.setOnAction( actionEvent -> );
-    }
 
     // Deze methode schrijft de informatie van de textfields naar een .txt file.
     public void writeTxtFile() {
@@ -95,6 +93,16 @@ public class ProfilePageController {
 
     public void goToHomePage() throws IOException {
         Utilities.openHomeScreen(pane);
+    }
+
+    // deze methode print de gegevens van het profiel op het commandline
+    public List getInformatieTxt() throws IOException {
+        List<String> ReadTxtFile = Files.readAllLines(Paths.get("ProfileInfo.txt"));
+        for (String x :
+                ReadTxtFile) {
+            System.out.println(x);
+        }
+        return ReadTxtFile;
     }
 }
 
