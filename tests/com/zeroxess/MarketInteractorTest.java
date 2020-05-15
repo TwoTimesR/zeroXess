@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MarketTest {
+class MarketInteractorTest {
+
     @Test
     public void baseTest() {
         User user1 = new User(); // buyer

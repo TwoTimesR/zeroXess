@@ -6,6 +6,7 @@ public class Market {
     private static ArrayList<Order> orders = new ArrayList<>();
 
     public Market() {
+        //
     }
 
     public static ArrayList<Order> getOrders() {

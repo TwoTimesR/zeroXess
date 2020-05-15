@@ -40,25 +40,6 @@ public class MarketInteractor {
     }
 
     /**
-     * complete transaction process between buyer and seller if an order is bought through the placed order if criteria are met
-     */
-    public void buyOrder(Order target) {
-        if (buyerHasEnoughMoney(target) == true) {
-            removeSpentMoneyFromBuyer(target);
-            addBoughtItemToBuyer(target);
-            addProfitToSeller(target);
-            deleteOrder(target);
-        }
-        else {
-            System.out.println("Your balance is too low to buy this order.");
-        }
-    }
-
-    public void deleteOrder(Order target) {
-        getMarket().getOrders().remove(target);
-    }
-
-    /**
      * checks weather the seller owns enough of the amount to sell
      */
     private Boolean sellerHasEnoughSellingItem(SellingItem sellingItem, Order newOrder) {
@@ -66,23 +47,6 @@ public class MarketInteractor {
         Integer toBeSold = newOrder.getAmountForSale();
         Boolean hasEnough;
         if (owns >= toBeSold) {
-            hasEnough = true;
-        }
-        else {
-            hasEnough = false;
-        }
-        return hasEnough;
-    }
-
-    /**
-     * checks weather the buyer has enough money to buy
-     */
-    private Boolean buyerHasEnoughMoney(Order toBeBought) {
-        Double currentBalance = getUser().getBalance();
-        Double price = toBeBought.getPrice();
-        Boolean hasEnough;
-        Double significance = -0.001;
-        if (currentBalance - price >= significance) {
             hasEnough = true;
         }
         else {
@@ -103,6 +67,48 @@ public class MarketInteractor {
     }
 
     /**
+     * complete transaction process between buyer and seller when an order is bought if criteria are met
+     */
+    public void buyOrder(Order target) {
+        if (buyerHasEnoughBalance(target) == true) {
+            removeSpentBalanceFromBuyer(target);
+            addProfitToSeller(target);
+            addBoughtItemToBuyer(target);
+            deleteOrder(target);
+        }
+        else {
+            System.out.println("Your balance is too low to buy this order.");
+        }
+    }
+
+    /**
+     * checks weather the buyer has enough money to buy
+     */
+    private Boolean buyerHasEnoughBalance(Order toBeBought) {
+        Double currentBalance = getUser().getBalance();
+        Double price = toBeBought.getPrice();
+        Boolean hasEnough;
+        Double significance = -0.001;
+        if (currentBalance - price >= significance) {
+            hasEnough = true;
+        }
+        else {
+            hasEnough = false;
+        }
+        return hasEnough;
+    }
+
+    /**
+     * removes money from buyer
+     */
+    private void removeSpentBalanceFromBuyer(Order boughtOrder) {
+        Double currentBalance = getUser().getBalance();
+        Double price = boughtOrder.getPrice();
+        Double newBalance = currentBalance - price;
+        getUser().setBalance(newBalance);
+    }
+
+    /**
      * adds profit to seller
      */
     private void addProfitToSeller(Order boughtOrder) {
@@ -110,16 +116,6 @@ public class MarketInteractor {
         Double profit = boughtOrder.getPrice();
         Double newBalance = currentBalance + profit;
         boughtOrder.getSeller().setBalance(newBalance);
-    }
-
-    /**
-     * removes money from buyer
-     */
-    private void removeSpentMoneyFromBuyer(Order boughtOrder) {
-        Double currentBalance = getUser().getBalance();
-        Double price = boughtOrder.getPrice();
-        Double newBalance = currentBalance - price;
-        getUser().setBalance(newBalance);
     }
 
     /**
@@ -131,5 +127,12 @@ public class MarketInteractor {
         Integer amountBought = boughtOrder.getAmountForSale();
         Integer newAmountOwned = currentAmountOwned + amountBought;
         getUser().getSellingItems().get(indexOfSellingItem).setAmountOwned(newAmountOwned);
+    }
+
+    /**
+     * deletes the order from the market
+     */
+    public void deleteOrder(Order target) {
+        getMarket().getOrders().remove(target);
     }
 }
