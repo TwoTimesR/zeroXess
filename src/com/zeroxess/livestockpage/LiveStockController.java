@@ -1,4 +1,4 @@
-package com.zeroxess;
+package com.zeroxess.livestockpage;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -16,7 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class LiveStock extends Application {
+public class LiveStockController extends Application {
     Stage liveStock;
     TableView<Animal> animalTableView;
     Scene overview;
@@ -27,6 +27,11 @@ public class LiveStock extends Application {
     TextField weight;
     TextField age;
     TextField price;
+
+    public static void run() {
+        launch(new String[]{});
+    }
+
 
     public static void main(String[] args) {
         launch(args);

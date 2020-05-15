@@ -1,4 +1,4 @@
-package com.zeroxess;
+package com.zeroxess.livestockpage;
 
 public class Animal {
     public String nameCompany;

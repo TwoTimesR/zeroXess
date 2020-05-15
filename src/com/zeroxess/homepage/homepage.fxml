@@ -10,6 +10,7 @@
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
+      <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
@@ -18,5 +19,6 @@
    <children>
       <Button mnemonicParsing="false" onAction="#openProfileManager" prefHeight="54.0" prefWidth="109.0" text="My Profile" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openContacts" prefHeight="54.0" prefWidth="109.0" text="Contacts" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#openLiveStock" prefHeight="54.0" prefWidth="109.0" text="Livestock" GridPane.columnIndex="3" GridPane.rowIndex="1" />
    </children>
 </GridPane>

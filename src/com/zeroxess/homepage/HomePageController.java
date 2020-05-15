@@ -1,5 +1,6 @@
 package com.zeroxess.homepage;
 
+import com.zeroxess.livestockpage.LiveStockController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,5 +30,9 @@ public class HomePageController {
         Scene scene =  new Scene(root, 800 ,600);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void openLiveStock() {
+        LiveStockController.run();
     }
 }
