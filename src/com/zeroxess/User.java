@@ -3,19 +3,19 @@ package com.zeroxess;
 import java.util.ArrayList;
 
 public class User {
-    private Double money;
+    private Double balance;
     private ArrayList<SellingItem> sellingItems;
 
     public User() {
-        this.money = 0.00;
+        this.balance = 0.00;
     }
 
-    public Double getMoney() {
-        return money;
+    public Double getBalance() {
+        return balance;
     }
 
-    public void setMoney(Double money) {
-        this.money = money;
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 
     public ArrayList<SellingItem> getSellingItems() {
