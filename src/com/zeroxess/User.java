@@ -45,15 +45,15 @@ public class User {
         this.marketInteractor = marketInteractor;
     }
 
+    /**
+     * sellingItems index list, can be expanded
+     * 0 = Sheep
+     * 1 = Goat
+     * 2 = Cow
+     * 3 = Pig
+     * 4 = Bird
+     */
     private ArrayList<SellingItem> listOfSaleableItems() {
-        /*
-        sellingItems index list, can be expanded
-        0 = Sheep
-        1 = Goat
-        2 = Cow
-        3 = Pig
-        4 = Bird
-        */
         ArrayList<SellingItem> sellingItems = new ArrayList<>();
 
         LiveStock liveStock0 = new LiveStock("Sheep");

@@ -77,7 +77,7 @@ public class MarketInteractor {
             addProfitToSeller(target);
             addBoughtItemToBuyer(target);
             System.out.println("You have successfully bought this order"); // Buy outcome 1
-            deleteOrder(target);
+            deleteOrder(index);
         }
         else {
             System.out.println("Your balance is too low to buy this order."); // Buy outcome 2
@@ -135,7 +135,7 @@ public class MarketInteractor {
     /**
      * deletes the order from the market
      */
-    public void deleteOrder(Order target) {
-        getMarket().getOrders().remove(target);
+    public void deleteOrder(Integer index) {
+        getMarket().getOrders().get(index);
     }
 }
