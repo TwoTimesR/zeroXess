@@ -9,6 +9,7 @@ public class User {
 
     public User() {
         this.balance = 0.00;
+        this.sellingItems = new ArrayList<>();
         this.marketInteractor = new MarketInteractor(this);
     }
 
