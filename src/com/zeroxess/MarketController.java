@@ -12,15 +12,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class MarketController extends Application {
-    User user1 = new User();
-    TextField balance;
-
-    TextField itemName;
-    TextField amountOwned;
-
-    TextField price;
-    TextField amountForSale;
-    TextField sellingItem;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
