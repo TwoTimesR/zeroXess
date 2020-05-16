@@ -9,8 +9,8 @@ public class User {
 
     public User() {
         this.balance = 0.00;
-        this.sellingItems = new ArrayList<>();
         this.marketInteractor = new MarketInteractor(this);
+        this.sellingItems = listOfSaleableItems();
     }
 
     public Double getBalance() {
@@ -43,5 +43,34 @@ public class User {
 
     public void setMarketInteractor(MarketInteractor marketInteractor) {
         this.marketInteractor = marketInteractor;
+    }
+
+    private ArrayList<SellingItem> listOfSaleableItems() {
+        /*
+        sellingItems index list, can be expanded
+        0 = Sheep
+        1 = Goat
+        2 = Cow
+        3 = Pig
+        4 = Bird
+        */
+        ArrayList<SellingItem> sellingItems = new ArrayList<>();
+
+        LiveStock liveStock0 = new LiveStock("Sheep");
+        sellingItems.add(liveStock0);
+
+        LiveStock liveStock1 = new LiveStock("Goat");
+        sellingItems.add(liveStock1);
+
+        LiveStock liveStock2 = new LiveStock("Cow");
+        sellingItems.add(liveStock2);
+
+        LiveStock liveStock3 = new LiveStock("Pig");
+        sellingItems.add(liveStock3);
+
+        LiveStock liveStock4 = new LiveStock("Bird");
+        sellingItems.add(liveStock4);
+
+        return sellingItems;
     }
 }

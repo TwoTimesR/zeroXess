@@ -32,10 +32,10 @@ public class MarketInteractor {
         if (sellerHasEnoughSellingItem(sellingItem, newOrder) == true) {
             removeToBeSoldItemFromSeller(newOrder);
             getMarket().getOrders().add(newOrder);
-            System.out.println("Your order has been created and placed on the market.");
+            System.out.println("Your order has been created and placed on the market."); // Sell outcome 1
         }
         else {
-            System.out.println("You don't have enough of this item to sell.");
+            System.out.println("You don't have enough of this item to sell."); // Sell outcome 2
         }
     }
 
@@ -43,7 +43,8 @@ public class MarketInteractor {
      * checks weather the seller owns enough of the amount to sell
      */
     private Boolean sellerHasEnoughSellingItem(SellingItem sellingItem, Order newOrder) {
-        Integer owns = sellingItem.getAmountOwned();
+        Integer indexOfSellingItem = getUser().getSellingItems().indexOf(sellingItem);
+        Integer owns = getUser().getSellingItems().get(indexOfSellingItem).getAmountOwned();
         Integer toBeSold = newOrder.getAmountForSale();
         Boolean hasEnough;
         if (owns >= toBeSold) {
@@ -69,15 +70,17 @@ public class MarketInteractor {
     /**
      * complete transaction process between buyer and seller when an order is bought if criteria are met
      */
-    public void buyOrder(Order target) {
+    public void buyOrder(Integer index) {
+        Order target = getMarket().getOrders().get(index);
         if (buyerHasEnoughBalance(target) == true) {
             removeSpentBalanceFromBuyer(target);
             addProfitToSeller(target);
             addBoughtItemToBuyer(target);
+            System.out.println("You have successfully bought this order"); // Buy outcome 1
             deleteOrder(target);
         }
         else {
-            System.out.println("Your balance is too low to buy this order.");
+            System.out.println("Your balance is too low to buy this order."); // Buy outcome 2
         }
     }
 
@@ -88,7 +91,7 @@ public class MarketInteractor {
         Double currentBalance = getUser().getBalance();
         Double price = toBeBought.getPrice();
         Boolean hasEnough;
-        Double significance = -0.001;
+        Double significance = -0.009;
         if (currentBalance - price >= significance) {
             hasEnough = true;
         }
