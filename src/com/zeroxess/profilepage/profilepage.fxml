@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.profilepage.ProfilePageController">
+   <bottom>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="255.0" fitWidth="347.0" layoutX="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon.png" />
+               </image></ImageView>
+            <TextField fx:id="Last_Name" layoutX="301.0" layoutY="340.0" prefHeight="26.0" prefWidth="174.0" />
+            <TextField fx:id="Email" layoutX="301.0" layoutY="385.0" prefHeight="26.0" prefWidth="175.0" />
+            <TextField fx:id="Phone" layoutX="301.0" layoutY="428.0" prefHeight="26.0" prefWidth="174.0" />
+            <Label layoutX="234.0" layoutY="304.0" text="First Name :" />
+            <Label layoutX="238.0" layoutY="344.0" text="Last Name :" />
+            <Label layoutX="247.0" layoutY="389.0" text="Email :" />
+            <Label layoutX="244.0" layoutY="432.0" text="Phone :" />
+            <TextField fx:id="Location" layoutX="301.0" layoutY="477.0" prefHeight="26.0" prefWidth="175.0" />
+            <Label layoutX="238.0" layoutY="481.0" text="Location :" />
+            <TextField fx:id="First_Name" layoutX="301.0" layoutY="300.0" prefHeight="26.0" prefWidth="173.0" />
+            <Button fx:id="Back_button" layoutX="400.0" layoutY="531.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="74.0" text="Back" onAction="#goToHomePage"/>
+            <Button fx:id="Save_button" layoutX="305.0" layoutY="531.0" mnemonicParsing="false" onAction="#SaveButtonClicked" prefHeight="23.0" prefWidth="70.0" text="Save" />
+            <Button fx:id="Show_Button" layoutX="365.0" layoutY="265.0" mnemonicParsing="false" onAction="#ShowButtonClicked" text="Show" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
