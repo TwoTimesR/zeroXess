@@ -1,20 +1,20 @@
 package com.zeroxess.livestockpage;
 
 public class Animal {
-    public String nameCompany;
-    public String typeAnimal;
-    public String nameAnimal;
-    public double weight;
-    public Integer age;
-    public double price;
+    private String nameCompany;
+    private String typeAnimal;
+    private String nameAnimal;
+    private Double weight;
+    private Integer age;
+    private Double price;
 
     public Animal(){
         this.nameCompany = "";
         this.typeAnimal="";
         this.nameAnimal = "";
-        this.weight = 0;
+        this.weight = 0.00;
         this.age = 0;
-        this.price = 0;
+        this.price = 0.00;
 
     }
 
