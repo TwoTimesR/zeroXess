@@ -1,9 +1,10 @@
-package com.zeroxess;
+package com.zeroxess.marketpage;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class MarketComponentTest {
+class UserTest {
     @Test
     public void CompleteMarketTest() {
         User user0 = new User(); // seller

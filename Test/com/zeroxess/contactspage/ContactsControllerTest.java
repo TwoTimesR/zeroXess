@@ -1,4 +1,4 @@
-package com.zeroxess;
+package com.zeroxess.contactspage;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,11 +7,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class ContactsControllerTest {
+class ContactsControllerTest {
     @FXML    private ChoiceBox<String> personOrCompany;
     @FXML    private Label firstNameLabel;
     @FXML    private TextField firstNameField;
