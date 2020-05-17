@@ -1,5 +1,7 @@
 package com.zeroxess.marketpage;
 
+// exists in order for test-case usage
+
 public class MarketInteractor {
     private User user;
     private static Market market = new Market();
