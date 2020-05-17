@@ -50,4 +50,8 @@ public class Order {
     public void setSeller(User seller) {
         this.seller = seller;
     }
+
+    public String getItemName() {
+        return sellingItem.getItemName();
+    }
 }
