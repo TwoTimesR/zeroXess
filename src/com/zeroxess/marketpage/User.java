@@ -1,5 +1,8 @@
 package com.zeroxess.marketpage;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 public class User {
@@ -21,8 +24,8 @@ public class User {
         this.balance = balance;
     }
 
-    public ArrayList<SellingItem> getSellingItems() {
-        return sellingItems;
+    public ObservableList<SellingItem> getSellingItems() {
+        return FXCollections.observableArrayList(sellingItems);
     }
 
     public void setSellingItems(ArrayList<SellingItem> sellingItems) {

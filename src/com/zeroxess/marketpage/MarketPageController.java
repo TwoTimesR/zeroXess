@@ -37,6 +37,16 @@ public class MarketPageController {
 
     ObservableList<Order> offers = FXCollections.observableArrayList();
     ObservableList<SellingItem> sellingItems = FXCollections.observableArrayList();
+    static User myUser = new User();
+
+    static {
+        myUser.setBalance(102.00);
+        LiveStock pig = new LiveStock("Pig");
+        pig.setAmountOwned(1);
+        LiveStock horse = new LiveStock("Horse");
+        horse.setAmountOwned(1);
+        myUser.getSellingItems().addAll(pig, horse);
+    }
 
     @FXML
     void placeOffer(ActionEvent event) {
@@ -49,21 +59,56 @@ public class MarketPageController {
         double price = Double.parseDouble(priceTextField.getText());
         SellingItem chosenToSell = sellableItemsListView.getSelectionModel().getSelectedItem();
 
-        sellingStatusMessage.setText("Put on offer message");
+        Order newOrder = new Order(price, amount, chosenToSell, myUser);
+        if (sellerHasEnoughSellingItem(chosenToSell, newOrder)) {
+            removeToBeSoldItemFromSeller(newOrder);
+            offers.add(newOrder);
+            sellingStatusMessage.setText("Your order has been created and placed on the market."); // Sell outcome 1
+        }
+        else {
+            sellingStatusMessage.setText("You don't have enough of this item to sell."); // Sell outcome 2
+        }
+
+    }
+
+    /**
+     * removes sold item amount from seller
+     */
+    private void removeToBeSoldItemFromSeller(Order toBeCreated) {
+        Integer indexOfSellingItem = toBeCreated.getSeller().getSellingItems().indexOf(toBeCreated.getSellingItem());
+        Integer currentAmountOwned = toBeCreated.getSeller().getSellingItems().get(indexOfSellingItem).getAmountOwned();
+        Integer amountForSale = toBeCreated.getAmountForSale();
+        Integer newAmountOwned = currentAmountOwned - amountForSale;
+        toBeCreated.getSeller().getSellingItems().get(indexOfSellingItem).setAmountOwned(newAmountOwned);
+    }
+
+    /**
+     * checks weather the seller owns enough of the amount to sell
+     */
+    private Boolean sellerHasEnoughSellingItem(SellingItem sellingItem, Order newOrder) {
+        Integer indexOfSellingItem = myUser.getSellingItems().indexOf(sellingItem);
+        Integer owns =  myUser.getSellingItems().get(indexOfSellingItem).getAmountOwned();
+        Integer toBeSold = newOrder.getAmountForSale();
+        Boolean hasEnough;
+        if (owns >= toBeSold) {
+            hasEnough = true;
+        }
+        else {
+            hasEnough = false;
+        }
+        return hasEnough;
     }
 
     public void initialize() {
         //Test data
-        User user = new User();
-        user.setBalance(102.00);
-        sellingItems.add(new LiveStock("test"));
-        sellingItems.add(new LiveStock("product"));
-        offers.add(new Order(10.49, 3, new LiveStock("test"), user));
-        offers.add(new Order(11.22, 1, new LiveStock("nogiets"), user));
+        User otherUser = new User();
+        otherUser.setBalance(102.00);
+        offers.add(new Order(10.49, 3, new LiveStock("test"), otherUser));
+        offers.add(new Order(11.22, 1, new LiveStock("nogiets"), otherUser));
 
 
         //Balance tonen
-        userBalanceLabel.setText(user.getBalance()+"");
+        userBalanceLabel.setText(myUser.getBalance()+"");
 
         //Kan alleen getallen invoeren
         Pattern pattern = Pattern.compile("\\d*"); //getal
@@ -78,9 +123,8 @@ public class MarketPageController {
         });
         priceTextField.setTextFormatter(formatterDouble);
 
-
         //Zet de lijst met verkoopbare items vast aan de listview
-        sellableItemsListView.setItems(sellingItems);
+        sellableItemsListView.setItems(myUser.getSellingItems());
 
         //Tabel configureren voor koopbare items
         TableColumn itemName = new TableColumn("Name");
@@ -137,10 +181,75 @@ public class MarketPageController {
 
     }
 
-    private void buyOrder(Order order) {
+    /**
+     * checks weather the buyer has enough money to buy
+     */
+    private Boolean buyerHasEnoughBalance(Order toBeBought) {
+        Double currentBalance = myUser.getBalance();
+        Double price = toBeBought.getPrice();
+        Boolean hasEnough;
+        Double significance = -0.009;
+        if (currentBalance - price >= significance) {
+            hasEnough = true;
+        }
+        else {
+            hasEnough = false;
+        }
+        return hasEnough;
+    }
 
-        buyingStatusMessage.setText("Kopen gelukt");
-        offers.remove(order);
+
+    private void buyOrder(Order target) {
+        if (buyerHasEnoughBalance(target) == true) {
+            removeSpentBalanceFromBuyer(target);
+            addProfitToSeller(target);
+            addBoughtItemToBuyer(target);
+            buyingStatusMessage.setText("You have successfully bought this order"); // Buy outcome 1
+            userBalanceLabel.setText(myUser.getBalance()+"");
+            deleteOrder(target);
+        }
+        else {
+            buyingStatusMessage.setText("Your balance is too low to buy this order."); // Buy outcome 2
+        }
+    }
+
+
+    /**
+     * deletes the order from the market
+     */
+    private void deleteOrder(Order target) {
+        offers.remove(target);
+    }
+
+    /**
+     * removes money from buyer
+     */
+    private void removeSpentBalanceFromBuyer(Order boughtOrder) {
+        Double currentBalance = myUser.getBalance();
+        Double price = boughtOrder.getPrice();
+        Double newBalance = currentBalance - price;
+        myUser.setBalance(newBalance);
+    }
+
+    /**
+     * adds profit to seller
+     */
+    private void addProfitToSeller(Order boughtOrder) {
+        Double currentBalance = boughtOrder.getSeller().getBalance();
+        Double profit = boughtOrder.getPrice();
+        Double newBalance = currentBalance + profit;
+        boughtOrder.getSeller().setBalance(newBalance);
+    }
+
+    /**
+     * adds sold item amount to buyer
+     */
+    private void addBoughtItemToBuyer(Order boughtOrder) {
+        Integer indexOfSellingItem = boughtOrder.getSeller().getSellingItems().indexOf(boughtOrder.getSellingItem());
+        Integer currentAmountOwned = myUser.getSellingItems().get(indexOfSellingItem).getAmountOwned();
+        Integer amountBought = boughtOrder.getAmountForSale();
+        Integer newAmountOwned = currentAmountOwned + amountBought;
+        myUser.getSellingItems().get(indexOfSellingItem).setAmountOwned(newAmountOwned);
     }
 
 }
