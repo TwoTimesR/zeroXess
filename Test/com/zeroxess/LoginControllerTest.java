@@ -1,6 +1,5 @@
 package com.zeroxess;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +22,7 @@ class LoginControllerTest {
         username = "admin";
         password = "Test";
 
-        Assert.assertEquals("admin", username);
-        Assert.assertEquals("Test", password);
+        assertEquals("admin", username);
+        assertEquals("Test", password);
     }
 }
