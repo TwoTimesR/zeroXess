@@ -33,6 +33,13 @@ public class HomePageController {
     }
 
     public void openLiveStock() {
-        LiveStockController.run();
+    }
+
+    public void openMarket() throws IOException {
+        Stage stage = (Stage) homePane.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/marketpage/marketpage.fxml"));
+        Scene scene =  new Scene(root, 800 ,600);
+        stage.setScene(scene);
+        stage.show();
     }
 }

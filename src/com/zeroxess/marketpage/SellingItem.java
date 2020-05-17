@@ -1,4 +1,4 @@
-package com.zeroxess;
+package com.zeroxess.marketpage;
 
 abstract public class SellingItem {
     private String itemName;

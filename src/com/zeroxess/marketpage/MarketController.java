@@ -1,4 +1,4 @@
-package com.zeroxess;
+package com.zeroxess.marketpage;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

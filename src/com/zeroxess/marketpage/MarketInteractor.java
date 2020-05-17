@@ -1,4 +1,4 @@
-package com.zeroxess;
+package com.zeroxess.marketpage;
 
 public class MarketInteractor {
     private User user;
@@ -29,7 +29,7 @@ public class MarketInteractor {
      */
     public void createOrder(Double price, Integer amountForSale, SellingItem sellingItem) {
         Order newOrder = new Order(price, amountForSale, sellingItem, getUser());
-        if (sellerHasEnoughSellingItem(sellingItem, newOrder) == true) {
+        if (sellerHasEnoughSellingItem(sellingItem, newOrder)) {
             removeToBeSoldItemFromSeller(newOrder);
             getMarket().getOrders().add(newOrder);
             System.out.println("Your order has been created and placed on the market."); // Sell outcome 1

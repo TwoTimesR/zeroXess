@@ -1,6 +1,4 @@
-package com.zeroxess;
-
-import java.util.ArrayList;
+package com.zeroxess.marketpage;
 
 public class Order {
     private Double price;
