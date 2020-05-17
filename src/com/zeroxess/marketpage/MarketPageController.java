@@ -40,13 +40,14 @@ public class MarketPageController {
 
     @FXML
     void placeOffer(ActionEvent event) {
-        if (amountTextField.getText().isEmpty() || priceTextField.getText().isEmpty()) {
+        if (amountTextField.getText().isEmpty() || priceTextField.getText().isEmpty() || sellableItemsListView.getSelectionModel().getSelectedItem() == null) {
             Utilities.showDialog(Alert.AlertType.INFORMATION, "Error", "Please complete all the fields");
             return;
         }
 
         int amount = Integer.parseInt(amountTextField.getText());
         double price = Double.parseDouble(priceTextField.getText());
+        SellingItem chosenToSell = sellableItemsListView.getSelectionModel().getSelectedItem();
 
         sellingStatusMessage.setText("Put on offer message");
     }
@@ -56,6 +57,7 @@ public class MarketPageController {
         User user = new User();
         user.setBalance(102.00);
         sellingItems.add(new LiveStock("test"));
+        sellingItems.add(new LiveStock("product"));
         offers.add(new Order(10.49, 3, new LiveStock("test"), user));
         offers.add(new Order(11.22, 1, new LiveStock("nogiets"), user));
 
