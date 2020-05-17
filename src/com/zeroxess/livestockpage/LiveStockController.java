@@ -1,6 +1,5 @@
 package com.zeroxess.livestockpage;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -10,13 +9,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class LiveStockController extends Application {
+public class LiveStockController {
     Stage liveStock;
     TableView<Animal> animalTableView;
     Scene overview;
@@ -28,17 +26,6 @@ public class LiveStockController extends Application {
     TextField age;
     TextField price;
 
-    public static void run() {
-        launch(new String[]{});
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-
-    @Override
     public void start(Stage primaryStage) {
         liveStock = primaryStage;
         liveStock.setTitle("Livestock");
@@ -118,20 +105,24 @@ public class LiveStockController extends Application {
         VBox vBox = new VBox();
         vBox.getChildren().addAll(animalTableView);
 
-        BorderPane borderPane = new BorderPane();
-        borderPane.setTop(vBox);
-        borderPane.setCenter(hBox1);
-        borderPane.setBottom(hBox2);
-
+        GridPane grid1 = new GridPane();
+        grid1.setPadding(new Insets(10,10,10,10));
+        grid1.setVgap(8);
+        grid1.setHgap(10);
+        grid1.add(vBox, 1, 0);
+        grid1.add(hBox1, 1, 1);
+        grid1.add(hBox2, 1, 2);
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
         grid.setVgap(8);
         grid.setHgap(10);
 
-        grid.getChildren().addAll(borderPane);
+        grid.getChildren().addAll(grid1);
 
         overview = new Scene(grid,800,600);
+        liveStock.setMinWidth(800);
+        liveStock.setMinHeight(600);
         liveStock.setScene(overview);
         liveStock.show();
 
