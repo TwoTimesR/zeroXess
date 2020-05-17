@@ -1,31 +1,35 @@
 package com.zeroxess.livestockpage;
 
-public class Animal {
-    public String nameCompany;
-    public String typeAnimal;
-    public String nameAnimal;
-    public double weight;
-    public Integer age;
-    public double price;
+import com.zeroxess.marketpage.LiveStock;
+
+public class Animal extends LiveStock {
+    private String nameCompany;
+    private String typeAnimal;
+    private String nameAnimal;
+    private Double weight;
+    private Integer age;
+    private Double price;
 
     public Animal(){
+        super("");
         this.nameCompany = "";
         this.typeAnimal="";
         this.nameAnimal = "";
-        this.weight = 0;
+        this.weight = 0.00;
         this.age = 0;
-        this.price = 0;
-
+        this.price = 0.00;
+        this.setItemName(typeAnimal);
     }
 
     public Animal(String nameCompany ,String typeAnimal, String nameAnimal, double weight, Integer age , double price){
+        super("");
         this.nameCompany = nameCompany;
         this.typeAnimal=typeAnimal;
         this.nameAnimal = nameAnimal;
         this.weight = weight;
         this.age = age;
         this.price = price;
-
+        this.setItemName(typeAnimal);
     }
 
     public String getNameCompany() {
