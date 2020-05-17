@@ -136,7 +136,7 @@ public class LiveStockController {
 
     public void onAddButtonCLicked(){
         Animal animal = new Animal();
-        animal.setNameAnimal(nameCompany.getText());
+        animal.setNameCompany(nameCompany.getText());
         animal.setTypeAnimal(typeAnimal.getText());
         animal.setNameAnimal(nameAnimal.getText());
         animal.setWeight(Double.parseDouble(weight.getText()));
