@@ -121,6 +121,8 @@ public class LiveStockController {
         grid.getChildren().addAll(grid1);
 
         overview = new Scene(grid,800,600);
+        liveStock.setMinWidth(800);
+        liveStock.setMinHeight(600);
         liveStock.setScene(overview);
         liveStock.show();
 
