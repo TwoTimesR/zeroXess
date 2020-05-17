@@ -1,6 +1,5 @@
 package com.zeroxess.livestockpage;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -16,7 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class LiveStockController extends Application {
+public class LiveStockController {
     Stage liveStock;
     TableView<Animal> animalTableView;
     Scene overview;
@@ -28,17 +27,6 @@ public class LiveStockController extends Application {
     TextField age;
     TextField price;
 
-    public static void run() {
-        launch(new String[]{});
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-
-    @Override
     public void start(Stage primaryStage) {
         liveStock = primaryStage;
         liveStock.setTitle("Livestock");

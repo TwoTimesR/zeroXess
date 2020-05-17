@@ -1,7 +1,6 @@
 package com.zeroxess.homepage;
 
 import com.zeroxess.livestockpage.LiveStockController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,6 +32,8 @@ public class HomePageController {
     }
 
     public void openLiveStock() {
+        Stage stage = (Stage) homePane.getScene().getWindow();
+        new LiveStockController().start(stage);
     }
 
     public void openMarket() throws IOException {
