@@ -28,7 +28,6 @@
             <TextField fx:id="First_Name" layoutX="301.0" layoutY="300.0" prefHeight="26.0" prefWidth="173.0" />
             <Button fx:id="Back_button" layoutX="400.0" layoutY="531.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="74.0" text="Back" onAction="#goToHomePage"/>
             <Button fx:id="Save_button" layoutX="305.0" layoutY="531.0" mnemonicParsing="false" onAction="#SaveButtonClicked" prefHeight="23.0" prefWidth="70.0" text="Save" />
-            <Button fx:id="Show_Button" layoutX="365.0" layoutY="265.0" mnemonicParsing="false" onAction="#ShowButtonClicked" text="Show" />
          </children>
       </AnchorPane>
    </bottom>

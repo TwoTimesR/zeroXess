@@ -7,13 +7,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Path;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class ProfilePageController {
 
@@ -41,25 +43,16 @@ public class ProfilePageController {
     @FXML
     private Button Save_button;
 
-    @FXML
-    private Button Show_Button;
-
+// wnr het voor het profielscherm gekozen wordt, laden alle gegevens en kan de gebruiker het weer aanpassen en opslaan.
+    public void initialize() throws IOException {
+        showTxtFile();
+        getInformatieTxt();
+    }
     // Zodra de savebutton is gedrukt wordt alle informatie opgeslagen.
     public void SaveButtonClicked() {
         Save_button.setOnAction(actionEvent -> writeTxtFile());
     }
 
-    // zodra de showbutton is gedrukt worden de opgeslagen gegevens vertoont.
-    public void ShowButtonClicked() {
-        Show_Button.setOnAction(actionEvent -> {
-            try {
-                showTxtFile();
-                getInformatieTxt();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-    }
 
 
     // Deze methode schrijft de informatie van de textfields naar een .txt file.
@@ -104,6 +97,7 @@ public class ProfilePageController {
         }
         return ReadTxtFile;
     }
+
 }
 
 
