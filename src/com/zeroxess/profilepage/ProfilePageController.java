@@ -43,7 +43,7 @@ public class ProfilePageController {
     @FXML
     private Button Save_button;
 
-
+// wnr het voor het profielscherm gekozen wordt, laden alle gegevens en kan de gebruiker het weer aanpassen en opslaan.
     public void initialize() throws IOException {
         showTxtFile();
         getInformatieTxt();
