@@ -57,7 +57,7 @@ public class User {
      * 3 = Pig
      * 4 = Bird
      */
-    public void initializeSellingItems() {
+    private void initializeSellingItems() {
         LiveStock liveStock0 = new LiveStock("Sheep");
         addSellingItem(liveStock0);
 
