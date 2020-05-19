@@ -9,9 +9,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContactsControllerTest {
+    ContactsController controller = new ContactsController();
+
     @FXML    private ChoiceBox<String> personOrCompany;
     @FXML    private Label firstNameLabel;
     @FXML    private TextField firstNameField;
@@ -34,7 +38,7 @@ class ContactsControllerTest {
     }
 
     @Test
-    public void saveButtonAction() {
+    public void saveButtonAction() throws IOException{
         ObservableList<Person> persons = FXCollections.observableArrayList();
 
         personOrCompany.setValue("person");
@@ -42,8 +46,8 @@ class ContactsControllerTest {
         surnameField.setText("Naam");
         emailField.setText("test@mail.nl");
         phoneNumberField.setText("1234");
-        saveButtonAction();
-        assertTrue(persons.contains("Test"));
+
+        assertEquals(true, persons.contains("Test"));
     }
 
     @Test

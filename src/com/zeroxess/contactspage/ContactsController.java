@@ -1,5 +1,6 @@
 package com.zeroxess.contactspage;
 
+import com.zeroxess.Utilities;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,11 +10,16 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+
+import java.io.IOException;
 
 public class ContactsController {
-    private ObservableList<Company> companies = FXCollections.observableArrayList();
-    private ObservableList<Person> persons = FXCollections.observableArrayList();
+    public ObservableList<Company> companies = FXCollections.observableArrayList();
+    public ObservableList<Person> persons = FXCollections.observableArrayList();
+
     
+    @FXML    GridPane contactsPane;
     @FXML    private ChoiceBox<String> personOrCompany;
     @FXML    private Label firstNameLabel;
     @FXML    private TextField firstNameField;
@@ -61,6 +67,7 @@ public class ContactsController {
             companyPhoneLabel.setVisible(true);
             companyPhoneField.setVisible(true);
             contactsList.setItems(companies);
+
         }
         else{
             firstNameLabel.setVisible(true);
@@ -87,7 +94,10 @@ public class ContactsController {
             String surname = surnameField.getText();
             String email = emailField.getText();
             String phone = phoneNumberField.getText();
-
+            firstNameField.clear();
+            surnameField.clear();
+            emailField.clear();
+            phoneNumberField.clear();
             persons.add(new Person(name,surname,email,phone));
             contactsList.setItems(persons);
         }
@@ -96,10 +106,16 @@ public class ContactsController {
             String name = companyNameField.getText();
             String email = companyEmailField.getText();
             String phone = companyPhoneField.getText();
-
+            companyNameField.clear();
+            companyEmailField.clear();
+            companyPhoneField.clear();
             companies.add(new Company(name,email,phone));
             contactsList.setItems(companies);
         }
+    }
+
+    public void backButtonAction(ActionEvent actionEvent) throws IOException {
+        Utilities.openHomeScreen(contactsPane);
     }
 }
 

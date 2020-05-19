@@ -6,7 +6,8 @@
 <?import javafx.collections.FXCollections?>
 
 <GridPane fx:controller="com.zeroxess.contactspage.ContactsController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          fx:id="contactsPane">
 
     <Label text="Add a new contact" underline="true"
            GridPane.columnIndex="0" GridPane.rowIndex="0"/>
@@ -66,11 +67,12 @@
           GridPane.columnIndex="1" GridPane.rowIndex="7">
         <Button text="Save"
                 onAction="#saveButtonAction"/>
+        <Button text="Back" alignment="BOTTOM_LEFT"
+                onAction="#backButtonAction"/>
     </HBox>
 
-    <ListView fx:id="contactsList" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="7">
+    <ListView fx:id="contactsList" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="7"/>
 
 
-    </ListView>
 
 </GridPane>
