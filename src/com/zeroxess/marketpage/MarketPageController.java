@@ -37,15 +37,18 @@ public class MarketPageController {
 
     ObservableList<Order> offers = FXCollections.observableArrayList();
     ObservableList<SellingItem> sellingItems = FXCollections.observableArrayList();
-    static User myUser = new User();
 
+    // for run purposes
+    static User myUser = new User();
     static {
         myUser.setBalance(102.00);
-        LiveStock pig = new LiveStock("Pig");
-        pig.setAmountOwned(1);
-        LiveStock horse = new LiveStock("Horse");
-        horse.setAmountOwned(1);
-        myUser.getSellingItems().addAll(pig, horse);
+
+        LiveStock liveStock5 = new LiveStock("Horse");
+        myUser.addSellingItem(liveStock5); // selling item horse created and added to index 5
+
+        for (int i = 0; i < myUser.getSellingItems().size(); i++) {
+            myUser.getSellingItems().get(i).setAmountOwned(3); // all selling items amount owned set to 3 (initialized with 0 in SellingItem.java)
+        }
     }
 
     @FXML

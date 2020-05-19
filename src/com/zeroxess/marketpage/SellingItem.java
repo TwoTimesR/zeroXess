@@ -6,7 +6,7 @@ abstract public class SellingItem {
 
     public SellingItem(String itemName) {
         this.itemName = itemName;
-        this.amountOwned = 100; // in reality 0
+        this.amountOwned = 0;
     }
 
     public Integer getAmountOwned() {
