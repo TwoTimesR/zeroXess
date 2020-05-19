@@ -27,6 +27,6 @@ abstract public class SellingItem {
 
     @Override
     public String toString() {
-        return itemName;
+        return amountOwned+"x "+itemName;
     }
 }
