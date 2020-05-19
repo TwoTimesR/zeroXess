@@ -12,6 +12,8 @@ import javafx.util.Callback;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
+import com.zeroxess.marketpage.MarketInteractor;
+
 public class MarketPageController {
 
     @FXML
@@ -38,20 +40,23 @@ public class MarketPageController {
     ObservableList<Order> offers = FXCollections.observableArrayList();
 
     // for run purposes
-    static User myUser = new User();
-    static {
+    User myUser = new User();
+    User otherUser = new User();
+    {
         myUser.setBalance(102.00);
-
-        LiveStock liveStock5 = new LiveStock("Horse");
-        myUser.addSellingItem(liveStock5); // selling item horse created and added to index 5
+        otherUser.setBalance(102.00);
 
         for (int i = 0; i < myUser.getSellingItems().size(); i++) {
             myUser.getSellingItems().get(i).setAmountOwned(3); // all selling items amount owned set to 3 (initialized with 0 in SellingItem.java)
         }
+
+        for (int i = 0; i < otherUser.getSellingItems().size(); i++) {
+            otherUser.getSellingItems().get(i).setAmountOwned(3); // all selling items amount owned set to 3 (initialized with 0 in SellingItem.java)
+        }
     }
 
     @FXML
-    void placeOffer(ActionEvent event) {
+    public void placeOffer(ActionEvent event) {
         if (amountTextField.getText().isEmpty() || priceTextField.getText().isEmpty() || sellableItemsListView.getSelectionModel().getSelectedItem() == null) {
             Utilities.showDialog(Alert.AlertType.INFORMATION, "Error", "Please complete all the fields");
             return;
@@ -103,11 +108,10 @@ public class MarketPageController {
 
     public void initialize() {
         //Test data
-        User otherUser = new User();
-        otherUser.setBalance(102.00);
-        offers.add(new Order(10.49, 3, new LiveStock("test"), otherUser));
-        offers.add(new Order(11.22, 1, new LiveStock("nogiets"), otherUser));
-
+        otherUser.getMarketInteractor().createOrder(10.49, 3, otherUser.getSellingItems().get(0));
+        offers.add(otherUser.getMarketInteractor().getMarket().getOrders().get(0));
+        otherUser.getMarketInteractor().createOrder(11.22, 1, otherUser.getSellingItems().get(1));
+        offers.add(otherUser.getMarketInteractor().getMarket().getOrders().get(1));
 
         //Balance tonen
         userBalanceLabel.setText(myUser.getBalance()+"");
