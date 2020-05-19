@@ -7,8 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
@@ -36,6 +38,9 @@ public class MarketPageController {
 
     @FXML
     private Label buyingStatusMessage;
+
+    @FXML
+    private GridPane pane;
 
     ObservableList<Order> offers = FXCollections.observableArrayList();
 
@@ -258,4 +263,9 @@ public class MarketPageController {
         myUser.getSellingItems().get(indexOfSellingItem).setAmountOwned(newAmountOwned);
     }
 
-}
+    @FXML
+    public void goBack(ActionEvent event) throws IOException {
+        Utilities.openHomeScreen(pane);
+    }
+
+    }
