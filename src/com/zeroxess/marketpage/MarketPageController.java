@@ -36,7 +36,6 @@ public class MarketPageController {
     private Label buyingStatusMessage;
 
     ObservableList<Order> offers = FXCollections.observableArrayList();
-    ObservableList<SellingItem> sellingItems = FXCollections.observableArrayList();
 
     // for run purposes
     static User myUser = new User();
