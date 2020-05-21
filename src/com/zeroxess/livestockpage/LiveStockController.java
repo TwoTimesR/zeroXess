@@ -1,5 +1,6 @@
 package com.zeroxess.livestockpage;
 
+import com.zeroxess.homepage.HomePageController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -86,10 +87,15 @@ public class LiveStockController {
         Button delButton = new Button("delete");
         delButton.setOnAction(e -> onDelButtonClicked());
 
+        Button backButton = new Button("Back");
+        backButton.setOnAction(e -> liveStock.setScene(//insert name of homepage scene));
+
 
         animalTableView = new TableView<>();
         animalTableView.setItems(getGraphic());
         animalTableView.getColumns().addAll(nameCColumn,typeAColumn,nameAColumn,weightColumn,ageColumn,priceColumn);
+
+
 
         HBox hBox1 = new HBox();
         hBox1.setPadding(new Insets(10,10,10,10));
@@ -100,10 +106,10 @@ public class LiveStockController {
         HBox hBox2 = new HBox();
         hBox2.setPadding(new Insets(10,10,10,10));
         hBox2.setSpacing(10);
-        hBox2.getChildren().addAll(weight,age,price,delButton);
+        hBox2.getChildren().addAll(weight,age,price,backButton);
 
         VBox vBox = new VBox();
-        vBox.getChildren().addAll(animalTableView);
+        vBox.getChildren().addAll(animalTableView,delButton);
 
         GridPane grid1 = new GridPane();
         grid1.setPadding(new Insets(10,10,10,10));
@@ -158,6 +164,10 @@ public class LiveStockController {
         selected.forEach(allGraph::remove);
 
     }
+
+
+
+
 }
 
 
