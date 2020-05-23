@@ -1,5 +1,6 @@
 package com.zeroxess.livestockpage;
 
+import com.zeroxess.Utilities;
 import com.zeroxess.homepage.HomePageController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +15,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LiveStockController {
     Stage liveStock;
@@ -86,9 +89,16 @@ public class LiveStockController {
 
         Button delButton = new Button("delete");
         delButton.setOnAction(e -> onDelButtonClicked());
+        GridPane grid = new GridPane();
 
         Button backButton = new Button("Back");
-        backButton.setOnAction(e -> liveStock.setScene(//insert name of homepage scene));
+        backButton.setOnAction(e -> {
+            try {
+                Utilities.openHomeScreen(grid);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
 
 
         animalTableView = new TableView<>();
@@ -119,7 +129,6 @@ public class LiveStockController {
         grid1.add(hBox1, 1, 1);
         grid1.add(hBox2, 1, 2);
 
-        GridPane grid = new GridPane();
         grid.setPadding(new Insets(10,10,10,10));
         grid.setVgap(8);
         grid.setHgap(10);
