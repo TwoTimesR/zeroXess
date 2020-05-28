@@ -1,9 +1,9 @@
 package com.zeroxess.eductionpage;
 
-public class CorrectAnswer {
+public class SingularAnswer extends Answer {
     private String correctAnswer;
 
-    public CorrectAnswer(String correctAnswer) {
+    public SingularAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
 
