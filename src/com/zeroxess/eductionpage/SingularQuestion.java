@@ -8,6 +8,11 @@ public class SingularQuestion extends Question{
         this.singularAnswer = new SingularAnswer(correctAnswer);
     }
 
+    @Override
+    public Boolean checkAnswer() {
+        return getUserAnswer().equals(singularAnswer.getCorrectAnswer());
+    }
+
     public SingularAnswer getSingularAnswer() {
         return singularAnswer;
     }

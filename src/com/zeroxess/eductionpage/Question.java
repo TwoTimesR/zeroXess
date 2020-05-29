@@ -3,11 +3,14 @@ package com.zeroxess.eductionpage;
 public abstract class Question {
     private String question;
     private Integer points;
+    private String userAnswer;
 
     public Question(String question, Integer points) {
         this.question = question;
         this.points = points;
     }
+
+    public abstract Boolean checkAnswer();
 
     public String getQuestion() {
         return question;
@@ -23,5 +26,13 @@ public abstract class Question {
 
     public void setPoints(Integer points) {
         this.points = points;
+    }
+
+    public String getUserAnswer() {
+        return userAnswer;
+    }
+
+    public void setUserAnswer(String userAnswer) {
+        this.userAnswer = userAnswer;
     }
 }

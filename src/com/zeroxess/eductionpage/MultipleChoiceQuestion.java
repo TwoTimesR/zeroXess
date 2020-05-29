@@ -10,6 +10,12 @@ public class MultipleChoiceQuestion extends Question{
         this.multipleChoiceAnswers = new ArrayList<>();
     }
 
+    @Override
+    public Boolean checkAnswer() {
+        int pickedChoice = Integer.parseInt(getUserAnswer()); // user picks a choice ranging from 1 to n
+        return multipleChoiceAnswers.get(pickedChoice).getCorrect();
+    }
+
     public ArrayList<MultipleChoiceAnswer> getMultipleChoiceAnswers() {
         return multipleChoiceAnswers;
     }
@@ -18,7 +24,11 @@ public class MultipleChoiceQuestion extends Question{
         this.multipleChoiceAnswers = multipleChoiceAnswers;
     }
 
-    //add
+    public void addMultipleChoiceAnswer(MultipleChoiceAnswer multipleChoiceAnswer) {
+        multipleChoiceAnswers.add(multipleChoiceAnswer);
+    }
 
-    //remove
+    public void removeMultipleChoiceAnswer(MultipleChoiceAnswer multipleChoiceAnswer) {
+        multipleChoiceAnswers.remove(multipleChoiceAnswer);
+    }
 }
