@@ -100,7 +100,7 @@ public void changeQuestion() throws IOException{
         } else{
             System.out.println("incorrect");
             Answer_field.setText("");
-            Answer_field.setText("Wrong Answer");
+            Answer_field.setPromptText("Wrong answer");
         }
     }
     public void changePicture() throws IOException{
