@@ -4,12 +4,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class writingGameController {
@@ -46,11 +49,12 @@ public class writingGameController {
         System.out.println(counter);
         score_points.setText(String.valueOf(score));
        changeQuestion();
+       changePicture();
         System.out.println(getQuestions().get(0));
     }
 
     public List getQuestions() throws IOException{
-        List<String> read = Files.readAllLines(Paths.get("src\\com\\zeroxess\\educationpage\\Questions.txt"));
+        List<String> read = Files.readAllLines(Paths.get("src\\com\\zeroxess\\educationpage\\writingGameQuestions.txt"));
         return read;
     }
 
@@ -58,6 +62,7 @@ public class writingGameController {
         counter++;
         System.out.println(counter);
         changeQuestion();
+        changePicture();
     }
 
 
@@ -69,7 +74,7 @@ public void changeQuestion() throws IOException{
 
 
     public List getAnswers() throws IOException{
-        List<String> read = Files.readAllLines(Paths.get("src\\com\\zeroxess\\educationpage\\Answers"));
+        List<String> read = Files.readAllLines(Paths.get("src\\com\\zeroxess\\educationpage\\writingGameAnswers"));
         return read;
     }
 
@@ -91,6 +96,13 @@ public void changeQuestion() throws IOException{
             Answer_field.setText("");
             Answer_field.setText("Wrong Answer");
         }
+    }
+    public void changePicture() throws IOException{
+        ArrayList<FileInputStream> input = new ArrayList<>();
+        input.add(new FileInputStream("src\\img\\login.png"));
+        input.add(new FileInputStream("src\\img\\bee.jpg"));
+        Image img = new Image(input.get(counter));
+        image_view.setImage(img);
     }
 
 
