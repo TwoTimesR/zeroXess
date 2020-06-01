@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.educationpage.writingGameEndscreen">
+<AnchorPane fx:id="anchorpane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.educationpage.writingGameEndscreen">
     <children>
         <Label layoutX="200.0" layoutY="37.0" prefHeight="54.0" prefWidth="435.0" text="Thank you for playing !">
             <font>

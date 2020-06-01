@@ -19,6 +19,6 @@
       <Button mnemonicParsing="false" onAction="#openContacts" prefHeight="54.0" prefWidth="109.0" text="Contacts" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openLiveStock" prefHeight="54.0" prefWidth="109.0" text="Livestock" GridPane.columnIndex="3" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openMarket" prefHeight="54.0" prefWidth="109.0" text="Market" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" onAction="#openWritingGame" text="Button" />
+      <Button mnemonicParsing="false" onAction="#openWritingGame" prefHeight="26.0" prefWidth="110.0" text="WritingGame" />
    </children>
 </GridPane>
