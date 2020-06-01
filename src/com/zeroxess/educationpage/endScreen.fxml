@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.educationpage.writingGameEndscreen">
+    <children>
+        <Label layoutX="200.0" layoutY="37.0" prefHeight="54.0" prefWidth="435.0" text="Thank you for playing !">
+            <font>
+                <Font size="37.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="img" fitHeight="239.0" fitWidth="368.0" layoutX="275.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
+        <Label layoutX="218.0" layoutY="401.0" text="TotalScore :">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Label>
+        <Label fx:id="total_score" layoutX="400.0" layoutY="401.0" text="Label">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Label>
+        <Label layoutX="178.0" layoutY="479.0" text="CorrectAnswers :">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Label>
+        <Label fx:id="correctAnswers" layoutX="400.0" layoutY="479.0" text="Label">
+            <font>
+                <Font size="27.0" />
+            </font>
+        </Label>
+        <Button fx:id="home_Page" layoutX="571.0" layoutY="431.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="94.0" text="HomePage" />
+    </children>
+</AnchorPane>
