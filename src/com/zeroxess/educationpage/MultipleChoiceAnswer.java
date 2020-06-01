@@ -1,4 +1,4 @@
-package com.zeroxess.eductionpage;
+package com.zeroxess.educationpage;
 
 public class MultipleChoiceAnswer extends Answer {
     private String answer;

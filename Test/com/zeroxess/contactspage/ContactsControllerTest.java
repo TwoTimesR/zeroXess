@@ -44,7 +44,7 @@ class ContactsControllerTest {
         personOrCompany.setValue("person");
         firstNameField.setText("Test");
         surnameField.setText("Naam");
-        emailField.setText("test@mail.nl");
+        emailField.setText("Answers@mail.nl");
         phoneNumberField.setText("1234");
 
         assertEquals(true, persons.contains("Test"));

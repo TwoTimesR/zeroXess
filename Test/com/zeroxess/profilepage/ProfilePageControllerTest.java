@@ -13,7 +13,7 @@ class ProfilePageControllerTest {
     private  ProfilePageController profile = new ProfilePageController();
 
     /*
-    In deze test schrijf ik in het .txt bestand een voornaam en een achternaam. Vervolgens gebruik
+    In deze Answers schrijf ik in het .txt bestand een voornaam en een achternaam. Vervolgens gebruik
     ik een methode die alle gegevens laadt en dat vergelijk ik om te kijken of het getInformatie Methode,
     gegevens succesvol kan laden.
     */

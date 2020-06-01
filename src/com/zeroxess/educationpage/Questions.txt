@@ -1,0 +1,10 @@
+1.What is the name of this fruit?
+2.What is the name of this insect?
+3.Which country does this flag belong to?
+4.What is the name of this food?
+5.What is the name of this animal?
+6.What is the name of this insect?
+7.What do you call this vehicle?
+8.What are they doing?
+9.What programming language is this?
+10.Which country does this flag belong to?

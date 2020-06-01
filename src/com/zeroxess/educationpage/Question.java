@@ -1,4 +1,4 @@
-package com.zeroxess.eductionpage;
+package com.zeroxess.educationpage;
 
 public abstract class Question {
     private String question;

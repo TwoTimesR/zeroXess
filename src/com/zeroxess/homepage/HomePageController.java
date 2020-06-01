@@ -43,4 +43,11 @@ public class HomePageController {
         stage.setScene(scene);
         stage.show();
     }
+    public void openWritingGame() throws IOException{
+        Stage stage = (Stage) homePane.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/educationpage/writingGame.fxml"));
+        Scene scene =  new Scene(root, 800 ,600);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

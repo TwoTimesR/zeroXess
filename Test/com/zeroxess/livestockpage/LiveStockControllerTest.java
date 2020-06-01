@@ -31,7 +31,7 @@ class LiveStockControllerTest {
         ObservableList<Animal> animals = FXCollections.observableArrayList();
         nameCompany.setText("Testa");
         typeAnimal.setText("cow?");
-        nameAnimal.setText("test!");
+        nameAnimal.setText("Answers!");
         weight.setText("88");//input should be double
         age.setText("5");
         price.setText("5");

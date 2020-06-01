@@ -1,4 +1,4 @@
-package com.zeroxess.eductionpage;
+package com.zeroxess.educationpage;
 
 public class SingularQuestion extends Question{
     private SingularAnswer singularAnswer;
