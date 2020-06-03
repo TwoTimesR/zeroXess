@@ -10,6 +10,11 @@ public abstract class Question {
         this.points = points;
     }
 
+    public Question(String question) {
+        this.question = question;
+        this.points = 20;
+    }
+
     public abstract Boolean checkAnswer();
 
     public String getQuestion() {
@@ -33,6 +38,6 @@ public abstract class Question {
     }
 
     public void setUserAnswer(String userAnswer) {
-        this.userAnswer = userAnswer;
+        this.userAnswer = userAnswer.toLowerCase();
     }
 }

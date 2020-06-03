@@ -11,7 +11,7 @@ public abstract class Game {
     public Game(String gameTitle) {
         this.title = gameTitle;
         this.questions = new ArrayList<>();
-        this.amountOfQuestions = 0;
+        this.amountOfQuestions = questions.size();
         this.performance = new Performance();
     }
 
@@ -32,17 +32,18 @@ public abstract class Game {
     }
 
     public void addQuestion(Question question) {
-        questions.add(question);
         amountOfQuestions++;
+        amountOfQuestions = questions.size();
     }
 
     public void removeQuestion(Question question) {
         questions.remove(question);
         amountOfQuestions--;
+        amountOfQuestions = questions.size();
     }
 
     public Integer getAmountOfQuestions() {
-        return amountOfQuestions;
+        return questions.size();
     }
 
     public void setAmountOfQuestions(Integer amountOfQuestions) {

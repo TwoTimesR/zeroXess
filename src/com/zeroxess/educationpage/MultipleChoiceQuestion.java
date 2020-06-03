@@ -10,6 +10,11 @@ public class MultipleChoiceQuestion extends Question{
         this.multipleChoiceAnswers = new ArrayList<>();
     }
 
+    public MultipleChoiceQuestion(String question) {
+        super(question);
+        this.multipleChoiceAnswers = new ArrayList<>();
+    }
+
     @Override
     public Boolean checkAnswer() {
         int pickedChoice = Integer.parseInt(getUserAnswer()); // user picks a choice ranging from 1 to n

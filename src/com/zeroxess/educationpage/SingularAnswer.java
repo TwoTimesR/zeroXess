@@ -4,7 +4,7 @@ public class SingularAnswer extends Answer {
     private String correctAnswer;
 
     public SingularAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
+        this.correctAnswer = correctAnswer.toLowerCase();
     }
 
     public String getCorrectAnswer() {
@@ -12,6 +12,6 @@ public class SingularAnswer extends Answer {
     }
 
     public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
+        this.correctAnswer = correctAnswer.toLowerCase();
     }
 }

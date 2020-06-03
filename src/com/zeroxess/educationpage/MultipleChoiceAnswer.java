@@ -5,8 +5,8 @@ public class MultipleChoiceAnswer extends Answer {
     private Boolean correct;
 
     public MultipleChoiceAnswer(String answer, Boolean correct) {
-        this.answer = answer;
-        this.correct =correct;
+        this.answer = answer.toLowerCase();
+        this.correct = correct;
     }
 
     public String getAnswer() {
@@ -14,7 +14,7 @@ public class MultipleChoiceAnswer extends Answer {
     }
 
     public void setAnswer(String answer) {
-        this.answer = answer;
+        this.answer = answer.toLowerCase();
     }
 
     public Boolean getCorrect() {
