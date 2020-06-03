@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.zeroxess.eductionpage.MathGameController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.eductionpage.MathGameController">
+   <top>
+      <Label fx:id="MathGamesTitle" alignment="CENTER" prefHeight="100.0" prefWidth="611.0" text="MathGames" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="132.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="startButton" layoutX="106.0" layoutY="54.0" mnemonicParsing="false" onAction="#startButtonClicked" text="Start" />
+            <Button fx:id="backButton" layoutX="492.0" layoutY="54.0" mnemonicParsing="false" text="Back" />
+            <Button fx:id="normalButton" layoutX="106.0" layoutY="54.0" mnemonicParsing="false" onAction="#chooseNormalPlay" text="Normal Play" visible="false" />
+            <Button fx:id="infinitePLay" layoutX="248.0" layoutY="54.0" mnemonicParsing="false" onAction="#chooseInfinitePlay" text="Infinite Play" visible="false" />
+            <Button fx:id="normailDificulty" layoutX="106.0" layoutY="54.0" mnemonicParsing="false" onAction="#chooseNormalDificulty" text="Normal" visible="false" />
+            <Button fx:id="hardDificulty" layoutX="248.0" layoutY="54.0" mnemonicParsing="false" onAction="#choosehardDificulty" text="Hard" visible="false" />
+            <Button fx:id="returnToStart" layoutX="492.0" layoutY="54.0" mnemonicParsing="false" onAction="#returnToStart" text="Return" visible="false" />
+            <Button fx:id="returnToGameSelect" layoutX="492.0" layoutY="54.0" mnemonicParsing="false" onAction="#returnToGameSelect" text="Return" visible="false" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="number2Label" layoutX="356.0" layoutY="76.0" text="Number2Label" visible="false" />
+            <Label fx:id="equalsSign" layoutX="437.0" layoutY="76.0" text="=" visible="false" />
+            <Label fx:id="mathSgignOne" layoutX="312.0" layoutY="76.0" text="Math1" visible="false" />
+            <Label fx:id="number1Label" layoutX="221.0" layoutY="76.0" text="Number1Label" visible="false" />
+            <Label fx:id="mathSgigntwo" layoutX="174.0" layoutY="76.0" text="Math2" visible="false" />
+            <Label fx:id="number3Label" layoutX="84.0" layoutY="76.0" text="Number3Label" visible="false" />
+            <TextField fx:id="userAnswer" layoutX="456.0" layoutY="72.0" prefHeight="25.0" prefWidth="79.0" visible="false" />
+            <Button fx:id="checkAnswer" layoutX="541.0" layoutY="72.0" mnemonicParsing="false" onAction="#checkAnswer" text="Check" visible="false" />
+            <Label layoutX="456.0" layoutY="22.0" text="Score :" visible="false" />
+            <Label fx:id="scoreAmount" layoutX="496.0" layoutY="22.0" text="ScoreAmount" visible="false" />
+            <Label fx:id="asnwerDisplay" layoutX="456.0" layoutY="107.0" text="DisplayAnswer" visible="false" />
+            <Button fx:id="nextQuestion" layoutX="540.0" layoutY="103.0" mnemonicParsing="false" onAction="#nextQuestion" prefHeight="25.0" prefWidth="50.0" text="Next" visible="false" />
+            <Button fx:id="endInfinite" layoutX="454.0" layoutY="128.0" mnemonicParsing="false" onAction="#endInfiniteButton" text="End infinite" visible="false" />
+            <Button fx:id="ending" layoutX="274.0" layoutY="128.0" mnemonicParsing="false" onAction="#endButtonClicked" text="End" visible="false" />
+            <Label fx:id="finalScore" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="27.0" prefHeight="66.0" prefWidth="266.0" text="FinalScore" textAlignment="JUSTIFY" visible="false">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
