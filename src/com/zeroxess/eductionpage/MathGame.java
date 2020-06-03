@@ -8,46 +8,40 @@ public abstract class MathGame extends Game {
 
     public int setSingleDigit() {
         int amount = 1;
-        int singleDigit = randomNumbers(amount);
-        return singleDigit;
+        return randomNumbers(amount);
     }
 
 
     public int setDoubleDigit() {
         int amount = 2;
-        int doubleDigit = randomNumbers(amount);
-        return doubleDigit;
+        return randomNumbers(amount);
     }
 
     public int setTripleDigit() {
         int amount = 3;
-        int tripleDigit = randomNumbers(amount);
-        return tripleDigit;
+        return randomNumbers(amount);
     }
 
     public int randomNumbers(int amount) {
         int min = 0;
-        int max = 1;
+        int max;
         if (amount == 1) {
             max = 9;
             int range = max - min +1;
-            int singleDigit = (int) (Math.random() * range) + min;
-            return singleDigit;
+            return (int) (Math.random() * range) + min;
         }
         if (amount == 2) {
             min = 10;
             max = 99;
             int range = max - min +1;
-            int doubleDigit = (int) (Math.random() * range) + min;
-            return doubleDigit;
+            return (int) (Math.random() * range) + min;
 
         }
         if (amount == 3) {
             min=100;
             max = 999;
             int range = max - min +1;
-            int tripleDigit = (int) (Math.random() * range) + min;
-            return tripleDigit;
+            return (int) (Math.random() * range) + min;
         }
         else return 1000;
     }
