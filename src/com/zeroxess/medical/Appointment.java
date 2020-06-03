@@ -2,6 +2,7 @@ package com.zeroxess.medical;
 
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.PatientUser;
+import com.zeroxess.user.User;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -9,12 +10,12 @@ import java.time.LocalTime;
 public class Appointment {
 
     private DoctorUser practitioner;
-    private PatientUser patient;
+    private User patient;
     private LocalTime startTime;
     private LocalTime endTime;
     private int timeIndex;
 
-    public Appointment(DoctorUser practitioner, PatientUser patient, LocalTime startTime, LocalTime endTime, int timeIndex) {
+    public Appointment(DoctorUser practitioner, User patient, LocalTime startTime, LocalTime endTime, int timeIndex) {
         this.practitioner = practitioner;
         this.patient = patient;
         this.startTime = startTime;
@@ -30,11 +31,11 @@ public class Appointment {
         this.practitioner = practitioner;
     }
 
-    public PatientUser getPatient() {
+    public User getPatient() {
         return patient;
     }
 
-    public void setPatient(PatientUser patient) {
+    public void setPatient(User patient) {
         this.patient = patient;
     }
 

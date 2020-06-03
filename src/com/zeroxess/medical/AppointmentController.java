@@ -3,15 +3,19 @@ package com.zeroxess.medical;
 import com.zeroxess.Utilities;
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.PatientUser;
+import com.zeroxess.user.UserManager;
 import com.zeroxess.user.UserProfile;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 
+import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -19,6 +23,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AppointmentController {
+
+    @FXML
+    private AnchorPane pane;
 
     @FXML
     private RadioButton eyeRadioButton;
@@ -48,9 +55,9 @@ public class AppointmentController {
     private ObservableList<DoctorUser> displayedDoctors = FXCollections.observableArrayList();
     private ObservableList<Appointment> availibleAppointments = FXCollections.observableArrayList();
 
-    private static PatientUser patient = new PatientUser("yoo", "test", new UserProfile("Piet", "Patient"));
-
     public void initialize() {
+        allDoctors.addAll(UserManager.getInstance().getDoctors());
+
         ToggleGroup group = new ToggleGroup();
         eyeRadioButton.setToggleGroup(group);
         noseRadioButton.setToggleGroup(group);
@@ -83,9 +90,6 @@ public class AppointmentController {
 
         doctorsListView.setItems(displayedDoctors);
         timesListView.setItems(availibleAppointments);
-
-        allDoctors.add(new DoctorUser("jan", "yo", new UserProfile("Jan", "Sloot"), DoctorUser.DoctorSpecialization.EAR));
-        allDoctors.add(new DoctorUser("frans", "yo", new UserProfile("Frans", "Gast"), DoctorUser.DoctorSpecialization.NOSE));
 
         datePicker.setDayCellFactory(picker -> new DateCell() {
             public void updateItem(LocalDate date, boolean empty) {
@@ -157,9 +161,10 @@ public class AppointmentController {
         Appointment[] appointments = currentSelectedDoctor.getCalendar().getAppointments()[newDate.getDayOfYear()];
         LocalTime time = LocalTime.of(9, 0);
         Appointment[] availbileAppointments = appointments.clone();
+
         for (int i = 0; i < appointments.length; i++) {
             if (appointments[i] == null) {
-                Appointment appointment = new Appointment(currentSelectedDoctor, patient, time, time = time.plusMinutes(30), i);
+                Appointment appointment = new Appointment(currentSelectedDoctor, UserManager.getInstance().getLoggedInUser(), time, time = time.plusMinutes(30), i);
                 availbileAppointments[i] = appointment;
             } else {
                 availbileAppointments[i] = null;
@@ -176,12 +181,17 @@ public class AppointmentController {
         int indexForTime = selectedAppointment.getTimeIndex();
 
         selectedAppointment.getPractitioner().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
-        patient.getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
+        UserManager.getInstance().getLoggedInUser().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
 
         int idx = timesListView.getSelectionModel().getSelectedIndex();
         availibleAppointments.set(idx, null);
 
         Utilities.showDialog(Alert.AlertType.INFORMATION, "Success", "Appointment has been added to your calendar!");
+    }
+
+    @FXML
+    public void goBack(ActionEvent event) throws IOException {
+        Utilities.openHomeScreen(pane);
     }
 
 }

@@ -1,6 +1,8 @@
 package com.zeroxess.homepage;
 
 import com.zeroxess.livestockpage.LiveStockController;
+import com.zeroxess.user.UserManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,6 +41,24 @@ public class HomePageController {
     public void openMarket() throws IOException {
         Stage stage = (Stage) homePane.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/marketpage/marketpage.fxml"));
+        Scene scene =  new Scene(root, 800 ,600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void openAppointmentsManager() throws IOException {
+        Stage stage = (Stage) homePane.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/medical/appointmentmanager.fxml"));
+        Scene scene =  new Scene(root, 800 ,600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void onLogOut() throws IOException {
+        UserManager.getInstance().setLoggedInUser(null);
+
+        Stage stage = (Stage) homePane.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/loginpage.fxml"));
         Scene scene =  new Scene(root, 800 ,600);
         stage.setScene(scene);
         stage.show();

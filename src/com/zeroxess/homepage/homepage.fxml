@@ -11,15 +11,19 @@
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
       <RowConstraints />
    </rowConstraints>
    <children>
+      <Button mnemonicParsing="false" onAction="#openMarket" prefHeight="54.0" prefWidth="109.0" text="Market" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openProfileManager" prefHeight="54.0" prefWidth="109.0" text="My Profile" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openContacts" prefHeight="54.0" prefWidth="109.0" text="Contacts" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openLiveStock" prefHeight="54.0" prefWidth="109.0" text="Livestock" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" onAction="#openMarket" prefHeight="54.0" prefWidth="109.0" text="Market" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#openAppointmentsManager" prefHeight="54.0" prefWidth="109.0" text="Doctors Appointment" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="54.0" prefWidth="109.0" text="Log Out" GridPane.columnIndex="5" GridPane.rowIndex="1" />
    </children>
 </GridPane>
