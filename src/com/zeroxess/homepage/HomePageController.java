@@ -2,12 +2,14 @@ package com.zeroxess.homepage;
 
 import com.zeroxess.condition.Condition;
 import com.zeroxess.livestockpage.LiveStockController;
+import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.UserManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -17,6 +19,15 @@ public class HomePageController {
 
     @FXML
     GridPane homePane;
+
+    @FXML
+    Button conditionsButton;
+
+    public void initialize() {
+        if(!(UserManager.getInstance().getLoggedInUser() instanceof DoctorUser)){
+            conditionsButton.setDisable(true);
+        }
+    }
 
     public void openProfileManager() throws IOException {
         Stage stage = (Stage) homePane.getScene().getWindow();
