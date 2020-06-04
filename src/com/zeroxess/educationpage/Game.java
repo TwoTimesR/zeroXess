@@ -34,11 +34,11 @@ public abstract class Game {
     }
 
     public void addSingularQuestion(SingularQuestion singularQuestion) {
-        singularQuestions.add(singularQuestion);
+        this.singularQuestions.add(singularQuestion);
     }
 
     public void removeSingularQuestion(SingularQuestion singularQuestion) {
-        singularQuestions.remove(singularQuestion);
+        this.singularQuestions.remove(singularQuestion);
     }
 
     public ArrayList<MultipleChoiceQuestion> getMultipleChoiceQuestions() {
@@ -47,6 +47,14 @@ public abstract class Game {
 
     public void setMultipleChoiceQuestions(ArrayList<MultipleChoiceQuestion> multipleChoiceQuestions) {
         this.multipleChoiceQuestions = multipleChoiceQuestions;
+    }
+
+    public void addMultipleChoiceQuestion(MultipleChoiceQuestion multipleChoiceQuestion) {
+        this.multipleChoiceQuestions.add(multipleChoiceQuestion);
+    }
+
+    public void removeMultipleChoiceQuestion(MultipleChoiceQuestion multipleChoiceQuestion) {
+        this.multipleChoiceQuestions.remove(multipleChoiceQuestion);
     }
 
     public Integer getAmountOfQuestions() {
