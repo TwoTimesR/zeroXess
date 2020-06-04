@@ -23,8 +23,8 @@ public class writingGameController {
     private static int score = 0;
     private static int correctAnswers = 0;
     private int counter = 0;
-    private WritingGameObjects objects = new WritingGameObjects();
     private WritingGame game = new WritingGame("Guess the word");
+    private Performance performance = new Performance();
 
     @FXML
     private Button button;
@@ -58,15 +58,12 @@ public class writingGameController {
         changePicture();
     }
 
-    public List getQuestions() throws IOException {
-        List<String> read = Files.readAllLines(Paths.get("src\\com\\zeroxess\\educationpage\\writingGameQuestions.txt"));
-        return read;
-    }
+
 
     public void nextQuestion() throws IOException {
         counter++;
         System.out.println(counter);
-        changeQuestion();
+        //changeQuestion();
         changePicture();
         if (counter == 9) {
             load();
@@ -78,13 +75,14 @@ public class writingGameController {
         System.out.println(counter);
         changePicture();
         changeQuestion2();
+        if (counter == 9){
+            load();
+        }
 
     }
 
 
-    public void changeQuestion() throws IOException {
-        question.setText((String) getQuestions().get(counter));
-    }
+
 
     public void changeQuestion2() throws IOException {
         //question.setText(objects.question.getQuestion());
@@ -93,31 +91,26 @@ public class writingGameController {
     }
 
 
-    public List getAnswers() throws IOException {
-        List<String> read = Files.readAllLines(Paths.get("src\\com\\zeroxess\\educationpage\\writingGameAnswers"));
-        return read;
-    }
-
 
     public static int getCorrectAnswers() {
         return correctAnswers;
     }
 
-    public void correctAnswer() throws IOException {
-        if (getAnswers().get(counter).equals(Answer_field.getText())) {
-            Answer_field.setText("");
-            Answer_field.setPromptText("");
-            System.out.println("correct");
-            correctAnswers++;
-            score += 20;
-            score_points.setText(String.valueOf(score));
-            nextQuestion();
-        } else {
-            System.out.println("incorrect");
-            Answer_field.setText("");
-            Answer_field.setPromptText("Wrong answer");
-        }
-    }
+//    public void correctAnswer() throws IOException {
+//        if (getAnswers().get(counter).equals(Answer_field.getText())) {
+//            Answer_field.setText("");
+//            Answer_field.setPromptText("");
+//            System.out.println("correct");
+//            correctAnswers++;
+//            score += 20;
+//            score_points.setText(String.valueOf(score));
+//            nextQuestion();
+//        } else {
+//            System.out.println("incorrect");
+//            Answer_field.setText("");
+//            Answer_field.setPromptText("Wrong answer");
+//        }
+//    }
 
     public void correctAnswer2() throws IOException {
 
@@ -126,6 +119,7 @@ public class writingGameController {
             Answer_field.setPromptText("");
             System.out.println("correct");
             correctAnswers++;
+            System.out.println(game.getPerformance().getScore());
             nextQuestion();
         } else {
             System.out.println("incorrect");
