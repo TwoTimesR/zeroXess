@@ -25,5 +25,6 @@
       <Button mnemonicParsing="false" onAction="#openLiveStock" prefHeight="54.0" prefWidth="109.0" text="Livestock" GridPane.columnIndex="3" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openAppointmentsManager" prefHeight="54.0" prefWidth="109.0" text="Doctors Appointment" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="54.0" prefWidth="109.0" text="Log Out" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#openConditions" prefHeight="54.0" prefWidth="109.0" text="Conditions" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
 </GridPane>

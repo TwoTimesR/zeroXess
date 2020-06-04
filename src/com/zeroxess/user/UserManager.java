@@ -55,9 +55,18 @@ public class UserManager {
                 .collect(Collectors.toList());
     }
 
+    public List<PatientUser> getPatients() {
+        return users.stream()
+                .filter(sc -> sc instanceof PatientUser)
+                .map (sc -> (PatientUser) sc)
+                .collect(Collectors.toList());
+    }
+
     static {
         getInstance().getUsers().add(new PatientUser("yoo", "test", new UserProfile("Piet", "Patient")));
-        getInstance().getUsers().add(new DoctorUser("jan", "yo", new UserProfile("Jan", "Sloot"), DoctorUser.DoctorSpecialization.EAR));
+        getInstance().getUsers().add(new PatientUser("peter", "test", new UserProfile("Peter", "Patient")));
+        getInstance().getUsers().add(new PatientUser("willem", "test", new UserProfile("Willem", "Wever")));
+        getInstance().getUsers().add(new DoctorUser("jan", "yo", new UserProfile("Jan", "Sloot"), DoctorUser.DoctorSpecialization.EAR, DoctorUser.DoctorSpecialization.GENERAL));
         getInstance().getUsers().add(new DoctorUser("frans", "yo", new UserProfile("Frans", "Gast"), DoctorUser.DoctorSpecialization.NOSE));
     }
 }

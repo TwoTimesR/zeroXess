@@ -17,4 +17,9 @@ public class PatientUser extends User {
     public void setHealthCondtions(String healthCondtions) {
         this.healthCondtions = healthCondtions;
     }
+
+    @Override
+    public String toString() {
+        return getUserProfile().getFirstName()+" "+getUserProfile().getLastName();
+    }
 }
