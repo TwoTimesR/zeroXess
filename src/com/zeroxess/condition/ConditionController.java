@@ -39,6 +39,9 @@ public class ConditionController {
     @FXML
     private ListView<Condition> PatientConditionListView;
 
+    @FXML
+    private Label patientConditionDoctor;
+
     public void initialize() {
         PatientConditionDescription.setEditable(false);
 
@@ -62,8 +65,7 @@ public class ConditionController {
         String desc = conditionDescription.getText();
 
         Condition condition = new Condition(doctor, patient, desc, type);
-        Condition.addCondition(condition);
-        System.out.println(Condition.getConditions());
+        patient.addHealthCondition(condition);
         clear();
     }
 
@@ -75,7 +77,7 @@ public class ConditionController {
     public void patientConditions(javafx.scene.input.MouseEvent mouseEvent) {
         ObservableList<Condition> cons = FXCollections.observableArrayList();
         PatientUser patient = patientsListView.getSelectionModel().getSelectedItem();
-        for (Condition con : Condition.getConditions(patient)) {
+        for (Condition con : patient.getHealthConditions()) {
             cons.add(con);
         }
         PatientConditionListView.setItems(cons);
@@ -85,10 +87,12 @@ public class ConditionController {
     public void showPatientConditionDescription(MouseEvent mouseEvent) {
         String desc = PatientConditionListView.getSelectionModel().getSelectedItem().getDescription();
         PatientConditionDescription.setText(desc);
+        patientConditionDoctor.setText(PatientConditionListView.getSelectionModel().getSelectedItem().getDoctor().toString());
     }
 
     public void clearPatientConditionDescription(){
         PatientConditionDescription.setText("");
+        patientConditionDoctor.setText("");
     }
 
     public void clearConditionDescription(){

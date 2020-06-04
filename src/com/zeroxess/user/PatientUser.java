@@ -1,21 +1,25 @@
 package com.zeroxess.user;
 
+import com.zeroxess.condition.Condition;
 import com.zeroxess.medical.Calendar;
+
+import java.util.ArrayList;
 
 public class PatientUser extends User {
 
-    private String healthCondtions;
+    private ArrayList<Condition> healthConditions;
 
     public PatientUser(String username, String password, UserProfile userProfile) {
         super(username, password, userProfile);
+        healthConditions = new ArrayList<Condition>();
     }
 
-    public String getHealthCondtions() {
-        return healthCondtions;
+    public ArrayList<Condition> getHealthConditions() {
+        return healthConditions;
     }
 
-    public void setHealthCondtions(String healthCondtions) {
-        this.healthCondtions = healthCondtions;
+    public void addHealthCondition(Condition healthCondition) {
+        this.healthConditions.add(healthCondition);
     }
 
     @Override
