@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class MultipleChoiceQuestion extends Question{
     private ArrayList<MultipleChoiceAnswer> multipleChoiceAnswers;
+    private MultipleChoiceAnswer pickedChoice;
 
     public MultipleChoiceQuestion(String question, Integer points) {
         super(question, points);
@@ -17,8 +18,7 @@ public class MultipleChoiceQuestion extends Question{
 
     @Override
     public Boolean checkAnswer() {
-        int pickedChoice = Integer.parseInt(getUserAnswer()); // user picks a choice ranging from 1 to n
-        return multipleChoiceAnswers.get(pickedChoice).getCorrect();
+        return pickedChoice.getCorrect();
     }
 
     public ArrayList<MultipleChoiceAnswer> getMultipleChoiceAnswers() {
@@ -35,5 +35,13 @@ public class MultipleChoiceQuestion extends Question{
 
     public void removeMultipleChoiceAnswer(MultipleChoiceAnswer multipleChoiceAnswer) {
         multipleChoiceAnswers.remove(multipleChoiceAnswer);
+    }
+
+    public MultipleChoiceAnswer getPickedChoice() {
+        return pickedChoice;
+    }
+
+    public void setPickedChoice(MultipleChoiceAnswer pickedChoice) {
+        this.pickedChoice = pickedChoice;
     }
 }

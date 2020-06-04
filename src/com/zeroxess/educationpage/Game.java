@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 public abstract class Game {
     private String title;
-    private ArrayList<Question> questions;
+    private ArrayList<SingularQuestion> singularQuestions;
+    private ArrayList<MultipleChoiceQuestion> multipleChoiceQuestions;
     private Integer amountOfQuestions;
     private Performance performance;
 
     public Game(String gameTitle) {
         this.title = gameTitle;
-        this.questions = new ArrayList<>();
-        this.amountOfQuestions = questions.size();
+        this.singularQuestions = new ArrayList<>();
+        this.multipleChoiceQuestions = new ArrayList<>();
+        this.amountOfQuestions = singularQuestions.size() + multipleChoiceQuestions.size();
         this.performance = new Performance();
     }
 
@@ -23,27 +25,33 @@ public abstract class Game {
         this.title = title;
     }
 
-    public ArrayList<Question> getQuestions() {
-        return questions;
+    public ArrayList<SingularQuestion> getSingularQuestions() {
+        return singularQuestions;
     }
 
-    public void setQuestions(ArrayList<Question> questions) {
-        this.questions = questions;
+    public void setSingularQuestions(ArrayList<SingularQuestion> singularQuestions) {
+        this.singularQuestions = singularQuestions;
     }
 
-    public void addQuestion(Question question) {
-        amountOfQuestions++;
-        amountOfQuestions = questions.size();
+    public void addSingularQuestion(SingularQuestion singularQuestion) {
+        singularQuestions.add(singularQuestion);
     }
 
-    public void removeQuestion(Question question) {
-        questions.remove(question);
-        amountOfQuestions--;
-        amountOfQuestions = questions.size();
+    public void removeSingularQuestion(SingularQuestion singularQuestion) {
+        singularQuestions.remove(singularQuestion);
+    }
+
+    public ArrayList<MultipleChoiceQuestion> getMultipleChoiceQuestions() {
+        return multipleChoiceQuestions;
+    }
+
+    public void setMultipleChoiceQuestions(ArrayList<MultipleChoiceQuestion> multipleChoiceQuestions) {
+        this.multipleChoiceQuestions = multipleChoiceQuestions;
     }
 
     public Integer getAmountOfQuestions() {
-        return questions.size();
+        this.amountOfQuestions = singularQuestions.size() + multipleChoiceQuestions.size();
+        return amountOfQuestions;
     }
 
     public void setAmountOfQuestions(Integer amountOfQuestions) {
