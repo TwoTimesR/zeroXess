@@ -2,6 +2,7 @@ package com.zeroxess.educationpage;
 
 public class SingularQuestion extends Question{
     private SingularAnswer singularAnswer;
+    private String userAnswer;
 
     public SingularQuestion(String question, Integer points, String correctAnswer) {
         super(question, points);
@@ -15,7 +16,15 @@ public class SingularQuestion extends Question{
 
     @Override
     public Boolean checkAnswer() {
-        return getUserAnswer().equals(singularAnswer.getCorrectAnswer());
+        return userAnswer.equals(singularAnswer.getCorrectAnswer());
+    }
+
+    public String getUserAnswer() {
+        return userAnswer;
+    }
+
+    public void setUserAnswer(String userAnswer) {
+        this.userAnswer = userAnswer;
     }
 
     public SingularAnswer getSingularAnswer() {
