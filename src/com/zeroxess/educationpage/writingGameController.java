@@ -23,6 +23,8 @@ public class writingGameController {
     private static int score = 0;
     private static int correctAnswers = 0;
     private int counter = 0;
+    private WritingGame game = new WritingGame("Guess the word");
+    private Performance performance = new Performance();
 
     @FXML
     private Button button;
@@ -52,58 +54,82 @@ public class writingGameController {
     public void initialize() throws IOException {
         System.out.println(counter);
         score_points.setText(String.valueOf(score));
-       changeQuestion();
-       changePicture();
+        changeQuestion2();
+        changePicture();
     }
 
-    public List getQuestions() throws IOException{
-        List<String> read = Files.readAllLines(Paths.get("src\\com\\zeroxess\\educationpage\\writingGameQuestions.txt"));
-        return read;
-    }
 
-    public  void  nextQuestion() throws IOException{
+
+    public void nextQuestion() throws IOException {
         counter++;
         System.out.println(counter);
-        changeQuestion();
+        //changeQuestion();
         changePicture();
-        if (counter==9){
+        if (counter == 9) {
             load();
         }
     }
 
+    public void nextQuestion2() throws IOException {
+        counter++;
+        System.out.println(counter);
+        changePicture();
+        changeQuestion2();
+        if (counter == 9){
+            load();
+        }
 
-
-public void changeQuestion() throws IOException{
-        question.setText((String) getQuestions().get(counter));
-}
-
-
-
-    public List getAnswers() throws IOException{
-        List<String> read = Files.readAllLines(Paths.get("src\\com\\zeroxess\\educationpage\\writingGameAnswers"));
-        return read;
     }
+
+
+
+
+    public void changeQuestion2() throws IOException {
+        //question.setText(objects.question.getQuestion());
+      question.setText(game.createQuestions().get(counter));
+
+    }
+
 
 
     public static int getCorrectAnswers() {
         return correctAnswers;
     }
-    public void correctAnswer() throws IOException{
-        if (getAnswers().get(counter).equals(Answer_field.getText())){
+
+//    public void correctAnswer() throws IOException {
+//        if (getAnswers().get(counter).equals(Answer_field.getText())) {
+//            Answer_field.setText("");
+//            Answer_field.setPromptText("");
+//            System.out.println("correct");
+//            correctAnswers++;
+//            score += 20;
+//            score_points.setText(String.valueOf(score));
+//            nextQuestion();
+//        } else {
+//            System.out.println("incorrect");
+//            Answer_field.setText("");
+//            Answer_field.setPromptText("Wrong answer");
+//        }
+//    }
+
+    public void correctAnswer2() throws IOException {
+
+        if (game.createAnswers().get(counter).equals(Answer_field.getText())) {
             Answer_field.setText("");
             Answer_field.setPromptText("");
             System.out.println("correct");
             correctAnswers++;
-            score+=20;
-            score_points.setText(String.valueOf(score));
+            System.out.println(game.getPerformance().getScore());
             nextQuestion();
-        } else{
+        } else {
             System.out.println("incorrect");
             Answer_field.setText("");
             Answer_field.setPromptText("Wrong answer");
         }
     }
-    public void changePicture() throws IOException{
+
+
+    public void changePicture() throws IOException {
         ArrayList<FileInputStream> input = new ArrayList<>();
         input.add(new FileInputStream("src\\img\\apple.png"));
         input.add(new FileInputStream("src\\img\\bee.jpg"));
@@ -119,14 +145,14 @@ public void changeQuestion() throws IOException{
         Image img = new Image(input.get(counter));
         image_view.setImage(img);
     }
-        public void load() throws IOException{
-            Stage stage = (Stage) borderPane.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("endScreen.fxml"));
-            Scene scene = new Scene(root,800,600);
-            stage.setScene(scene);
-            stage.show();
-        }
 
+    public void load() throws IOException {
+        Stage stage = (Stage) borderPane.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("endScreen.fxml"));
+        Scene scene = new Scene(root, 800, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 }
