@@ -3,7 +3,7 @@ package com.zeroxess.educationpage;
 public class MathGameSingleDigit extends MathGame {
 
     public MathGameSingleDigit(){
-        setSingleDigit(randomSingleDigit());
+        setDigit(randomSingleDigit());
 
     }
 

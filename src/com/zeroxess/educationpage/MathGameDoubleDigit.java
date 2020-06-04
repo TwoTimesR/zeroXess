@@ -3,7 +3,7 @@ package com.zeroxess.educationpage;
 public class MathGameDoubleDigit extends MathGame {
 
     public MathGameDoubleDigit(){
-        setDoubleDigit(randomDoubleDigit());
+        setDigit(randomDoubleDigit());
 
     }
 

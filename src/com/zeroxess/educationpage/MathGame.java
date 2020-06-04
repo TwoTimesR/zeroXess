@@ -1,9 +1,7 @@
 package com.zeroxess.educationpage;
 
 public abstract class MathGame extends Game {
-    protected int singleDigit;
-    protected int doubleDigit;
-    protected int tripleDigit;
+    protected int Digit;
     protected String mathSign;
 
 
@@ -15,28 +13,12 @@ public abstract class MathGame extends Game {
     }
 
 
-    public int getSingleDigit() {
-        return singleDigit;
+    public int getDigit() {
+        return Digit;
     }
 
-    public void setSingleDigit(int singleDigit) {
-        this.singleDigit = singleDigit;
-    }
-
-    public int getDoubleDigit() {
-        return doubleDigit;
-    }
-
-    public void setDoubleDigit(int doubleDigit) {
-        this.doubleDigit = doubleDigit;
-    }
-
-    public int getTripleDigit() {
-        return tripleDigit;
-    }
-
-    public void setTripleDigit(int tripleDigit) {
-        this.tripleDigit = tripleDigit;
+    public void setDigit(int digit) {
+        Digit = digit;
     }
 
     public String getMathSign() {

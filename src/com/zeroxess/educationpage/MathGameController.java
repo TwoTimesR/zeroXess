@@ -33,6 +33,11 @@ public class MathGameController {
     public Button QuitButton;
     public Label equalsSign;
     public Label scoreName;
+
+    public Label questionLabel;
+    public Label numberQuestion;
+    public Button backToDificultySelect;
+
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -42,6 +47,9 @@ public class MathGameController {
 
     boolean gameMode;
     boolean gameDifficulty;
+
+    MathGameFactory mathGameFactory = new MathGameFactory();
+    MathGame mathGame;
 
     @FXML
     private void onStartClicked(){
@@ -75,15 +83,44 @@ public class MathGameController {
     @FXML
     private void normalDificulty(){
         this.gameDifficulty = true;
-        displayGameScrean();
+        displayGameScreanNormal();
+        createQuestion();
 
     }
 
     @FXML
     private void hardDificulty(){
         this.gameDifficulty = false;
-        displayGameScrean();
+        displayGameScreanHard();
+        createQuestion();
 
+    }
+
+    private void createQuestion(){
+        if (gameDifficulty == true){
+            // normal Dificulty
+            normalQuestionGen();
+        }
+        if (gameDifficulty == false){
+            hardQuestionGen();
+        }
+    }
+
+    private void normalQuestionGen(){
+        mathGame= mathGameFactory.makeNumber();
+        number1.setText(String.valueOf(mathGame.getDigit()));
+        mathGame = mathGameFactory.makeNumber();
+        number2.setText(String.valueOf(mathGame.getDigit()));
+        mathGame = mathGameFactory.makeMathSign();
+        mathSign1.setText(mathGame.getMathSign());
+    }
+
+    private void hardQuestionGen(){
+        normalQuestionGen();
+        mathGame = mathGameFactory.makeNumber();
+        number3.setText(String.valueOf(mathGame.getDigit()));
+        mathGame = mathGameFactory.makeMathSign();
+        mathSign2.setText(mathGame.getMathSign());
 
     }
 
@@ -104,6 +141,7 @@ public class MathGameController {
 
     @FXML
     private void onQuitButtonClicked() throws IOException {
+        disableGameScreen();
         Stage stage = (Stage) borderPane.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/educationpage/endScreen.fxml"));
         Scene scene =  new Scene(root, 800 ,600);
@@ -112,7 +150,10 @@ public class MathGameController {
 
     }
 
-
+    @FXML
+    private void onBackToDIficultySelect(){
+        disableGameScreen();
+    }
 
 
     @FXML
@@ -158,23 +199,54 @@ public class MathGameController {
         returnToStartButton.setVisible(true);
     }
 
-    private void displayGameScrean(){
+    private void displayGameScreanNormal(){
         number1.setVisible(true);
         number2.setVisible(true);
-        number3.setVisible(true);
         mathSign1.setVisible(true);
-        mathSign2.setVisible(true);
         equalsSign.setVisible(true);
         scoreLabel.setVisible(true);
         scoreLabel.setText("0");
         scoreName.setVisible(true);
+        questionLabel.setVisible(true);
+        numberQuestion.setVisible(true);
+        numberQuestion.setText("0");
+        numberQuestion.setVisible(true);
+        backToDificultySelect.setVisible(true);
         AnswerTextField.setVisible(true);
         checkAnswerButton.setVisible(true);
         QuitButton.setVisible(true);
         normalDificulty.setVisible(false);
         hardDificulty.setVisible(false);
         returnToGameSelect.setVisible(false);
+    }
 
+    private void displayGameScreanHard(){
+        displayGameScreanNormal();
+        mathSign2.setVisible(true);
+        number3.setVisible(true);
+    }
+
+    private void disableGameScreen(){
+        number1.setVisible(false);
+        number2.setVisible(false);
+        mathSign1.setVisible(false);
+        equalsSign.setVisible(false);
+        scoreLabel.setVisible(false);
+        scoreLabel.setText("0");
+        scoreName.setVisible(false);
+        questionLabel.setVisible(false);
+        numberQuestion.setVisible(false);
+        numberQuestion.setText("0");
+        numberQuestion.setVisible(false);
+        backToDificultySelect.setVisible(false);
+        AnswerTextField.setVisible(false);
+        checkAnswerButton.setVisible(false);
+        QuitButton.setVisible(false);
+        mathSign2.setVisible(false);
+        number3.setVisible(false);
+        normalDificulty.setVisible(true);
+        hardDificulty.setVisible(true);
+        returnToGameSelect.setVisible(true);
     }
 
 
