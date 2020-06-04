@@ -17,6 +17,9 @@ public abstract class Game {
         this.performance = new Performance();
     }
 
+    protected Game() {
+    }
+
     public String getTitle() {
         return title;
     }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="homePane" alignment="CENTER" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.homepage.HomePageController">
+<GridPane fx:id="homePane" alignment="CENTER" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.homepage.HomePageController">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -20,5 +21,6 @@
       <Button mnemonicParsing="false" onAction="#openLiveStock" prefHeight="54.0" prefWidth="109.0" text="Livestock" GridPane.columnIndex="3" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openMarket" prefHeight="54.0" prefWidth="109.0" text="Market" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openWritingGame" prefHeight="26.0" prefWidth="110.0" text="WritingGame" />
+      <Button fx:id="MathGame" mnemonicParsing="false" onAction="#openMathGame" prefHeight="25.0" prefWidth="108.0" text="MathGame" GridPane.columnIndex="1" />
    </children>
 </GridPane>
