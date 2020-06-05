@@ -15,9 +15,9 @@ class GameTest {
                 "The end."
         );
 
-        SingularQuestion sq0 = new SingularQuestion("How many fish did John catch?", "7");
+        SingularQuestion sq0 = new SingularQuestion("How many fish did John catch?", "7", 15);
 
-        MultipleChoiceQuestion mcq0 = new MultipleChoiceQuestion("Which answer describes the fisherman's reaction the best.");
+        MultipleChoiceQuestion mcq0 = new MultipleChoiceQuestion("Which answer describes the fisherman's reaction the best.", 5);
 
         MultipleChoiceAnswer mca1_0 = new MultipleChoiceAnswer("surprised but happy", true);
         MultipleChoiceAnswer mca1_1 = new MultipleChoiceAnswer("very sad", false);
@@ -32,5 +32,6 @@ class GameTest {
         readingGame.addMultipleChoiceQuestion(mcq0);
 
         System.out.println(readingGame.getMultipleChoiceQuestions().get(0).getMultipleChoiceAnswers().get(0).getAnswer());
+        // answer = "surprised but happy"
     }
 }

@@ -3,8 +3,13 @@ package com.zeroxess.educationpage;
 import java.util.ArrayList;
 
 public class WritingGame extends Game {
+    public WritingGame(String gameTitle) {
+        super(gameTitle);
+    }
+
     private ArrayList<String> questionList = new ArrayList<>();
     private ArrayList<String> answerList = new ArrayList<>();
+
     SingularQuestion question = new SingularQuestion("1.What is the name of this fruit?",5, "apple");
     SingularQuestion question2 = new SingularQuestion("2.What is the name of this insect?", "bee");
     SingularQuestion question3 = new SingularQuestion("3.Which country does this flag belong to?", "japan");
@@ -14,11 +19,6 @@ public class WritingGame extends Game {
     SingularQuestion question7 = new SingularQuestion("7.What do you call this vehicle?", "car");
     SingularQuestion question8 = new SingularQuestion("8.What are they doing?", "dancing");
     SingularQuestion question9 = new SingularQuestion("9.What programming language is this?", "java");
-
-    public WritingGame(String gameTitle) {
-        super(gameTitle);
-    }
-
 
     public ArrayList<String> createQuestions() {
         questionList.add(question.getQuestion());

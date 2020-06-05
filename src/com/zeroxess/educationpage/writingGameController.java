@@ -24,7 +24,6 @@ public class writingGameController {
     private static int correctAnswers = 0;
     private int counter = 0;
     private WritingGame game = new WritingGame("Guess the word");
-    private Performance performance = new Performance();
 
     @FXML
     private Button button;

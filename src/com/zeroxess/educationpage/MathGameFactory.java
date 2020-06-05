@@ -7,7 +7,7 @@ public class MathGameFactory {
 
     public MathGame makeNumber(){
         number = null;
-       int rand = threeRandomGen();
+        int rand = threeRandomGen();
         return selectDigit(rand);
     }
 

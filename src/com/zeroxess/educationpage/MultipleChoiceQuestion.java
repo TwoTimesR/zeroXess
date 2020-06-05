@@ -17,8 +17,8 @@ public class MultipleChoiceQuestion extends Question{
     }
 
     @Override
-    public Boolean checkAnswer() {
-        return pickedChoice.getCorrect();
+    public void checkAnswer() {
+        setAnsweredCorrectly(pickedChoice.getCorrect());
     }
 
     public ArrayList<MultipleChoiceAnswer> getMultipleChoiceAnswers() {

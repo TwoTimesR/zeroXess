@@ -17,7 +17,37 @@ public abstract class Game {
         this.performance = new Performance();
     }
 
-    protected Game() {
+    protected Game() { // not supposed to be here
+    }
+
+    public void adjustPerformanceSingular() {
+        int i = 0; // choose index, might become parameter
+        if (singularQuestions.get(i).getAnsweredCorrectly()) {
+            performance.setScore(performance.getScore() + singularQuestions.get(i).getPoints());
+            positiveAdjustment();
+        }
+        else {
+            negativeAdjustment();
+        }
+    }
+
+    public void adjustPerformanceMultipleChoice() {
+        int i = 0; // choose index, might become parameter
+        if (multipleChoiceQuestions.get(i).getAnsweredCorrectly()) {
+            performance.setScore(performance.getScore() + multipleChoiceQuestions.get(i).getPoints());
+            positiveAdjustment();
+        }
+        else {
+            negativeAdjustment();
+        }
+    }
+
+    private void positiveAdjustment() {
+        performance.setCorrectlyAnswered(performance.getCorrectlyAnswered() + 1);
+    }
+
+    private void negativeAdjustment() {
+        performance.setIncorrectlyAnswered(performance.getIncorrectlyAnswered() + 1);
     }
 
     public String getTitle() {
