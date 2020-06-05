@@ -50,6 +50,7 @@ public class MathGameController {
     boolean correctAnswer;
     int score;
     int questionNumber;
+    int correctAnswers;
 
     MathGameFactory mathGameFactory = new MathGameFactory();
     MathGame mathDigit1;
@@ -193,7 +194,7 @@ public class MathGameController {
             AnswerTextField.setEditable(false);
             score = score + 10;
             scoreLabel.setText(String.valueOf(score));
-
+            correctAnswers ++;
             return correctAnswer =true;
         }
         else {
@@ -206,9 +207,17 @@ public class MathGameController {
         }
     }
 
+    public int getCorrectAnswers() {
+        return correctAnswers;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     @FXML
-    private void onnextQuestionClicked() throws IOException, InterruptedException {
-        checkAnswerButton.setVisible(true);
+    private void onnextQuestionClicked() throws IOException {
+            checkAnswerButton.setVisible(true);
         nextQuestion.setVisible(false);
         AnswerTextField.clear();
         AnswerTextField.setEditable(true);
@@ -228,7 +237,7 @@ public class MathGameController {
     private void onQuitButtonClicked() throws IOException {
         disableGameScreen();
         Stage stage = (Stage) borderPane.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/educationpage/endScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/educationpage/MathGameEndScreen.fxml"));
         Scene scene =  new Scene(root, 800 ,600);
         stage.setScene(scene);
         stage.show();
@@ -291,6 +300,7 @@ public class MathGameController {
         equalsSign.setVisible(true);
         scoreLabel.setVisible(true);
         scoreLabel.setText("0");
+        correctAnswers = 0;
         scoreName.setVisible(true);
         questionLabel.setVisible(true);
         numberQuestion.setVisible(true);
@@ -325,6 +335,7 @@ public class MathGameController {
         numberQuestion.setVisible(false);
         numberQuestion.setText("0");
         questionNumber = 1;
+        correctAnswers = 0;
         numberQuestion.setVisible(false);
         backToDificultySelect.setVisible(false);
         AnswerTextField.setVisible(false);
