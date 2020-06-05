@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -20,7 +21,14 @@
       </AnchorPane>
    </bottom>
    <top>
-      <AnchorPane prefHeight="102.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="102.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="farewellMessage" layoutX="183.0" layoutY="24.0" prefHeight="54.0" prefWidth="435.0" text="Thank you for playing !" visible="false">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </top>
    <center>
       <AnchorPane prefHeight="354.0" prefWidth="800.0" BorderPane.alignment="CENTER">
@@ -40,6 +48,27 @@
             <Label fx:id="questionLabel" layoutX="21.0" layoutY="156.0" text="Question number :" visible="false" />
             <Label fx:id="numberQuestion" layoutX="120.0" layoutY="156.0" text="numberQuestion" visible="false" />
             <Button fx:id="backToDificultySelect" layoutX="491.0" layoutY="307.0" mnemonicParsing="false" onAction="#onBackToDIficultySelect" prefHeight="41.0" prefWidth="106.0" text="Return" visible="false" />
+            <Button fx:id="home_Page" layoutX="660.0" layoutY="302.0" mnemonicParsing="false" onAction="#onHomePageButtonClicked" prefHeight="47.0" prefWidth="94.0" text="HomePage" visible="false" />
+            <Label fx:id="endCorrectAnswers" layoutX="350.0" layoutY="266.0" text="endCorrectLabel" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="endCorectAnswersLabel" layoutX="142.0" layoutY="266.0" text="CorrectAnswers :" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="endTotal_score" layoutX="350.0" layoutY="306.0" text="endScoreLabel" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="endScoreLabel" layoutX="204.0" layoutY="306.0" text="TotalScore :" visible="false">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </center>
 </BorderPane>

@@ -1,6 +1,7 @@
 package com.zeroxess.educationpage;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +38,13 @@ public class MathGameController {
     public Label questionLabel;
     public Label numberQuestion;
     public Button backToDificultySelect;
+    
+    public Button home_Page;
+    public Label endTotal_score;
+    public Label endScoreLabel;
+    public Label farewellMessage;
+    public Label endCorrectAnswers;
+    public Label endCorectAnswersLabel;
 
     @FXML
     private BorderPane borderPane;
@@ -234,13 +242,18 @@ public class MathGameController {
     }
 
     @FXML
-    private void onQuitButtonClicked() throws IOException {
-        disableGameScreen();
+    public void onHomePageButtonClicked() throws IOException {
         Stage stage = (Stage) borderPane.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/educationpage/MathGameEndScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/homepage/homepage.fxml"));
         Scene scene =  new Scene(root, 800 ,600);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void onQuitButtonClicked() {
+        disableGameScreen();
+        enableEndScreen();
 
     }
 
@@ -300,6 +313,7 @@ public class MathGameController {
         equalsSign.setVisible(true);
         scoreLabel.setVisible(true);
         scoreLabel.setText("0");
+        score = 0;
         correctAnswers = 0;
         scoreName.setVisible(true);
         questionLabel.setVisible(true);
@@ -328,14 +342,9 @@ public class MathGameController {
         mathSign1.setVisible(false);
         equalsSign.setVisible(false);
         scoreLabel.setVisible(false);
-        score = 0;
-        scoreLabel.setText("0");
         scoreName.setVisible(false);
         questionLabel.setVisible(false);
         numberQuestion.setVisible(false);
-        numberQuestion.setText("0");
-        questionNumber = 1;
-        correctAnswers = 0;
         numberQuestion.setVisible(false);
         backToDificultySelect.setVisible(false);
         AnswerTextField.setVisible(false);
@@ -347,6 +356,21 @@ public class MathGameController {
         normalDificulty.setVisible(true);
         hardDificulty.setVisible(true);
         returnToGameSelect.setVisible(true);
+    }
+
+    private void enableEndScreen(){
+        farewellMessage.setVisible(true);
+        home_Page.setVisible(true);
+        endTotal_score.setVisible(true);
+        endTotal_score.setText(String.valueOf(getScore()));
+        endScoreLabel.setVisible(true);
+        endCorrectAnswers.setVisible(true);
+        endCorrectAnswers.setText(String.valueOf(getCorrectAnswers()));
+        endCorectAnswersLabel.setVisible(true);
+        normalDificulty.setVisible(false);
+        hardDificulty.setVisible(false);
+        returnToGameSelect.setVisible(false);
+
     }
 
 
