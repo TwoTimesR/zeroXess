@@ -33,7 +33,7 @@
             <Label fx:id="number3" alignment="CENTER" layoutX="203.0" layoutY="139.0" prefHeight="50.0" prefWidth="88.0" text="Number3" visible="false" />
             <TextField fx:id="AnswerTextField" layoutX="597.0" layoutY="147.0" prefHeight="35.0" prefWidth="107.0" visible="false" />
             <Button fx:id="checkAnswerButton" layoutX="597.0" layoutY="182.0" mnemonicParsing="false" onAction="#onCheckAswerClicked" prefHeight="41.0" prefWidth="106.0" text="Check" visible="false" />
-            <Button fx:id="nextQuestion" layoutX="598.0" layoutY="223.0" mnemonicParsing="false" onAction="#onnextQuestionClicked" prefHeight="41.0" prefWidth="106.0" text="Next" visible="false" />
+            <Button fx:id="nextQuestion" layoutX="597.0" layoutY="182.0" mnemonicParsing="false" onAction="#onnextQuestionClicked" prefHeight="41.0" prefWidth="106.0" text="Next" visible="false" />
             <Label fx:id="scoreName" layoutX="603.0" layoutY="56.0" prefHeight="41.0" prefWidth="37.0" text="score :" visible="false" />
             <Label fx:id="scoreLabel" layoutX="640.0" layoutY="56.0" prefHeight="41.0" prefWidth="67.0" text="score amount" visible="false" />
             <Button fx:id="QuitButton" layoutX="597.0" layoutY="307.0" mnemonicParsing="false" onAction="#onQuitButtonClicked" prefHeight="41.0" prefWidth="106.0" text="Quit" visible="false" />
