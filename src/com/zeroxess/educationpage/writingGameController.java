@@ -14,16 +14,14 @@ import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 
 public class writingGameController {
     private static int score = 0;
     private static int correctAnswers = 0;
     private int counter = 0;
     private WritingGame game = new WritingGame("Guess the word");
+    private Performance performance = new Performance();
 
     @FXML
     private Button button;
@@ -58,7 +56,6 @@ public class writingGameController {
     }
 
 
-
     public void nextQuestion() throws IOException {
         counter++;
         System.out.println(counter);
@@ -74,21 +71,18 @@ public class writingGameController {
         System.out.println(counter);
         changePicture();
         changeQuestion2();
-        if (counter == 9){
+        if (counter == 9) {
             load();
         }
 
     }
 
 
-
-
     public void changeQuestion2() throws IOException {
         //question.setText(objects.question.getQuestion());
-      question.setText(game.createQuestions().get(counter));
+        question.setText(game.createQuestions().get(counter));
 
     }
-
 
 
     public static int getCorrectAnswers() {
@@ -118,8 +112,7 @@ public class writingGameController {
             Answer_field.setPromptText("");
             System.out.println("correct");
             correctAnswers++;
-            System.out.println(game.getPerformance().getScore());
-            nextQuestion();
+            nextQuestion2();
         } else {
             System.out.println("incorrect");
             Answer_field.setText("");

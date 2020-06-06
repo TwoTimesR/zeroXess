@@ -10,7 +10,7 @@ public class WritingGame extends Game {
     private ArrayList<String> questionList = new ArrayList<>();
     private ArrayList<String> answerList = new ArrayList<>();
 
-    SingularQuestion question = new SingularQuestion("1.What is the name of this fruit?",5, "apple");
+    SingularQuestion question = new SingularQuestion("1.What is the name of this fruit?", "apple");
     SingularQuestion question2 = new SingularQuestion("2.What is the name of this insect?", "bee");
     SingularQuestion question3 = new SingularQuestion("3.Which country does this flag belong to?", "japan");
     SingularQuestion question4 = new SingularQuestion("4.What is the name of this food?", "hamburger");
@@ -44,6 +44,7 @@ public class WritingGame extends Game {
         answerList.add(question9.getSingularAnswer().getCorrectAnswer());
         return answerList;
     }
+
 
 
 }
