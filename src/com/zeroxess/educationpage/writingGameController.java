@@ -56,16 +56,6 @@ public class writingGameController {
     }
 
 
-    public void nextQuestion() throws IOException {
-        counter++;
-        System.out.println(counter);
-        //changeQuestion();
-        changePicture();
-        if (counter == 9) {
-            load();
-        }
-    }
-
     public void nextQuestion2() throws IOException {
         counter++;
         System.out.println(counter);
@@ -78,10 +68,8 @@ public class writingGameController {
     }
 
 
-    public void changeQuestion2() throws IOException {
-        //question.setText(objects.question.getQuestion());
-        question.setText(game.createQuestions().get(counter));
-
+    public void changeQuestion2() {
+        question.setText(game.addQuestions().get(counter).getQuestion());
     }
 
 
@@ -89,25 +77,10 @@ public class writingGameController {
         return correctAnswers;
     }
 
-//    public void correctAnswer() throws IOException {
-//        if (getAnswers().get(counter).equals(Answer_field.getText())) {
-//            Answer_field.setText("");
-//            Answer_field.setPromptText("");
-//            System.out.println("correct");
-//            correctAnswers++;
-//            score += 20;
-//            score_points.setText(String.valueOf(score));
-//            nextQuestion();
-//        } else {
-//            System.out.println("incorrect");
-//            Answer_field.setText("");
-//            Answer_field.setPromptText("Wrong answer");
-//        }
-//    }
 
     public void correctAnswer2() throws IOException {
 
-        if (game.createAnswers().get(counter).equals(Answer_field.getText())) {
+        if (game.addQuestions().get(counter).getSingularAnswer().getCorrectAnswer().equals(Answer_field.getText())) {
             Answer_field.setText("");
             Answer_field.setPromptText("");
             System.out.println("correct");
