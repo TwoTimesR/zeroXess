@@ -81,6 +81,9 @@ public class writingGameController {
     public void correctAnswer2() throws IOException {
 
         if (game.addQuestions().get(counter).getSingularAnswer().getCorrectAnswer().equals(Answer_field.getText())) {
+            score += game.addQuestions().get(counter).getPoints();
+            score_points.setText(String.valueOf(score));
+            System.out.println(score);
             Answer_field.setText("");
             Answer_field.setPromptText("");
             System.out.println("correct");
