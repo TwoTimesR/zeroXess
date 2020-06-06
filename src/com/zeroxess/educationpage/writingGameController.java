@@ -41,6 +41,8 @@ public class writingGameController {
     Button check_button;
     @FXML
     Label score_text;
+    @FXML
+    Button home_button;
 
     @FXML
     Button next_button;
@@ -70,13 +72,9 @@ public class writingGameController {
     }
 
 
-
     public void changeQuestion() {
         question.setText(game.addQuestions().get(counter).getQuestion());
     }
-
-
-
 
 
     public void correctAnswer() throws IOException {
@@ -110,7 +108,7 @@ public class writingGameController {
         input.add(new FileInputStream("src\\img\\car.png"));
         input.add(new FileInputStream("src\\img\\dancing.jpg"));
         input.add(new FileInputStream("src\\img\\java.png"));
-       input.add(new FileInputStream("src\\img\\frog.jpg"));
+        input.add(new FileInputStream("src\\img\\frog.jpg"));
 
         Image img = new Image(input.get(counter));
         image_view.setImage(img);
@@ -130,6 +128,7 @@ public class writingGameController {
         total_score.setVisible(true);
         total_answers.setVisible(true);
         question.setText("Thank you for playing !");
+        home_button.setVisible(true);
         question.setLayoutX(240);
         endingPicture();
     }
@@ -139,6 +138,13 @@ public class writingGameController {
         image_view.setImage(img);
         image_view.setFitHeight(239);
         image_view.setFitWidth(368);
+    }
+    public void homepage() throws IOException {
+        Stage stage = (Stage) borderPane.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/homepage/homepage.fxml"));
+        Scene scene =  new Scene(root, 800 ,600);
+        stage.setScene(scene);
+        stage.show();
     }
 
 

@@ -51,6 +51,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
+            <Button fx:id="home_button" layoutX="342.0" layoutY="562.0" mnemonicParsing="false" onAction="#homepage" text="HomePage" visible="false" />
             </children>
         </AnchorPane>
     </top>
