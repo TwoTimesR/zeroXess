@@ -27,9 +27,9 @@ public class writingGameController {
     @FXML
     Label end_score;
     @FXML
-    Label total_score;
+    Label total_score_text;
     @FXML
-    Label total_answers;
+    Label total_answers_text;
     @FXML
     private BorderPane borderPane;
 
@@ -83,7 +83,7 @@ public class writingGameController {
         if (game.addQuestions().get(counter).getSingularAnswer().getCorrectAnswer().equals(Answer_field.getText())) {
             score += game.addQuestions().get(counter).getPoints();
             score_points.setText(String.valueOf(score));
-            System.out.println(score);
+            System.out.println("score" + " " + score);
             Answer_field.setText("");
             Answer_field.setPromptText("");
             System.out.println("correct");
@@ -125,8 +125,8 @@ public class writingGameController {
         end_answers.setText(String.valueOf(correctAnswers));
         end_score.setVisible(true);
         end_answers.setVisible(true);
-        total_score.setVisible(true);
-        total_answers.setVisible(true);
+        total_score_text.setVisible(true);
+        total_answers_text.setVisible(true);
         question.setText("Thank you for playing !");
         home_button.setVisible(true);
         question.setLayoutX(240);

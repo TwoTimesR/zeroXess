@@ -31,12 +31,12 @@
                     </font>
                 </Label>
                 <ImageView fx:id="image_view" fitHeight="150.0" fitWidth="200.0" layoutX="276.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="total_score" layoutX="239.0" layoutY="430.0" text="TotalScore :" visible="false">
+            <Label fx:id="total_score_text" layoutX="239.0" layoutY="430.0" text="TotalScore :" visible="false">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label fx:id="total_answers" layoutX="239.0" layoutY="493.0" text="CorrectAnswers :" visible="false">
+            <Label fx:id="total_answers_text" layoutX="239.0" layoutY="493.0" text="CorrectAnswers :" visible="false">
                <font>
                   <Font size="19.0" />
                </font>
