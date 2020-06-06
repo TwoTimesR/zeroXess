@@ -13,23 +13,23 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class writingGameController {
-    private static int score = 0;
-    private static int correctAnswers = 0;
+    private int score = 0;
+    private int correctAnswers = 0;
     private int counter = 0;
     private WritingGame game = new WritingGame("Guess the word");
-    private Performance performance = new Performance();
-
     @FXML
-    private Button button;
-
-    public int getScore() {
-        return score;
-    }
-
+    Label end_answers;
+    @FXML
+    Label end_score;
+    @FXML
+    Label total_score;
+    @FXML
+    Label total_answers;
     @FXML
     private BorderPane borderPane;
 
@@ -37,9 +37,11 @@ public class writingGameController {
     private ImageView image_view;
     @FXML
     Label score_points;
-
     @FXML
-    Button back_button;
+    Button check_button;
+    @FXML
+    Label score_text;
+
     @FXML
     Button next_button;
     @FXML
@@ -51,34 +53,34 @@ public class writingGameController {
     public void initialize() throws IOException {
         System.out.println(counter);
         score_points.setText(String.valueOf(score));
-        changeQuestion2();
+        changeQuestion();
         changePicture();
     }
 
 
-    public void nextQuestion2() throws IOException {
+    public void nextQuestion() throws IOException {
         counter++;
         System.out.println(counter);
         changePicture();
-        changeQuestion2();
+        changeQuestion();
         if (counter == 9) {
-            load();
+            endingScreen();
         }
 
     }
 
 
-    public void changeQuestion2() {
+
+    public void changeQuestion() {
         question.setText(game.addQuestions().get(counter).getQuestion());
     }
 
 
-    public static int getCorrectAnswers() {
-        return correctAnswers;
-    }
 
 
-    public void correctAnswer2() throws IOException {
+
+    public void correctAnswer() throws IOException {
+
 
         if (game.addQuestions().get(counter).getSingularAnswer().getCorrectAnswer().equals(Answer_field.getText())) {
             score += game.addQuestions().get(counter).getPoints();
@@ -88,7 +90,7 @@ public class writingGameController {
             Answer_field.setPromptText("");
             System.out.println("correct");
             correctAnswers++;
-            nextQuestion2();
+            nextQuestion();
         } else {
             System.out.println("incorrect");
             Answer_field.setText("");
@@ -108,18 +110,35 @@ public class writingGameController {
         input.add(new FileInputStream("src\\img\\car.png"));
         input.add(new FileInputStream("src\\img\\dancing.jpg"));
         input.add(new FileInputStream("src\\img\\java.png"));
-        input.add(new FileInputStream("src\\img\\login.png"));
+       input.add(new FileInputStream("src\\img\\frog.jpg"));
 
         Image img = new Image(input.get(counter));
         image_view.setImage(img);
     }
 
-    public void load() throws IOException {
-        Stage stage = (Stage) borderPane.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("endScreen.fxml"));
-        Scene scene = new Scene(root, 800, 600);
-        stage.setScene(scene);
-        stage.show();
+
+    public void endingScreen() throws FileNotFoundException {
+        next_button.setVisible(false);
+        Answer_field.setVisible(false);
+        check_button.setVisible(false);
+        score_points.setVisible(false);
+        score_text.setVisible(false);
+        end_score.setText(String.valueOf(score));
+        end_answers.setText(String.valueOf(correctAnswers));
+        end_score.setVisible(true);
+        end_answers.setVisible(true);
+        total_score.setVisible(true);
+        total_answers.setVisible(true);
+        question.setText("Thank you for playing !");
+        question.setLayoutX(240);
+        endingPicture();
+    }
+
+    public void endingPicture() throws FileNotFoundException {
+        Image img = new Image(new FileInputStream("src\\img\\frog.jpg"));
+        image_view.setImage(img);
+        image_view.setFitHeight(239);
+        image_view.setFitWidth(368);
     }
 
 
