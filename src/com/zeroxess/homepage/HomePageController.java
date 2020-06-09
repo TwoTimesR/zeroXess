@@ -23,7 +23,7 @@ public class HomePageController {
 
     @FXML   GridPane homePane;
     @FXML   ListView<String> upcomingAppointmentsList;
-    ObservableList<String> upcoming = FXCollections.observableArrayList();
+    private ObservableList<String> upcoming = FXCollections.observableArrayList();
 
     public HomePageController() {
         upcoming.addListener(new InvalidationListener() {
@@ -34,15 +34,9 @@ public class HomePageController {
         });
     }
 
+    public void initialize(){ upcoming.setAll(UserManager.getInstance().getLoggedInUser().getUpcomingAppointments()); }
 
-    public void initialize(){
-        upcoming.setAll(UserManager.getInstance().getLoggedInUser().getUpcomingAppointments());
-
-    }
-
-    public void updateUpcomingAppointmentsList(ObservableList<String> upcomingAppointment){
-         upcoming = upcomingAppointment;
-    }
+    public void updateUpcomingAppointmentsList(ObservableList<String> upcomingAppointment){ upcoming = upcomingAppointment; }
 
     public void openProfileManager() throws IOException {
         Stage stage = (Stage) homePane.getScene().getWindow();

@@ -55,6 +55,10 @@ public class Appointment {
         this.timeIndex = timeIndex;
     }
 
+    public String getAppointmentDataString(){
+        return startTime.toString() +" - "+ endTime.toString() + " Doctor: " + practitioner.getUserProfile().getLastName();
+    }
+
     @Override
     public String toString() {
         return startTime.toString() +" - "+ endTime.toString();
