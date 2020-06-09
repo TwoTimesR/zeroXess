@@ -20,10 +20,9 @@ public abstract class Game {
     protected Game() { // not supposed to be here
     }
 
-    public void adjustPerformanceSingular() {
-        int i = 0; // choose index, might become parameter
-        if (singularQuestions.get(i).getAnsweredCorrectly()) {
-            performance.setScore(performance.getScore() + singularQuestions.get(i).getPoints());
+    public void adjustPerformanceSingular(Integer index) {
+        if (singularQuestions.get(index).getAnsweredCorrectly()) {
+            performance.setScore(performance.getScore() + singularQuestions.get(index).getPoints());
             positiveAdjustment();
         }
         else {
@@ -31,10 +30,9 @@ public abstract class Game {
         }
     }
 
-    public void adjustPerformanceMultipleChoice() {
-        int i = 0; // choose index, might become parameter
-        if (multipleChoiceQuestions.get(i).getAnsweredCorrectly()) {
-            performance.setScore(performance.getScore() + multipleChoiceQuestions.get(i).getPoints());
+    public void adjustPerformanceMultipleChoice(Integer index) {
+        if (multipleChoiceQuestions.get(index).getAnsweredCorrectly()) {
+            performance.setScore(performance.getScore() + multipleChoiceQuestions.get(index).getPoints());
             positiveAdjustment();
         }
         else {
