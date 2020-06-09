@@ -6,7 +6,7 @@ public class WritingGame extends Game {
     public WritingGame(String gameTitle) {
         super(gameTitle);
     }
-
+        // elk vraag heeft als default 20 punten, als ik nu nog een parameter met punten zet word dat toegepast.
     SingularQuestion question = new SingularQuestion("1.What is the name of this fruit?", "apple");
     SingularQuestion question2 = new SingularQuestion("2.What is the name of this insect?", "bee");
     SingularQuestion question3 = new SingularQuestion("3.Which country does this flag belong to?", "japan");
