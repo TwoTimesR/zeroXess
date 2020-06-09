@@ -183,6 +183,8 @@ public class AppointmentController {
         selectedAppointment.getPractitioner().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
         UserManager.getInstance().getLoggedInUser().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
 
+        UserManager.getInstance().getLoggedInUser().setUpcomingAppointments(selectedAppointment.toString());
+
         int idx = timesListView.getSelectionModel().getSelectedIndex();
         availibleAppointments.set(idx, null);
 
