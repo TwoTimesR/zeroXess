@@ -5,11 +5,13 @@ public class MathGameFactory {
 
     public MathGame mathSign;
 
+
     public MathGame makeNumber(){
         number = null;
         int rand = threeRandomGen();
         return selectDigit(rand);
     }
+
 
     private int threeRandomGen(){
         int min = 1;
@@ -43,4 +45,4 @@ public class MathGameFactory {
         else return new MathGameMultiply();
     }
 
-}
+    }

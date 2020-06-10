@@ -45,6 +45,8 @@ public class MathGameController {
     public Label endCorrectAnswers;
     public Label endCorectAnswersLabel;
 
+    public Label titleLabel;
+
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -65,6 +67,8 @@ public class MathGameController {
     MathGame mathDigit3;
     MathGame mathSignOBJ1;
     MathGame mathSignOBJ2;
+
+
 
 
     @FXML
@@ -375,6 +379,7 @@ public class MathGameController {
         normalDificulty.setVisible(false);
         hardDificulty.setVisible(false);
         returnToGameSelect.setVisible(false);
+        titleLabel.setVisible(false);
 
     }
 
