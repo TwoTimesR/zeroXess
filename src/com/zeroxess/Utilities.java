@@ -19,6 +19,14 @@ public class Utilities {
         stage.show();
     }
 
+    public static void openAppointmentScreen(Pane currentPane) throws IOException {
+        Stage stage = (Stage) currentPane.getScene().getWindow();
+        Parent root = FXMLLoader.load(Main.class.getResource("/com/zeroxess/medical/appointmentmanager.fxml"));
+        Scene scene =  new Scene(root, 800 ,600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public static void showDialog(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

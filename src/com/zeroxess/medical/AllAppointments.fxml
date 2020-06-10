@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.zeroxess.medical.AllAppointmentsController"
-            prefHeight="400.0" prefWidth="600.0"
-            alignment="CENTER">
+<GridPane fx:id="pane" alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.medical.AllAppointmentsController">
 
 
-    <ListView fx:id="allAppointmentsView" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.fillHeight="40" GridPane.fillWidth="40"/>
-    <Button fx:id="backButton" GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#backButtonAction" />
+    <ListView fx:id="allAppointmentsView" GridPane.columnIndex="1" GridPane.fillHeight="40" GridPane.fillWidth="40" GridPane.rowIndex="1" />
+    <Button fx:id="backButton" onAction="#goBack" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

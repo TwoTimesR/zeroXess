@@ -198,8 +198,8 @@ public class AppointmentController {
         Utilities.openHomeScreen(pane);
     }
 
-    public void goToAllAppointments(ActionEvent actionEvent) {
+    public void goToAllAppointments(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) pane.getScene().getWindow();
-        new LiveStockController().start(stage);
+        new AllAppointmentsController().start(stage);
     }
 }
