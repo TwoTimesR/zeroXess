@@ -46,6 +46,10 @@ public class MathGameController {
     public Label endCorectAnswersLabel;
 
     public Label titleLabel;
+    public Label endIncorectAnswersLabel;
+    public Label endIncorrectAnswers;
+    int scoreAmountTemp;
+
 
     @FXML
     private BorderPane borderPane;
@@ -57,9 +61,11 @@ public class MathGameController {
     boolean gameMode;
     boolean gameDifficulty;
     boolean correctAnswer;
-    int score;
     int questionNumber;
-    int correctAnswers;
+    int correct;
+    int incorrect;
+
+    Performance performance;
 
     MathGameFactory mathGameFactory = new MathGameFactory();
     MathGame mathDigit1;
@@ -67,6 +73,8 @@ public class MathGameController {
     MathGame mathDigit3;
     MathGame mathSignOBJ1;
     MathGame mathSignOBJ2;
+
+
 
 
 
@@ -103,6 +111,7 @@ public class MathGameController {
     @FXML
     private void normalDificulty(){
         this.gameDifficulty = true;
+
         displayGameScreanNormal();
         createQuestion();
 
@@ -146,21 +155,15 @@ public class MathGameController {
     }
 
     @FXML
-    private void onCheckAswerClicked(){
-        try {
-
+    private void onCheckAswerClicked() {
             checkAnswerButton.setVisible(false);
             nextQuestion.setVisible(true);
 
             int answer = getAnswer();
             checkAnswerMethod(answer);
-        }
-        catch (Exception e){
-            AnswerTextField.setText("type a number");
-            checkAnswerButton.setVisible(true);
-            nextQuestion.setVisible(false);
-        }
     }
+
+
 
     private int getAnswer(){
         if (gameDifficulty){
@@ -211,30 +214,31 @@ public class MathGameController {
             if (answer == Integer.parseInt(AnswerTextField.getText())) {
                 AnswerTextField.setText("correct");
                 AnswerTextField.setEditable(false);
-                score = score + 10;
-                scoreLabel.setText(String.valueOf(score));
-                correctAnswers++;
+                scoreAmountTemp = scoreAmountTemp + 10;
+                performance.setScore(scoreAmountTemp);
+                scoreLabel.setText(String.valueOf(performance.getScore()));
+                correct ++;
+                performance.setCorrectlyAnswered(correct);
+
                 correctAnswer = true;
-            } else
-                AnswerTextField.setText("False");
+            }
+            if (answer != Integer.parseInt(AnswerTextField.getText())) {
+            AnswerTextField.setText("False");
             AnswerTextField.setEditable(false);
-            score = score - 5;
-            scoreLabel.setText(String.valueOf(score));
+            scoreAmountTemp = scoreAmountTemp - 5;
+            performance.setScore(scoreAmountTemp);
+            scoreLabel.setText(String.valueOf(performance.getScore()));
+            incorrect++;
+            performance.setIncorrectlyAnswered(incorrect);
 
             correctAnswer = false;
         }
 
-    public int getCorrectAnswers() {
-        return correctAnswers;
-    }
-
-    public int getScore() {
-        return score;
-    }
+        }
 
     @FXML
     private void onnextQuestionClicked() {
-            checkAnswerButton.setVisible(true);
+        checkAnswerButton.setVisible(true);
         nextQuestion.setVisible(false);
         AnswerTextField.clear();
         AnswerTextField.setEditable(true);
@@ -321,14 +325,15 @@ public class MathGameController {
         mathSign1.setVisible(true);
         equalsSign.setVisible(true);
         scoreLabel.setVisible(true);
-        scoreLabel.setText("0");
-        score = 0;
-        correctAnswers = 0;
+        scoreAmountTemp = 0;
+        scoreLabel.setText(String.valueOf(scoreAmountTemp));
         scoreName.setVisible(true);
         questionLabel.setVisible(true);
         numberQuestion.setVisible(true);
         numberQuestion.setText("1");
         questionNumber = 1;
+        correct = 0;
+        incorrect = 0;
         numberQuestion.setVisible(true);
         backToDificultySelect.setVisible(true);
         AnswerTextField.setVisible(true);
@@ -337,6 +342,9 @@ public class MathGameController {
         normalDificulty.setVisible(false);
         hardDificulty.setVisible(false);
         returnToGameSelect.setVisible(false);
+        AnswerTextField.clear();
+
+        performance = new Performance();
     }
 
     private void displayGameScreanHard(){
@@ -371,11 +379,14 @@ public class MathGameController {
         farewellMessage.setVisible(true);
         home_Page.setVisible(true);
         endTotal_score.setVisible(true);
-        endTotal_score.setText(String.valueOf(getScore()));
+        endTotal_score.setText(String.valueOf(performance.getScore()));
         endScoreLabel.setVisible(true);
         endCorrectAnswers.setVisible(true);
-        endCorrectAnswers.setText(String.valueOf(getCorrectAnswers()));
+        endCorrectAnswers.setText(String.valueOf(performance.getCorrectlyAnswered()));
+        endIncorrectAnswers.setVisible(true);
+        endIncorrectAnswers.setText(String.valueOf(performance.getIncorrectlyAnswered()));
         endCorectAnswersLabel.setVisible(true);
+        endIncorectAnswersLabel.setVisible(true);
         normalDificulty.setVisible(false);
         hardDificulty.setVisible(false);
         returnToGameSelect.setVisible(false);
