@@ -17,7 +17,7 @@ public abstract class Game {
         this.performance = new Performance();
     }
 
-    protected Game() { // not supposed to be here
+    protected Game() { // not supposed to be here. Tonio, need this for mathgame
     }
 
     public void adjustPerformanceSingular() {
