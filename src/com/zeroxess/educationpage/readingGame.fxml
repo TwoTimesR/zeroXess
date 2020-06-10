@@ -20,17 +20,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextArea fx:id="mc_answer_0" prefHeight="200.0" prefWidth="200.0" text="mc answer 0" />
-            <TextArea fx:id="mc_answer_1" prefHeight="200.0" prefWidth="200.0" text="mc answer 1" GridPane.rowIndex="1" />
-            <TextArea fx:id="mc_answer_2" prefHeight="200.0" prefWidth="200.0" text="mc answer 2" GridPane.columnIndex="1" />
-            <TextArea fx:id="mc_answer_3" prefHeight="200.0" prefWidth="200.0" text="mc answer 3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextArea fx:id="mc_answer_0" prefHeight="200.0" prefWidth="200.0" promptText="mc answer 0" />
+            <TextArea fx:id="mc_answer_1" prefHeight="200.0" prefWidth="200.0" promptText="mc answer 1" GridPane.rowIndex="1" />
+            <TextArea fx:id="mc_answer_2" prefHeight="200.0" prefWidth="200.0" promptText="mc answer 2" GridPane.columnIndex="1" />
+            <TextArea fx:id="mc_answer_3" prefHeight="200.0" prefWidth="200.0" promptText="mc answer 3" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Button fx:id="next_question" layoutX="501.0" layoutY="478.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="next question" />
       <Button fx:id="previous_question" layoutX="189.0" layoutY="478.0" mnemonicParsing="false" text="previous question" />
       <Button fx:id="confirm_answer" layoutX="345.0" layoutY="478.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="confirm answer" />
-      <TextArea fx:id="reading_text" layoutX="116.0" layoutY="55.0" prefHeight="185.0" prefWidth="568.0" promptText="x" text="String readingText of class ReadingGame" />
-      <TextArea fx:id="question_text" layoutX="116.0" layoutY="270.0" prefHeight="51.0" prefWidth="568.0" promptText="x" text="String question of class Question" />
+      <TextArea fx:id="reading_text" layoutX="116.0" layoutY="55.0" prefHeight="185.0" prefWidth="568.0" promptText="String readingText of class ReadingGame" />
+      <TextArea fx:id="question_text" layoutX="116.0" layoutY="270.0" prefHeight="51.0" prefWidth="568.0" promptText="String question of class Question" />
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="back" />
       <Label fx:id="score" layoutX="684.0" layoutY="18.0" text="score" />
       <Label fx:id="total_score_integer" layoutX="744.0" layoutY="18.0" text="number" />
