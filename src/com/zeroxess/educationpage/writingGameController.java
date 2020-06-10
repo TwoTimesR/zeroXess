@@ -78,7 +78,8 @@ public class writingGameController {
 
 
     public void correctAnswer() throws IOException {
-
+// hier maak ik gebruik van de singular question class die standaard bij elk correct vraag 20 punten geeft,
+        // als ik in writinggame class een vraag zelf punten als waarden geef, dan word dat opgeteld.
 
         if (game.addQuestions().get(counter).getSingularAnswer().getCorrectAnswer().equals(Answer_field.getText())) {
             score += game.addQuestions().get(counter).getPoints();
