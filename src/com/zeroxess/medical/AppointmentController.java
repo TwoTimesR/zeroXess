@@ -166,7 +166,7 @@ public class AppointmentController {
 
         for (int i = 0; i < appointments.length; i++) {
             if (appointments[i] == null) {
-                Appointment appointment = new Appointment(currentSelectedDoctor, UserManager.getInstance().getLoggedInUser(), time, time = time.plusMinutes(30), i);
+                Appointment appointment = new Appointment(currentSelectedDoctor, UserManager.getInstance().getLoggedInUser(), time, time = time.plusMinutes(30), i, newDate);
                 availbileAppointments[i] = appointment;
             } else {
                 availbileAppointments[i] = null;
