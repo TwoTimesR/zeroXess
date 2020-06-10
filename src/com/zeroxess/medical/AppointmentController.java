@@ -1,6 +1,7 @@
 package com.zeroxess.medical;
 
 import com.zeroxess.Utilities;
+import com.zeroxess.livestockpage.LiveStockController;
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.PatientUser;
 import com.zeroxess.user.UserManager;
@@ -13,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -196,4 +198,8 @@ public class AppointmentController {
         Utilities.openHomeScreen(pane);
     }
 
+    public void goToAllAppointments(ActionEvent actionEvent) {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        new LiveStockController().start(stage);
+    }
 }
