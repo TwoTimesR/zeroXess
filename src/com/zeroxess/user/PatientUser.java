@@ -1,7 +1,5 @@
 package com.zeroxess.user;
 
-import com.zeroxess.medical.Calendar;
-
 public class PatientUser extends User {
 
     private String healthCondtions;

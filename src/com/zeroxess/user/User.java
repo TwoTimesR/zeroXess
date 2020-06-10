@@ -1,11 +1,14 @@
 package com.zeroxess.user;
 
-import com.zeroxess.homepage.HomePageController;
 import com.zeroxess.medical.Calendar;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class User {
 
@@ -13,25 +16,32 @@ public class User {
     private String password;
     private UserProfile userProfile;
     private Calendar calendar;
-    private ObservableList<String> upcomingAppointments = FXCollections.observableArrayList();
+    public ObservableList<String> upcomingAppointments = FXCollections.observableArrayList();
 
     public User(String username, String password, UserProfile userProfile) {
         this.username = username;
         this.password = password;
         this.userProfile = userProfile;
         this.calendar = new Calendar();
-
-        upcomingAppointments.addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                //new HomePageController().updateUpcomingAppointmentsList(upcomingAppointments);
-            }
-        });
     }
 
     public void setUpcomingAppointments(String upcoming){upcomingAppointments.add(upcoming);}
 
-    public ObservableList<String> getUpcomingAppointments(){ return upcomingAppointments; }
+    public ObservableList<String> getUpcomingAppointments(){
+        //Collections.sort(upcomingAppointments, (a, b) -> a.substring(0,10).compareToIgnoreCase(b.substring(0,10)));
+        Collections.sort(upcomingAppointments, new Comparator<String>() {
+            DateFormat f = new SimpleDateFormat("dd-MM-yyyy - HH:mm");
+            @Override
+            public int compare(String s, String t1) {
+                try {
+                    return f.parse(s.substring(0,18)).compareTo(f.parse(t1.substring(0,18)));
+                } catch (ParseException e) {
+                    throw new IllegalArgumentException(e);
+                }
+            }
+        });
+        return upcomingAppointments;
+    }
 
     public Calendar getCalendar() {
         return calendar;
