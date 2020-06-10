@@ -5,16 +5,8 @@ public abstract class MathGame extends Game {
     protected String mathSign;
 
 
-    public MathGame(String gameTitle) {
-        super(gameTitle);
-    }
-
     public MathGame() {
-    }
-
-    @Override
-    public void setTitle(String title) {
-        super.setTitle("Math Game");
+        super("Math Game");
     }
 
     public int getDigit() {

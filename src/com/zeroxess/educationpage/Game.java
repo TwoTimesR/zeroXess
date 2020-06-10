@@ -17,9 +17,6 @@ public abstract class Game {
         this.performance = new Performance();
     }
 
-    protected Game() { // not supposed to be here. Tonio, need this for mathgame
-    }
-
     public void adjustPerformanceSingular(Integer index) {
         if (singularQuestions.get(index).getAnsweredCorrectly()) {
             performance.setScore(performance.getScore() + singularQuestions.get(index).getPoints());
