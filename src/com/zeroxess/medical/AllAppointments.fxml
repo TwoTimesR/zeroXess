@@ -9,6 +9,10 @@
 <GridPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.zeroxess.medical.AllAppointmentsController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="400.0" prefWidth="600.0"
+            alignment="CENTER">
 
+
+    <ListView fx:id="allAppointmentsView" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.fillHeight="40" GridPane.fillWidth="40"/>
+    <Button fx:id="backButton" GridPane.rowIndex="2" GridPane.columnIndex="1" onAction="#backButtonAction" />
 </GridPane>
