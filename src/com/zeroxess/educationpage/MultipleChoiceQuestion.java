@@ -30,7 +30,12 @@ public class MultipleChoiceQuestion extends Question{
     }
 
     public void addMultipleChoiceAnswer(MultipleChoiceAnswer multipleChoiceAnswer) {
-        multipleChoiceAnswers.add(multipleChoiceAnswer);
+        if (multipleChoiceAnswers.size() < 4) {
+            multipleChoiceAnswers.add(multipleChoiceAnswer);
+        }
+        else {
+            System.out.println("This question already has 4 possible answers");
+        }
     }
 
     public void removeMultipleChoiceAnswer(MultipleChoiceAnswer multipleChoiceAnswer) {

@@ -78,7 +78,12 @@ public abstract class Game {
     }
 
     public void addMultipleChoiceQuestion(MultipleChoiceQuestion multipleChoiceQuestion) {
-        this.multipleChoiceQuestions.add(multipleChoiceQuestion);
+        if (multipleChoiceQuestion.getMultipleChoiceAnswers().size() == 4) {
+            this.multipleChoiceQuestions.add(multipleChoiceQuestion);
+        }
+        else {
+            System.out.println("This question needs 4 possible answers.");
+        }
     }
 
     public void removeMultipleChoiceQuestion(MultipleChoiceQuestion multipleChoiceQuestion) {

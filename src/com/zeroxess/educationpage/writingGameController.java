@@ -22,35 +22,45 @@ public class writingGameController {
     private int correctAnswers = 0;
     private int counter = 0;
     private WritingGame game = new WritingGame("Guess the word");
+
     @FXML
-    Label end_answers;
+    private Label end_answers;
+
     @FXML
-    Label end_score;
+    private Label end_score;
+
     @FXML
-    Label total_score_text;
+    private Label total_score_text;
+
     @FXML
-    Label total_answers_text;
+    private Label total_answers_text;
+
     @FXML
     private BorderPane borderPane;
 
     @FXML
     private ImageView image_view;
-    @FXML
-    Label score_points;
-    @FXML
-    Button check_button;
-    @FXML
-    Label score_text;
-    @FXML
-    Button home_button;
 
     @FXML
-    Button next_button;
-    @FXML
-    Label question = new Label();
-    @FXML
-    TextField Answer_field = new TextField();
+    private Label score_points;
 
+    @FXML
+    private Button check_button;
+
+    @FXML
+    private Label score_text;
+
+    @FXML
+    private Button home_button;
+
+    @FXML
+    private Button next_button;
+
+    @FXML
+    private Label question;
+
+    @FXML
+    private TextField Answer_field;
 
     public void initialize() throws IOException {
         System.out.println(counter);
@@ -68,19 +78,17 @@ public class writingGameController {
         if (counter == 9) {
             endingScreen();
         }
-
     }
-
 
     public void changeQuestion() {
         question.setText(game.addQuestions().get(counter).getQuestion());
     }
 
-
     public void correctAnswer() throws IOException {
-// hier maak ik gebruik van de singular question class die standaard bij elk correct vraag 20 punten geeft,
-        // als ik in writinggame class een vraag zelf punten als waarden geef, dan word dat opgeteld.
-
+        /*
+        hier maak ik gebruik van de singular question class die standaard bij elk correct vraag 20 punten geeft,
+        als ik in writinggame class een vraag zelf punten als waarden geef, dan word dat opgeteld.
+        */
         if (game.addQuestions().get(counter).getSingularAnswer().getCorrectAnswer().equals(Answer_field.getText())) {
             score += game.addQuestions().get(counter).getPoints();
             score_points.setText(String.valueOf(score));
@@ -96,7 +104,6 @@ public class writingGameController {
             Answer_field.setPromptText("Wrong answer");
         }
     }
-
 
     public void changePicture() throws IOException {
         ArrayList<FileInputStream> input = new ArrayList<>();
@@ -114,7 +121,6 @@ public class writingGameController {
         Image img = new Image(input.get(counter));
         image_view.setImage(img);
     }
-
 
     public void endingScreen() throws FileNotFoundException {
         next_button.setVisible(false);
@@ -140,6 +146,7 @@ public class writingGameController {
         image_view.setFitHeight(239);
         image_view.setFitWidth(368);
     }
+
     public void homepage() throws IOException {
         Stage stage = (Stage) borderPane.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/homepage/homepage.fxml"));
@@ -147,6 +154,4 @@ public class writingGameController {
         stage.setScene(scene);
         stage.show();
     }
-
-
 }

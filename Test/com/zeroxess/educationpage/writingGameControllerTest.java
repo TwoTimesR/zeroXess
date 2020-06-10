@@ -1,17 +1,14 @@
 package com.zeroxess.educationpage;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.jupiter.api.TestTemplate;
-
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class writingGameControllerTest {
 
     @Test
     public void questionTest() {
         SingularQuestion question = new SingularQuestion("1.What is the name of this fruit?","apple");
-       WritingGame game = new WritingGame("test");
+        WritingGame game = new WritingGame("test");
 
         System.out.println(game.addQuestions().get(0).getQuestion());
         assertEquals(game.addQuestions().get(0).getQuestion(),question.getQuestion());
