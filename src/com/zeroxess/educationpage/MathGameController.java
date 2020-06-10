@@ -1,7 +1,6 @@
 package com.zeroxess.educationpage;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -114,11 +113,11 @@ public class MathGameController {
     }
 
     private void createQuestion(){
-        if (gameDifficulty == true){
+        if (gameDifficulty){
             // normal Dificulty
             normalQuestionGen();
         }
-        if (gameDifficulty == false){
+        if (!gameDifficulty){
             hardQuestionGen();
         }
     }
@@ -144,16 +143,23 @@ public class MathGameController {
 
     @FXML
     private void onCheckAswerClicked(){
-        checkAnswerButton.setVisible(false);
-        nextQuestion.setVisible(true);
+        try {
 
-        int answer = getAnswer();
-        checkAnswerMethod(answer);
+            checkAnswerButton.setVisible(false);
+            nextQuestion.setVisible(true);
 
+            int answer = getAnswer();
+            checkAnswerMethod(answer);
+        }
+        catch (Exception e){
+            AnswerTextField.setText("type a number");
+            checkAnswerButton.setVisible(true);
+            nextQuestion.setVisible(false);
+        }
     }
 
     private int getAnswer(){
-        if (gameDifficulty ==true){
+        if (gameDifficulty){
             return anwserNormal();
 
         }
@@ -197,24 +203,22 @@ public class MathGameController {
         else return 999999;
     }
 
-    private boolean checkAnswerMethod(int answer){
-        if (answer == Integer.parseInt(AnswerTextField.getText())){
-            AnswerTextField.setText("correct");
-            AnswerTextField.setEditable(false);
-            score = score + 10;
-            scoreLabel.setText(String.valueOf(score));
-            correctAnswers ++;
-            return correctAnswer =true;
-        }
-        else {
-            AnswerTextField.setText("False");
+    private void checkAnswerMethod(int answer) {
+            if (answer == Integer.parseInt(AnswerTextField.getText())) {
+                AnswerTextField.setText("correct");
+                AnswerTextField.setEditable(false);
+                score = score + 10;
+                scoreLabel.setText(String.valueOf(score));
+                correctAnswers++;
+                correctAnswer = true;
+            } else
+                AnswerTextField.setText("False");
             AnswerTextField.setEditable(false);
             score = score - 5;
             scoreLabel.setText(String.valueOf(score));
 
-            return correctAnswer = false;
+            correctAnswer = false;
         }
-    }
 
     public int getCorrectAnswers() {
         return correctAnswers;
@@ -225,14 +229,14 @@ public class MathGameController {
     }
 
     @FXML
-    private void onnextQuestionClicked() throws IOException {
+    private void onnextQuestionClicked() {
             checkAnswerButton.setVisible(true);
         nextQuestion.setVisible(false);
         AnswerTextField.clear();
         AnswerTextField.setEditable(true);
         questionNumber ++;
         numberQuestion.setText(String.valueOf(questionNumber));
-        if (gameMode == true) {
+        if (gameMode) {
             if (questionNumber != 11) {
                 createQuestion();
             }
