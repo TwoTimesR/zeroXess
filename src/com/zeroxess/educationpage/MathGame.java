@@ -12,6 +12,10 @@ public abstract class MathGame extends Game {
     public MathGame() {
     }
 
+    @Override
+    public void setTitle(String title) {
+        super.setTitle("Math Game");
+    }
 
     public int getDigit() {
         return Digit;
