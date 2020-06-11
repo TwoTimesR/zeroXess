@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReadingGameController {
-    private ReadingGame readingGame = new ReadingGame("The Adventure's of Jim");
+    private final ReadingGame readingGame = new ReadingGame("The Adventure's of Jim");
 
     @FXML
     private Pane pane;
@@ -63,17 +63,21 @@ public class ReadingGameController {
     private Label score;
 
     @FXML
+    private Label score_text;
+
+    @FXML
     private Button back;
 
     private Integer currentQuestion = 0;
     private final ArrayList<MultipleChoiceAnswer> selectedAnswers = new ArrayList<>();
+    private Boolean gameCompleted = false;
 
     private void readingGameSetUp() {
         readingGame.setReadingText(
                 "Jim was born in a far away land called Avalon.\n" +
-                        "He was a simple man, managing a dock in a small coastal village\n" +
-                        "One day Jim saw a strange boat a long distance away from the docks\n" +
-                        ""
+                "He was a simple man, managing a dock in a small coastal village\n" +
+                "One day Jim saw a strange boat a long distance away from the docks\n" +
+                ""
         );
 
         MultipleChoiceQuestion mcq_0 = new MultipleChoiceQuestion("Where was Jim born?");
@@ -114,8 +118,8 @@ public class ReadingGameController {
     public void initialize() {
         readingGameSetUp();
         displayReadingText();
-        displayQuestion();
-        displayAllAnswers();
+        displayQuestionAndAnswers();
+        displayScore();
     }
 
     public void displayReadingText() {
@@ -159,9 +163,13 @@ public class ReadingGameController {
         displayAnswer3();
     }
 
-    public void showQuestionAndAnswers() {
+    public void displayQuestionAndAnswers() {
         displayQuestion();
         displayAllAnswers();
+    }
+
+    public void displayScore() {
+        score_text.setText(String.valueOf(readingGame.getPerformance().getScore()));
     }
 
     private Boolean alreadyChecked0 = false;
@@ -236,6 +244,8 @@ public class ReadingGameController {
         if (checkIfAlreadyHasConfirmedAnswer()) {
             if (checkIfSelectedAnswersHasOneAnswer()) {
                 confirmAndAdjust();
+                displayScore();
+                checkIfGameIsCompleted();
                 System.out.println("Successfully confirmed answer");
             }
             else {
@@ -262,14 +272,32 @@ public class ReadingGameController {
         readingGame.getMultipleChoiceQuestions().get(currentQuestion).setAnswerAlreadyConfirmed(true);
     }
 
-    //score methods
+    public void checkIfGameIsCompleted() {
+        int countConfirmedAnswers = 0;
+        for (int i = 0; i < readingGame.getMultipleChoiceQuestions().size(); i++) {
+            if (readingGame.getMultipleChoiceQuestions().get(i).getAnswerAlreadyConfirmed()) {
+                countConfirmedAnswers++;
+            }
+        }
+        endScreenOrNextQuestion(countConfirmedAnswers);
+    }
+
+    private void endScreenOrNextQuestion(Integer countConfirmedAnswers) {
+        if (countConfirmedAnswers == readingGame.getMultipleChoiceQuestions().size()) {
+            //load end screen (make one)
+            System.out.println("Thank you for playing");
+        }
+        else {
+            nextQuestion();
+        }
+    }
 
     public void nextQuestion() {
         if (currentQuestion < readingGame.getMultipleChoiceQuestions().size() - 1) {
             currentQuestion++;
             uncheckAllBoxes();
             clearSelectedAnswers();
-            showQuestionAndAnswers();
+            displayQuestionAndAnswers();
         }
         else {
             System.out.println("This is the last question");
@@ -281,7 +309,7 @@ public class ReadingGameController {
             currentQuestion--;
             uncheckAllBoxes();
             clearSelectedAnswers();
-            showQuestionAndAnswers();
+            displayQuestionAndAnswers();
         }
         else {
             System.out.println("This is the first question");

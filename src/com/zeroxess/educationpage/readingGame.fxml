@@ -54,6 +54,7 @@
       <TextArea fx:id="reading_text" editable="false" layoutX="116.0" layoutY="55.0" prefHeight="185.0" prefWidth="568.0" promptText="String readingText of class ReadingGame" />
       <TextArea fx:id="question_text" editable="false" layoutX="116.0" layoutY="270.0" prefHeight="51.0" prefWidth="568.0" promptText="String question of class Question" />
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMenu" text="back" />
-      <Label fx:id="score" layoutX="684.0" layoutY="18.0" text="score" />
+      <Label fx:id="score" layoutX="684.0" layoutY="18.0" text="score:" />
+      <Label fx:id="score_text" layoutX="725.0" layoutY="18.0" text="&lt;score&gt;" />
    </children>
 </Pane>
