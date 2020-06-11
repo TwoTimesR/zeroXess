@@ -5,7 +5,6 @@ public class MathGameFactory {
 
     public MathGame mathSign;
 
-
     public MathGame makeNumber(){
         number = null;
         int rand = threeRandomGen();
@@ -44,5 +43,6 @@ public class MathGameFactory {
         }
         else return new MathGameMultiply();
     }
+
 
     }
