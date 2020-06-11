@@ -28,6 +28,6 @@
       <Button mnemonicParsing="false" onAction="#openAppointmentsManager" prefHeight="54.0" prefWidth="109.0" text="Doctors Appointment" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="54.0" prefWidth="109.0" text="Log Out" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Text GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" text="Upcoming doctors appointments" />
-      <ListView fx:id="upcomingAppointmentsList" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="6"  />
+      <ListView fx:id="upcomingAppointmentsList" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="6"  maxHeight="49.0" />
    </children>
 </GridPane>
