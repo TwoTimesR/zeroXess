@@ -167,6 +167,7 @@ public class AppointmentController {
                 Appointment appointment = new Appointment(currentSelectedDoctor, UserManager.getInstance().getLoggedInUser(), time, time = time.plusMinutes(30), i);
                 availbileAppointments[i] = appointment;
             } else {
+                time = time.plusMinutes(30);
                 availbileAppointments[i] = null;
             }
         }
