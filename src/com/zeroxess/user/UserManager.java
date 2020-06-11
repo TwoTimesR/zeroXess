@@ -68,5 +68,11 @@ public class UserManager {
         getInstance().getUsers().add(new PatientUser("willem", "test", new UserProfile("Willem", "Wever")));
         getInstance().getUsers().add(new DoctorUser("jan", "yo", new UserProfile("Jan", "Sloot"), DoctorUser.DoctorSpecialization.EAR, DoctorUser.DoctorSpecialization.GENERAL));
         getInstance().getUsers().add(new DoctorUser("frans", "yo", new UserProfile("Frans", "Gast"), DoctorUser.DoctorSpecialization.NOSE));
+        getInstance().getUsers().add(new PatientUser("vincent", "test", new UserProfile("Vincent", "test", "test","test","test")));
+        getInstance().getUsers().add(new PatientUser("haidar", "test", new UserProfile("Haidar", "test", "test","test","test")));
+        getInstance().getUsers().add(new PatientUser("aycan", "test", new UserProfile("Aycan", "test", "test","test","test")));
+        getInstance().getUsers().add(new PatientUser("richal", "test", new UserProfile("Richal", "test", "test","test","test")));
+        getInstance().getUsers().add(new PatientUser("tonio", "test", new UserProfile("Tonio", "test", "test","test","test")));
+        getInstance().getUsers().add(new PatientUser("brent", "test", new UserProfile("Brent", "test", "test","test","test")));
     }
 }

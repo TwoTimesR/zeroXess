@@ -3,6 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.text.Text?>
+
 <GridPane fx:id="homePane" alignment="CENTER" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zeroxess.homepage.HomePageController">
    <columnConstraints>
       <ColumnConstraints />
@@ -25,5 +28,10 @@
       <Button mnemonicParsing="false" onAction="#openAppointmentsManager" prefHeight="54.0" prefWidth="109.0" text="Doctors Appointment" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="54.0" prefWidth="109.0" text="Log Out" GridPane.columnIndex="5" GridPane.rowIndex="2" />
       <Button fx:id="conditionsButton" mnemonicParsing="false" onAction="#openConditions" prefHeight="54.0" prefWidth="109.0" text="Conditions" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#openLiveStock" prefHeight="54.0" prefWidth="109.0" text="Livestock" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#openAppointmentsManager" prefHeight="54.0" prefWidth="109.0" text="Doctors Appointment" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="54.0" prefWidth="109.0" text="Log Out" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Text GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2" text="Upcoming doctors appointments" />
+      <ListView fx:id="upcomingAppointmentsList" GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="6"  maxHeight="49.0" />
    </children>
 </GridPane>
