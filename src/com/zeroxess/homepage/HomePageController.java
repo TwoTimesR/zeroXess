@@ -19,15 +19,12 @@ public class HomePageController {
 
     @FXML   GridPane homePane;
     @FXML   ListView<String> upcomingAppointmentsList;
-
-    public void initialize(){ upcomingAppointmentsList.setItems(UserManager.getInstance().getLoggedInUser().getUpcomingAppointments()); }
-
-    @FXML
-    Button conditionsButton;
+    @FXML   Button conditionsButton;
 
     public void initialize() {
         if(!(UserManager.getInstance().getLoggedInUser() instanceof DoctorUser)){
             conditionsButton.setDisable(true);
+            upcomingAppointmentsList.setItems(UserManager.getInstance().getLoggedInUser().getUpcomingAppointments());
         }
     }
 
