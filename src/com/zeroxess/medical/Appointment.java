@@ -4,8 +4,11 @@ import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.PatientUser;
 import com.zeroxess.user.User;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Appointment {
 
@@ -14,13 +17,15 @@ public class Appointment {
     private LocalTime startTime;
     private LocalTime endTime;
     private int timeIndex;
+    private LocalDate date;
 
-    public Appointment(DoctorUser practitioner, User patient, LocalTime startTime, LocalTime endTime, int timeIndex) {
+    public Appointment(DoctorUser practitioner, User patient, LocalTime startTime, LocalTime endTime, int timeIndex, LocalDate date) {
         this.practitioner = practitioner;
         this.patient = patient;
         this.startTime = startTime;
         this.endTime = endTime;
         this.timeIndex = timeIndex;
+        this.date = date;
     }
 
     public DoctorUser getPractitioner() {
@@ -53,6 +58,10 @@ public class Appointment {
 
     public void setTimeIndex(int timeIndex) {
         this.timeIndex = timeIndex;
+    }
+
+    public String getAppointmentDataString(){
+        return date.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + " - " + startTime.toString() +" - "+ endTime.toString() + " Doctor: " + practitioner.getUserProfile().getLastName();
     }
 
     @Override

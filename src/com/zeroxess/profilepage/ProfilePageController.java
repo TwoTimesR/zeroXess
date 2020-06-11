@@ -1,6 +1,7 @@
 package com.zeroxess.profilepage;
 
 import com.zeroxess.Utilities;
+import com.zeroxess.user.UserManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,85 +20,44 @@ import java.util.Scanner;
 
 public class ProfilePageController {
 
-    @FXML
-    BorderPane pane;
-
-    @FXML
-    private TextField Last_Name;
-
-    @FXML
-    private TextField Email;
-
-    @FXML
-    private TextField Phone;
-
-    @FXML
-    private TextField Location;
-
-    @FXML
-    private TextField First_Name;
-
-    @FXML
-    private Button Back_button;
-
-    @FXML
-    private Button Save_button;
+    @FXML BorderPane pane;
+    @FXML private TextField Last_Name;
+    @FXML private TextField Email;
+    @FXML private TextField Phone;
+    @FXML private TextField Location;
+    @FXML private TextField First_Name;
+    @FXML private Button Save_button;
 
 // wnr het voor het profielscherm gekozen wordt, laden alle gegevens en kan de gebruiker het weer aanpassen en opslaan.
     public void initialize() throws IOException {
         showTxtFile();
-        getInformatieTxt();
     }
     // Zodra de savebutton is gedrukt wordt alle informatie opgeslagen.
     public void SaveButtonClicked() {
-        Save_button.setOnAction(actionEvent -> writeTxtFile());
+        Save_button.setOnAction(actionEvent -> changeUserInfo());
     }
 
-
-
-    // Deze methode schrijft de informatie van de textfields naar een .txt file.
-    public void writeTxtFile() {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(".\\ProfileInfo.txt"));
-            writer.write(First_Name.getText());
-            writer.newLine();
-            writer.write(Last_Name.getText());
-            writer.newLine();
-            writer.write(Email.getText());
-            writer.newLine();
-            writer.write(Phone.getText());
-            writer.newLine();
-            writer.write(Location.getText());
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    // Deze methode schrijft de informatie van de textfields naar de user class
+    public void changeUserInfo() {
+        UserManager.getInstance().getLoggedInUser().getUserProfile().setFirstName(First_Name.getText());
+        UserManager.getInstance().getLoggedInUser().getUserProfile().setLastName(Last_Name.getText());
+        UserManager.getInstance().getLoggedInUser().getUserProfile().setEmail(Email.getText());
+        UserManager.getInstance().getLoggedInUser().getUserProfile().setPhoneNumber(Phone.getText());
+        UserManager.getInstance().getLoggedInUser().getUserProfile().setLocation(Location.getText());
     }
 
-    // deze methode leest alle lines van de textfile die in een list zijn opgeslagen een toont het aan.
+    // deze methode leest de persoonsgegevens uit de user class.
     public void showTxtFile() throws IOException {
-        List<String> ReadTxtFile = Files.readAllLines(Paths.get("ProfileInfo.txt"));
-        First_Name.setText(ReadTxtFile.get(0));
-        Last_Name.setText(ReadTxtFile.get(1));
-        Email.setText(ReadTxtFile.get(2));
-        Phone.setText(ReadTxtFile.get(3));
-        Location.setText(ReadTxtFile.get(4));
+        First_Name.setText(UserManager.getInstance().getLoggedInUser().getUserProfile().getFirstName());
+        Last_Name.setText(UserManager.getInstance().getLoggedInUser().getUserProfile().getLastName());
+        Email.setText(UserManager.getInstance().getLoggedInUser().getUserProfile().getEmail());
+        Phone.setText(UserManager.getInstance().getLoggedInUser().getUserProfile().getPhoneNumber());
+        Location.setText(UserManager.getInstance().getLoggedInUser().getUserProfile().getLocation());
     }
 
     public void goToHomePage() throws IOException {
         Utilities.openHomeScreen(pane);
     }
-
-    // deze methode print de gegevens van het profiel op het commandline
-    public List getInformatieTxt() throws IOException {
-        List<String> ReadTxtFile = Files.readAllLines(Paths.get("ProfileInfo.txt"));
-        for (String x :
-                ReadTxtFile) {
-            System.out.println(x);
-        }
-        return ReadTxtFile;
-    }
-
 }
 
 

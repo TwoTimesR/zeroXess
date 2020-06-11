@@ -4,12 +4,12 @@ import com.zeroxess.condition.Condition;
 import com.zeroxess.livestockpage.LiveStockController;
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.UserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -17,8 +17,10 @@ import java.io.IOException;
 
 public class HomePageController {
 
-    @FXML
-    GridPane homePane;
+    @FXML   GridPane homePane;
+    @FXML   ListView<String> upcomingAppointmentsList;
+
+    public void initialize(){ upcomingAppointmentsList.setItems(UserManager.getInstance().getLoggedInUser().getUpcomingAppointments()); }
 
     @FXML
     Button conditionsButton;

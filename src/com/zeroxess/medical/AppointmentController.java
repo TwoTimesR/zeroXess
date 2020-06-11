@@ -1,6 +1,7 @@
 package com.zeroxess.medical;
 
 import com.zeroxess.Utilities;
+import com.zeroxess.livestockpage.LiveStockController;
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.PatientUser;
 import com.zeroxess.user.UserManager;
@@ -13,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -164,7 +166,7 @@ public class AppointmentController {
 
         for (int i = 0; i < appointments.length; i++) {
             if (appointments[i] == null) {
-                Appointment appointment = new Appointment(currentSelectedDoctor, UserManager.getInstance().getLoggedInUser(), time, time = time.plusMinutes(30), i);
+                Appointment appointment = new Appointment(currentSelectedDoctor, UserManager.getInstance().getLoggedInUser(), time, time = time.plusMinutes(30), i, newDate);
                 availbileAppointments[i] = appointment;
             } else {
                 availbileAppointments[i] = null;
@@ -183,6 +185,8 @@ public class AppointmentController {
         selectedAppointment.getPractitioner().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
         UserManager.getInstance().getLoggedInUser().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
 
+        UserManager.getInstance().getLoggedInUser().setUpcomingAppointments(selectedAppointment.getAppointmentDataString());
+
         int idx = timesListView.getSelectionModel().getSelectedIndex();
         availibleAppointments.set(idx, null);
 
@@ -194,4 +198,8 @@ public class AppointmentController {
         Utilities.openHomeScreen(pane);
     }
 
+    public void goToAllAppointments(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) pane.getScene().getWindow();
+        new AllAppointmentsController().start(stage);
+    }
 }
