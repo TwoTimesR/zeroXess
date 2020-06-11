@@ -28,7 +28,6 @@ public class User {
     public void setUpcomingAppointments(String upcoming){upcomingAppointments.add(upcoming);}
 
     public ObservableList<String> getUpcomingAppointments(){
-        //Collections.sort(upcomingAppointments, (a, b) -> a.substring(0,10).compareToIgnoreCase(b.substring(0,10)));
         Collections.sort(upcomingAppointments, new Comparator<String>() {
             DateFormat f = new SimpleDateFormat("dd-MM-yyyy - HH:mm");
             @Override
@@ -40,6 +39,11 @@ public class User {
                 }
             }
         });
+        if(upcomingAppointments.size() > 2) {
+            for (int i = 2; i < upcomingAppointments.size(); i++) {
+                upcomingAppointments.remove(i);
+            }
+        }
         return upcomingAppointments;
     }
 
