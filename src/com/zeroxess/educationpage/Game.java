@@ -80,9 +80,10 @@ public abstract class Game {
     public void addMultipleChoiceQuestion(MultipleChoiceQuestion multipleChoiceQuestion) {
         if (multipleChoiceQuestion.getMultipleChoiceAnswers().size() == 4) {
             this.multipleChoiceQuestions.add(multipleChoiceQuestion);
+            System.out.println("Question has been added");
         }
         else {
-            System.out.println("This question needs 4 possible answers.");
+            System.out.println("This question needs 4 possible answers");
         }
     }
 

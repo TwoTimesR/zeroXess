@@ -15,7 +15,7 @@ public class SingularQuestion extends Question{
     }
 
     @Override
-    public void checkAnswer() {
+    public void confirmAnswer() {
         setAnsweredCorrectly(userAnswer.equals(singularAnswer.getCorrectAnswer()));
     }
 

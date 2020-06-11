@@ -4,11 +4,13 @@ public abstract class Question {
     private String question;
     private Integer points;
     private Boolean answeredCorrectly;
+    private Boolean answerAlreadyConfirmed = false;
 
     public Question(String question, Integer points) {
         this.question = question;
         this.points = points;
         this.answeredCorrectly = null;
+        this.answerAlreadyConfirmed = false;
     }
 
     public Question(String question) {
@@ -16,7 +18,7 @@ public abstract class Question {
         this.points = 20;
     }
 
-    public abstract void checkAnswer();
+    public abstract void confirmAnswer();
 
     public String getQuestion() {
         return question;
@@ -40,5 +42,13 @@ public abstract class Question {
 
     public void setAnsweredCorrectly(Boolean answeredCorrectly) {
         this.answeredCorrectly = answeredCorrectly;
+    }
+
+    public Boolean getAnswerAlreadyConfirmed() {
+        return answerAlreadyConfirmed;
+    }
+
+    public void setAnswerAlreadyConfirmed(Boolean answerAlreadyConfirmed) {
+        this.answerAlreadyConfirmed = answerAlreadyConfirmed;
     }
 }

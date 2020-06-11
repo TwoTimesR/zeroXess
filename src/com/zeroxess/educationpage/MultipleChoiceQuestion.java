@@ -17,7 +17,7 @@ public class MultipleChoiceQuestion extends Question{
     }
 
     @Override
-    public void checkAnswer() {
+    public void confirmAnswer() {
         setAnsweredCorrectly(pickedChoice.getCorrect());
     }
 
@@ -32,6 +32,7 @@ public class MultipleChoiceQuestion extends Question{
     public void addMultipleChoiceAnswer(MultipleChoiceAnswer multipleChoiceAnswer) {
         if (multipleChoiceAnswers.size() < 4) {
             multipleChoiceAnswers.add(multipleChoiceAnswer);
+            System.out.println("Answer has been added, current amount of answers: " + multipleChoiceAnswers.size());
         }
         else {
             System.out.println("This question already has 4 possible answers");

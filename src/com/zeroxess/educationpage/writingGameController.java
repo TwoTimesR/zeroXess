@@ -21,7 +21,7 @@ public class writingGameController {
     private int score = 0;
     private int correctAnswers = 0;
     private int counter = 0;
-    private WritingGame game = new WritingGame("Guess the word");
+    private final WritingGame game = new WritingGame("Guess the word");
 
     @FXML
     private Label end_answers;
