@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -18,7 +17,7 @@ public class ReadingGameController {
     private final ReadingGame readingGame = new ReadingGame("The Adventure's of Jim");
 
     @FXML
-    private Pane pane;
+    private Pane gamePane;
 
     @FXML
     private TextArea reading_text;
@@ -51,26 +50,22 @@ public class ReadingGameController {
     private CheckBox mc_answer_box_3;
 
     @FXML
-    private Button previous_question;
-
-    @FXML
-    private Button confirm_answer;
-
-    @FXML
-    private Button next_question;
-
-    @FXML
-    private Label score;
-
-    @FXML
     private Label score_text;
 
     @FXML
-    private Button back;
+    private Pane endingPane;
+
+    @FXML
+    private Label correct_answers_text;
+
+    @FXML
+    private Label incorrect_answers_text;
+
+    @FXML
+    private Label total_score_text;
 
     private Integer currentQuestion = 0;
     private final ArrayList<MultipleChoiceAnswer> selectedAnswers = new ArrayList<>();
-    private Boolean gameCompleted = false;
 
     private void readingGameSetUp() {
         readingGame.setReadingText(
@@ -284,12 +279,23 @@ public class ReadingGameController {
 
     private void endScreenOrNextQuestion(Integer countConfirmedAnswers) {
         if (countConfirmedAnswers == readingGame.getMultipleChoiceQuestions().size()) {
-            //load end screen (make one)
+            showEndPane();
+            displayFinalResults();
             System.out.println("Thank you for playing");
         }
         else {
             nextQuestion();
         }
+    }
+
+    private void showEndPane() {
+        //endingPane.toFront(); gets null pointer interception
+    }
+
+    private void displayFinalResults() {
+        correct_answers_text.setText(String.valueOf(readingGame.getPerformance().getCorrectlyAnswered()));
+        incorrect_answers_text.setText(String.valueOf(readingGame.getPerformance().getIncorrectlyAnswered()));
+        total_score_text.setText(String.valueOf(readingGame.getPerformance().getScore()));
     }
 
     public void nextQuestion() {
@@ -340,7 +346,7 @@ public class ReadingGameController {
     }
 
     public void backToMenu() throws IOException {
-        Stage stage = (Stage) pane.getScene().getWindow();
+        Stage stage = (Stage) gamePane.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/homepage/homepage.fxml"));
         Scene scene =  new Scene(root, 800 ,600);
         stage.setScene(scene);
