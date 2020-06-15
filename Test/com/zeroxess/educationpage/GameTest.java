@@ -31,7 +31,12 @@ class GameTest {
         readingGame.addSingularQuestion(sq0);
         readingGame.addMultipleChoiceQuestion(mcq0);
 
-        System.out.println(readingGame.getMultipleChoiceQuestions().get(0).getMultipleChoiceAnswers().get(0).getAnswer());
-        // answer = "surprised but happy"
+        assertEquals("How many fish did John catch?", readingGame.getSingularQuestions().get(0).getQuestion());
+        assertEquals("7", readingGame.getSingularQuestions().get(0).getSingularAnswer().getCorrectAnswer());
+        assertEquals(15, readingGame.getSingularQuestions().get(0).getPoints());
+
+        assertEquals("surprised but happy", readingGame.getMultipleChoiceQuestions().get(0).getMultipleChoiceAnswers().get(0).getAnswer()); // surprised but happy, true
+        assertFalse(readingGame.getMultipleChoiceQuestions().get(0).getMultipleChoiceAnswers().get(1).getCorrect()); // very sad, false
+        assertEquals(4, readingGame.getMultipleChoiceQuestions().get(0).getMultipleChoiceAnswers().size()); // 4 answers total
     }
 }
