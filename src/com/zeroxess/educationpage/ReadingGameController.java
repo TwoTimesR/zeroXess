@@ -289,7 +289,8 @@ public class ReadingGameController {
     }
 
     private void showEndPane() {
-        //endingPane.toFront(); gets null pointer interception
+        gamePane.setVisible(false);
+        endingPane.setVisible(true);
     }
 
     private void displayFinalResults() {
