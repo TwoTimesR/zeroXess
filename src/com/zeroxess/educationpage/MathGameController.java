@@ -52,18 +52,18 @@ public class MathGameController {
 
 
     @FXML
-    private BorderPane borderPane;
+    public BorderPane borderPane;
     @FXML
-    private Button backButton;
+    public Button backButton;
     @FXML
-    private Button startGame;
+    public Button startGame;
 
     boolean gameMode;
     boolean gameDifficulty;
     boolean correctAnswer;
-    int questionNumber;
-    int correct;
-    int incorrect;
+    int questionNumber = 0;
+    int correct = 0;
+    int incorrect = 0;
 
     Performance performance;
 
@@ -80,28 +80,28 @@ public class MathGameController {
 
 
     @FXML
-    private void onStartClicked(){
+    public void onStartClicked(){
         onStartClickedDisabler();
     }
 
     @FXML
-    private void returnToStart(){
+    public void returnToStart(){
         returnToStartDisabler();
     }
     @FXML
-    private void returnToGameSelect(){
+    public void returnToGameSelect(){
         returnToGameSelectDisabler();
     }
 
     @FXML
-    private void normalPlay(){
+    public void normalPlay(){
         playSelected();
         this.gameMode = true;
 
 
     }
     @FXML
-    private void infinitePlay(){
+    public void infinitePlay(){
        playSelected();
        this.gameMode = false;
 
@@ -109,7 +109,7 @@ public class MathGameController {
     }
 
     @FXML
-    private void normalDificulty(){
+    public void normalDificulty(){
         this.gameDifficulty = true;
 
         displayGameScreanNormal();
@@ -118,14 +118,14 @@ public class MathGameController {
     }
 
     @FXML
-    private void hardDificulty(){
+    public void hardDificulty(){
         this.gameDifficulty = false;
         displayGameScreanHard();
         createQuestion();
 
     }
 
-    private void createQuestion(){
+    public void createQuestion(){
         if (gameDifficulty){
             // normal Dificulty
             normalQuestionGen();
@@ -135,7 +135,7 @@ public class MathGameController {
         }
     }
 
-    private void normalQuestionGen(){
+    public void normalQuestionGen(){
         mathDigit1 = mathGameFactory.makeNumber();
         mathDigit2 = mathGameFactory.makeNumber();
         mathSignOBJ1 = mathGameFactory.makeMathSign();
@@ -145,7 +145,7 @@ public class MathGameController {
         mathSign1.setText(mathSignOBJ1.getMathSign());
     }
 
-    private void hardQuestionGen(){
+    public void hardQuestionGen(){
         normalQuestionGen();
         mathDigit3 = mathGameFactory.makeNumber();
         mathSignOBJ2 = mathGameFactory.makeMathSign();
@@ -155,7 +155,7 @@ public class MathGameController {
     }
 
     @FXML
-    private void onCheckAswerClicked() {
+    public void onCheckAswerClicked() {
             checkAnswerButton.setVisible(false);
             nextQuestion.setVisible(true);
 
@@ -165,7 +165,7 @@ public class MathGameController {
 
 
 
-    private int getAnswer(){
+    public int getAnswer(){
         if (gameDifficulty){
             return anwserNormal();
 
@@ -173,7 +173,7 @@ public class MathGameController {
         else return answerHard();
     }
 
-    private int anwserNormal(){
+    public int anwserNormal(){
         int number1 = mathDigit1.getDigit();
         int number2 = mathDigit2.getDigit();
         if (mathSignOBJ1.getMathSign().equals("*")){
@@ -185,7 +185,7 @@ public class MathGameController {
         else return (number1 - number2);
     }
 
-    private int answerHard(){
+    public int answerHard(){
         int number1 =mathDigit1.getDigit();
         int number2 =mathDigit2.getDigit();
         int number3 =mathDigit3.getDigit();
@@ -210,7 +210,7 @@ public class MathGameController {
         else return 999999;
     }
 
-    private void checkAnswerMethod(int answer) {
+    public void checkAnswerMethod(int answer) {
             if (answer == Integer.parseInt(AnswerTextField.getText())) {
                 AnswerTextField.setText("correct");
                 AnswerTextField.setEditable(false);
@@ -237,7 +237,7 @@ public class MathGameController {
         }
 
     @FXML
-    private void onnextQuestionClicked() {
+    public void onnextQuestionClicked() {
         checkAnswerButton.setVisible(true);
         nextQuestion.setVisible(false);
         AnswerTextField.clear();
@@ -264,20 +264,20 @@ public class MathGameController {
     }
 
     @FXML
-    private void onQuitButtonClicked() {
+    public void onQuitButtonClicked() {
         disableGameScreen();
         enableEndScreen();
 
     }
 
     @FXML
-    private void onBackToDIficultySelect(){
+    public void onBackToDIficultySelect(){
         disableGameScreen();
     }
 
 
     @FXML
-    private void returnToHomePage() throws IOException {
+    public void returnToHomePage() throws IOException {
             Stage stage = (Stage) borderPane.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/homepage/homepage.fxml"));
             Scene scene =  new Scene(root, 800 ,600);
@@ -285,7 +285,7 @@ public class MathGameController {
             stage.show();
     }
 
-    private void onStartClickedDisabler(){
+    public void onStartClickedDisabler(){
         normalPlayButton.setVisible(true);
         infinitePlayButton.setVisible(true);
         returnToStartButton.setVisible(true);
@@ -293,7 +293,7 @@ public class MathGameController {
         backButton.setVisible(false);
     }
 
-    private void returnToStartDisabler(){
+    public void returnToStartDisabler(){
         normalPlayButton.setVisible(false);
         infinitePlayButton.setVisible(false);
         returnToStartButton.setVisible(false);
@@ -301,7 +301,7 @@ public class MathGameController {
         backButton.setVisible(true);
     }
 
-    private void playSelected(){
+    public void playSelected(){
         normalPlayButton.setVisible(false);
         infinitePlayButton.setVisible(false);
         returnToStartButton.setVisible(false);
@@ -310,7 +310,7 @@ public class MathGameController {
         returnToGameSelect.setVisible(true);
     }
 
-    private void returnToGameSelectDisabler(){
+    public void returnToGameSelectDisabler(){
         normalDificulty.setVisible(false);
         hardDificulty.setVisible(false);
         returnToGameSelect.setVisible(false);
@@ -319,7 +319,7 @@ public class MathGameController {
         returnToStartButton.setVisible(true);
     }
 
-    private void displayGameScreanNormal(){
+    public void displayGameScreanNormal(){
         number1.setVisible(true);
         number2.setVisible(true);
         mathSign1.setVisible(true);
@@ -334,7 +334,6 @@ public class MathGameController {
         questionNumber = 1;
         correct = 0;
         incorrect = 0;
-        numberQuestion.setVisible(true);
         backToDificultySelect.setVisible(true);
         AnswerTextField.setVisible(true);
         checkAnswerButton.setVisible(true);
@@ -347,13 +346,13 @@ public class MathGameController {
         performance = new Performance();
     }
 
-    private void displayGameScreanHard(){
+    public void displayGameScreanHard(){
         displayGameScreanNormal();
         mathSign2.setVisible(true);
         number3.setVisible(true);
     }
 
-    private void disableGameScreen(){
+    public void disableGameScreen(){
         number1.setVisible(false);
         number2.setVisible(false);
         mathSign1.setVisible(false);
@@ -361,7 +360,6 @@ public class MathGameController {
         scoreLabel.setVisible(false);
         scoreName.setVisible(false);
         questionLabel.setVisible(false);
-        numberQuestion.setVisible(false);
         numberQuestion.setVisible(false);
         backToDificultySelect.setVisible(false);
         AnswerTextField.setVisible(false);
@@ -375,7 +373,7 @@ public class MathGameController {
         returnToGameSelect.setVisible(true);
     }
 
-    private void enableEndScreen(){
+    public void enableEndScreen(){
         farewellMessage.setVisible(true);
         home_Page.setVisible(true);
         endTotal_score.setVisible(true);
