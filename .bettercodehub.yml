@@ -26,5 +26,4 @@ languages:
     test:
 
       include:
-
-        - .*/test/.*\.java
+        - /Test/.*
