@@ -62,7 +62,29 @@ public class writingGameController {
     @FXML
     private TextField Answer_field;
 
+    private void writingGameSetup() {
+        SingularQuestion question0 = new SingularQuestion("1.What is the name of this fruit?", "apple");
+        SingularQuestion question1 = new SingularQuestion("2.What is the name of this insect?", "bee");
+        SingularQuestion question2 = new SingularQuestion("3.Which country does this flag belong to?", "japan");
+        SingularQuestion question3 = new SingularQuestion("4.What is the name of this food?", "hamburger");
+        SingularQuestion question4 = new SingularQuestion("5.What is the name of this animal?", "lion");
+        SingularQuestion question5 = new SingularQuestion("6.What is the name of this insect?", "spider");
+        SingularQuestion question6 = new SingularQuestion("7.What do you call this vehicle?", "car");
+        SingularQuestion question7 = new SingularQuestion("8.What are they doing?", "dancing");
+        SingularQuestion question8 = new SingularQuestion("9.What programming language is this?", "java");
+        game.addSingularQuestion(question0);
+        game.addSingularQuestion(question1);
+        game.addSingularQuestion(question2);
+        game.addSingularQuestion(question3);
+        game.addSingularQuestion(question4);
+        game.addSingularQuestion(question5);
+        game.addSingularQuestion(question6);
+        game.addSingularQuestion(question7);
+        game.addSingularQuestion(question8);
+    }
+
     public void initialize() throws IOException {
+        writingGameSetup();
         System.out.println(counter);
         score_points.setText(String.valueOf(score));
         changeQuestion();
@@ -73,15 +95,17 @@ public class writingGameController {
     public void nextQuestion() throws IOException {
         counter++;
         System.out.println(counter);
-        changePicture();
-        changeQuestion();
-        if (counter == 9) {
+        if (counter == game.getSingularQuestions().size()) {
             endingScreen();
+        }
+        else {
+            changePicture();
+            changeQuestion();
         }
     }
 
     public void changeQuestion() {
-        question.setText(game.addQuestions().get(counter).getQuestion());
+        question.setText(game.getSingularQuestions().get(counter).getQuestion());
     }
 
     public void correctAnswer() throws IOException {
@@ -89,8 +113,8 @@ public class writingGameController {
         hier maak ik gebruik van de singular question class die standaard bij elk correct vraag 20 punten geeft,
         als ik in writinggame class een vraag zelf punten als waarden geef, dan word dat opgeteld.
         */
-        if (game.addQuestions().get(counter).getSingularAnswer().getCorrectAnswer().equals(Answer_field.getText())) {
-            score += game.addQuestions().get(counter).getPoints();
+        if (game.getSingularQuestions().get(counter).getSingularAnswer().getCorrectAnswer().equals(Answer_field.getText())) {
+            score += game.getSingularQuestions().get(counter).getPoints();
             score_points.setText(String.valueOf(score));
             System.out.println("score" + " " + score);
             Answer_field.setText("");
