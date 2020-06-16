@@ -35,6 +35,10 @@ public class Condition {
         return this.description;
     }
 
+    public DoctorUser.DoctorSpecialization getSpecialization(){
+        return this.condition;
+    }
+
     @Override
     public String toString() {
         return condition.toString();
