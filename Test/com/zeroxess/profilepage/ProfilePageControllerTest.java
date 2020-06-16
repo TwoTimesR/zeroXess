@@ -15,7 +15,7 @@ class ProfilePageControllerTest {
     //Deze test was voor Project 1. Voor project 2 komt deze te vervallen omdat er nu gebruik wordt gemaakt van een UserProfile.
 
     /*
-    In deze test schrijf ik in het .txt bestand een voornaam en een achternaam. Vervolgens gebruik
+    In deze writingGameAnswers schrijf ik in het .txt bestand een voornaam en een achternaam. Vervolgens gebruik
     ik een methode die alle gegevens laadt en dat vergelijk ik om te kijken of het getInformatie Methode,
     gegevens succesvol kan laden.
 

@@ -25,6 +25,10 @@
       <Button mnemonicParsing="false" onAction="#openProfileManager" prefHeight="54.0" prefWidth="109.0" text="My Profile" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openContacts" prefHeight="54.0" prefWidth="109.0" text="Contacts" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#openLiveStock" prefHeight="54.0" prefWidth="109.0" text="Livestock" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#openMarket" prefHeight="54.0" prefWidth="109.0" text="Market" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#openWritingGame" prefHeight="26.0" prefWidth="110.0" text="WritingGame" />
+      <Button fx:id="MathGame" mnemonicParsing="false" onAction="#openMathGame" prefHeight="25.0" prefWidth="108.0" text="MathGame" GridPane.columnIndex="1" />
+      <Button fx:id="reading_game" mnemonicParsing="false" onAction="#openReadingGame" prefHeight="26.0" prefWidth="110.0" text="ReadingGame" GridPane.columnIndex="2" />
       <Button mnemonicParsing="false" onAction="#openAppointmentsManager" prefHeight="54.0" prefWidth="109.0" text="Doctors Appointment" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" onAction="#onLogOut" prefHeight="54.0" prefWidth="109.0" text="Log Out" GridPane.columnIndex="5" GridPane.rowIndex="2" />
       <Button fx:id="conditionsButton" mnemonicParsing="false" onAction="#openConditions" prefHeight="54.0" prefWidth="109.0" text="Conditions" GridPane.columnIndex="5" GridPane.rowIndex="1" />

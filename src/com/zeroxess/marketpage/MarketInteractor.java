@@ -1,6 +1,6 @@
 package com.zeroxess.marketpage;
 
-// exists in order for test-case usage
+// exists in order for writingGameAnswers-case usage
 
 public class MarketInteractor {
     private User user;
