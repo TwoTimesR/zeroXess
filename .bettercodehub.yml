@@ -1,0 +1,30 @@
+component_depth: 7
+
+languages:
+
+  - name: java
+
+    production:
+
+      exclude:
+
+        - .*/ConditionController\.java
+        - .*/ContactsController\.java
+        - .*/EducationPageController\.java
+        - .*/MathGameController\.java
+        - .*/ReadingGameController\.java
+        - .*/WritingGameController\.java
+        - .*/HomePageController\.java
+        - .*/LiveStockController\.java
+        - .*/MarketPageController\.java
+        - .*/AllAppointmentsController\.java
+        - .*/AppointmentController\.java
+        - .*/MedicalPageController\.java
+        - .*/ProfilePageController\.java
+        - .*/LoginController\.java
+
+    test:
+
+      include:
+
+        - .*/test/.*\.java
