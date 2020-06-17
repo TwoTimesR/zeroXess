@@ -1,14 +1,11 @@
 package com.zeroxess.medical;
 
 import com.zeroxess.user.DoctorUser;
-import com.zeroxess.user.PatientUser;
 import com.zeroxess.user.User;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Appointment {
 
