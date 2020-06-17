@@ -1,4 +1,4 @@
-package com.zeroxess.medical;
+package com.zeroxess.medicalpage;
 
 import com.zeroxess.Utilities;
 import com.zeroxess.user.UserManager;
@@ -24,7 +24,7 @@ public class AllAppointmentsController {
     private ListView<String> allAppointmentsView;
 
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/medical/AllAppointments.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/medicalpage/AllAppointments.fxml"));
         Scene scene =  new Scene(root, 800 ,600);
         stage.setScene(scene);
         stage.show();

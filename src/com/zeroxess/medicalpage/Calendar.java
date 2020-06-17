@@ -1,9 +1,4 @@
-package com.zeroxess.medical;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
+package com.zeroxess.medicalpage;
 
 public class Calendar {
 

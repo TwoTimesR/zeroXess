@@ -1,6 +1,5 @@
 package com.zeroxess.homepage;
 
-import com.zeroxess.condition.Condition;
 import com.zeroxess.livestockpage.LiveStockController;
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.UserManager;
@@ -59,7 +58,7 @@ public class HomePageController {
 
     public void openAppointmentsManager() throws IOException {
         Stage stage = (Stage) homePane.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/medical/appointmentmanager.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/zeroxess/medicalpage/appointmentmanager.fxml"));
         Scene scene =  new Scene(root, 800 ,600);
         stage.setScene(scene);
         stage.show();

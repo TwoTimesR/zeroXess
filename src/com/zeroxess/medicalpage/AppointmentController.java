@@ -1,13 +1,10 @@
-package com.zeroxess.medical;
+package com.zeroxess.medicalpage;
 
 import com.zeroxess.Utilities;
-import com.zeroxess.livestockpage.LiveStockController;
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.PatientUser;
 import com.zeroxess.user.UserManager;
 import com.zeroxess.user.UserProfile;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +19,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AppointmentController {
 

@@ -1,4 +1,4 @@
-package com.zeroxess.medical;
+package com.zeroxess.medicalpage;
 
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.User;

@@ -1,24 +1,19 @@
 package com.zeroxess.condition;
 
-import com.sun.prism.paint.RadialGradient;
 import com.zeroxess.user.DoctorUser;
 import com.zeroxess.user.PatientUser;
 import com.zeroxess.user.UserManager;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ConditionTest {
 
     ArrayList<Condition> conditions = new ArrayList<Condition>();
 
-    @Before
     public void init() {
         new UserManager();
 
@@ -44,6 +39,7 @@ class ConditionTest {
 
     @Test
     void getPatient() {
+        init();
         for(int i = 0; i < conditions.size(); i++){
             Condition con = conditions.get(i);
             switch(i) {
@@ -67,6 +63,7 @@ class ConditionTest {
 
     @Test
     void getDoctor() {
+        init();
         for (int i = 0; i < conditions.size(); i++) {
             Condition con = conditions.get(i);
             switch (i) {

@@ -1,7 +1,6 @@
 package com.zeroxess.user;
 
 import com.zeroxess.condition.Condition;
-import com.zeroxess.medical.Calendar;
 
 import java.util.ArrayList;
 

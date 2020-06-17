@@ -1,7 +1,5 @@
 package com.zeroxess.user;
 
-import com.zeroxess.medical.Calendar;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 

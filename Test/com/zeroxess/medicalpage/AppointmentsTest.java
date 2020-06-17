@@ -1,8 +1,14 @@
-package com.zeroxess.educationpage;
+package com.zeroxess.medicalpage;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import com.zeroxess.user.DoctorUser;
+import com.zeroxess.user.PatientUser;
+import com.zeroxess.user.UserProfile;
+import static com.zeroxess.medicalpage.AppointmentController.hasTimeSlot;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 class AppointmentsTest {
 

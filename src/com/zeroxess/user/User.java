@@ -1,6 +1,6 @@
 package com.zeroxess.user;
 
-import com.zeroxess.medical.Calendar;
+import com.zeroxess.medicalpage.Calendar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
