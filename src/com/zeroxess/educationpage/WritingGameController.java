@@ -17,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class writingGameController {
+public class WritingGameController {
     private int score = 0;
     private int correctAnswers = 0;
     private int counter = 0;
