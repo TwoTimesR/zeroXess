@@ -102,20 +102,7 @@ public class AppointmentController {
                         date.compareTo(today) < 0 ||
                         date.getDayOfWeek().equals(DayOfWeek.SATURDAY) ||
                         date.getDayOfWeek().equals(DayOfWeek.SUNDAY) ||
-                        !hasTimeSlot(date));
-            }
-
-            private boolean hasTimeSlot(LocalDate date) {
-                DoctorUser currentSelectedDoctor = doctorsListView.getSelectionModel().getSelectedItem();
-                if (currentSelectedDoctor != null) {
-                    Appointment[] appointments = currentSelectedDoctor.getCalendar().getAppointments()[date.getDayOfYear()];
-                    for (Appointment a : appointments) {
-                        if (a == null) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
+                        !hasTimeSlot(date, doctorsListView.getSelectionModel().getSelectedItem()));
             }
         });
 
@@ -177,21 +164,49 @@ public class AppointmentController {
 
     }
 
+    public void appointmentsAvailible() {
+        DoctorUser currentSelectedDoctor = new DoctorUser("jan", "yo", new UserProfile("Jan", "Sloot"), DoctorUser.DoctorSpecialization.EAR, DoctorUser.DoctorSpecialization.GENERAL);
+        PatientUser patient = new PatientUser("yoo", "test", new UserProfile("Piet", "Patient"));
+        LocalDate newDate = LocalDate.now();
+        Appointment[] appointments = currentSelectedDoctor.getCalendar().getAppointments()[newDate.getDayOfYear()];
+        LocalTime time = LocalTime.of(9, 0);
+        for (int i = 0; i < appointments.length; i++) {
+            Appointment appointment = new Appointment(currentSelectedDoctor, patient, time, time = time.plusMinutes(30), i, newDate);
+            currentSelectedDoctor.getCalendar().getAppointments()[newDate.getDayOfYear()][i] = appointment;
+        }
+        boolean hasAvailible = hasTimeSlot(newDate, currentSelectedDoctor);
+    }
+
     public void confirmAppointment() {
         Appointment selectedAppointment = timesListView.getSelectionModel().getSelectedItem();
 
-        int dayOfAppointment = datePicker.getValue().getDayOfYear();
-        int indexForTime = selectedAppointment.getTimeIndex();
+        if (selectedAppointment != null) {
 
-        selectedAppointment.getPractitioner().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
-        UserManager.getInstance().getLoggedInUser().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
+            int dayOfAppointment = datePicker.getValue().getDayOfYear();
+            int indexForTime = selectedAppointment.getTimeIndex();
 
-        UserManager.getInstance().getLoggedInUser().setUpcomingAppointments(selectedAppointment.getAppointmentDataString());
+            selectedAppointment.getPractitioner().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
+            UserManager.getInstance().getLoggedInUser().getCalendar().getAppointments()[dayOfAppointment][indexForTime] = selectedAppointment;
 
-        int idx = timesListView.getSelectionModel().getSelectedIndex();
-        availibleAppointments.set(idx, null);
+            UserManager.getInstance().getLoggedInUser().setUpcomingAppointments(selectedAppointment.getAppointmentDataString());
 
-        Utilities.showDialog(Alert.AlertType.INFORMATION, "Success", "Appointment has been added to your calendar!");
+            int idx = timesListView.getSelectionModel().getSelectedIndex();
+            availibleAppointments.set(idx, null);
+
+            Utilities.showDialog(Alert.AlertType.INFORMATION, "Success", "Appointment has been added to your calendar!");
+        }
+    }
+
+    public static boolean hasTimeSlot(LocalDate date, DoctorUser currentSelectedDoctor) {
+        if (currentSelectedDoctor != null) {
+            Appointment[] appointments = currentSelectedDoctor.getCalendar().getAppointments()[date.getDayOfYear()];
+            for (Appointment a : appointments) {
+                if (a == null) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @FXML
