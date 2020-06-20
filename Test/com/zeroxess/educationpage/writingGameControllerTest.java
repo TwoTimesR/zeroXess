@@ -90,5 +90,72 @@ public class writingGameControllerTest {
         String ant9 = "java";
         assertEquals(game.getSingularQuestions().get(8).getSingularAnswer().getCorrectAnswer(), ant9);
     }
+    @Test
+    public void questionTest2() {
+        writingGameSetup();
+        SingularQuestion question = new SingularQuestion("2.What is the name of this insect?","bee");
+
+        System.out.println(game.getSingularQuestions().get(1).getQuestion());
+        assertEquals(game.getSingularQuestions().get(1).getQuestion(), question.getQuestion());
+    }
+    @Test
+    public void questionTest3() {
+        writingGameSetup();
+        SingularQuestion question = new SingularQuestion("3.Which country does this flag belong to?","japan");
+
+        System.out.println(game.getSingularQuestions().get(2).getQuestion());
+        assertEquals(game.getSingularQuestions().get(2).getQuestion(), question.getQuestion());
+    }
+    @Test
+    public void questionTest4() {
+        writingGameSetup();
+        SingularQuestion question = new SingularQuestion("4.What is the name of this food?","hamburger");
+
+        System.out.println(game.getSingularQuestions().get(3).getQuestion());
+        assertEquals(game.getSingularQuestions().get(3).getQuestion(), question.getQuestion());
+    }
+    @Test
+    public void questionTest5() {
+        writingGameSetup();
+        SingularQuestion question = new SingularQuestion("5.What is the name of this animal?","lion");
+
+        System.out.println(game.getSingularQuestions().get(4).getQuestion());
+        assertEquals(game.getSingularQuestions().get(4).getQuestion(), question.getQuestion());
+    }
+    @Test
+    public void questionTest6() {
+        writingGameSetup();
+        SingularQuestion question = new SingularQuestion("6.What is the name of this insect?","spider");
+
+        System.out.println(game.getSingularQuestions().get(5).getQuestion());
+        assertEquals(game.getSingularQuestions().get(5).getQuestion(), question.getQuestion());
+    }
+    @Test
+    public void questionTest7() {
+        writingGameSetup();
+        SingularQuestion question = new SingularQuestion("7.What do you call this vehicle?","car");
+
+        System.out.println(game.getSingularQuestions().get(6).getQuestion());
+        assertEquals(game.getSingularQuestions().get(6).getQuestion(), question.getQuestion());
+    }
+    @Test
+    public void questionTest8() {
+        writingGameSetup();
+        SingularQuestion question = new SingularQuestion("8.What are they doing?","dancing");
+
+        System.out.println(game.getSingularQuestions().get(7).getQuestion());
+        assertEquals(game.getSingularQuestions().get(7).getQuestion(), question.getQuestion());
+    }
+    @Test
+    public void questionTest9() {
+        writingGameSetup();
+        SingularQuestion question = new SingularQuestion("9.What programming language is this?","java");
+
+        System.out.println(game.getSingularQuestions().get(8).getQuestion());
+        assertEquals(game.getSingularQuestions().get(8).getQuestion(), question.getQuestion());
+    }
+
+
+
 
 }
