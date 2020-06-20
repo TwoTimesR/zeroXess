@@ -8,17 +8,13 @@ class MathGameTripleDigitTest {
     MathGameTripleDigit testDIgit = new MathGameTripleDigit();
 
     @Test
-    void doubleDigitTest(){
+    void tripleDigitTest(){
         int test = testDIgit.randomTripleDigit();
 
-        assertFalse(test >= 1000);
-        assertFalse(test <= 99);
+        assertFalse(test >= 1000 || test <=99);
+        assertTrue(test <= 1000 || test >=99);
+
 
 
     }
-
-
-
-
-
 }

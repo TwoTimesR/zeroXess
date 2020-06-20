@@ -10,13 +10,8 @@ class MathGameDoubleDigitTest {
     void doubleDigitTest(){
         int test = testDIgit.randomDoubleDigit();
 
-        assertFalse(test >= 100);
-        assertFalse(test <= 9);
-
+        assertFalse(test >= 100 || test <=9);
+        assertTrue(test <= 100 || test >=9);
 
     }
-
-
-
-
 }
