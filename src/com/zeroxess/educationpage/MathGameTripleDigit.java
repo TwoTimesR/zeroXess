@@ -7,7 +7,7 @@ public class MathGameTripleDigit extends MathGame {
 
     }
 
-    private int randomTripleDigit(){
+    public int randomTripleDigit(){
         int min = 100;
         int max = 999;
         int range = max - min + 1;

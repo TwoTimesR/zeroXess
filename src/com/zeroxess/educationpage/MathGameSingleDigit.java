@@ -7,7 +7,7 @@ public class MathGameSingleDigit extends MathGame {
 
     }
 
-    private int randomSingleDigit(){
+    public int randomSingleDigit(){
         int min = 1;
         int max = 9;
         int range = max - min + 1;
