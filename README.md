@@ -1,2 +1,2 @@
-# Project-1
-groep 2d
+# zeroXess
+Prototype for Kumba zeroXess plan
